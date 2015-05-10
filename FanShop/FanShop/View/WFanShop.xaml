@@ -1,0 +1,115 @@
+﻿<Window x:Class="FanShop.WFanShop"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FanShop" Height="751.885" Width="1366.042" >
+    <Grid>
+        <TabControl HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto">
+            <TabItem Header="Katalog" HorizontalAlignment="Left" Width="58">
+                <Grid Background="#FFE5E5E5" Margin="0,-5,-3,-8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox  Margin="25,38,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220" />
+                    <ComboBox  Margin="286,38,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"/>
+                    <ComboBox  Margin="546,38,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220" />
+                    <ComboBox  Margin="798,38,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"/>
+                    <Image HorizontalAlignment="Left" Height="195" Margin="25,87,0,0" VerticalAlignment="Top" Width="220" Source="C:\Users\Korisnik\Documents\Visual Studio 2012\Projects\FanShop\FanShop\View\poz.jpg"/>
+                    <Image HorizontalAlignment="Left" Height="195" Margin="286,87,0,0" VerticalAlignment="Top" Width="220" Source="C:\Users\Korisnik\Documents\Visual Studio 2012\Projects\FanShop\FanShop\View\poz.jpg"/>
+                    <Image HorizontalAlignment="Left" Height="195" Margin="546,87,0,0" VerticalAlignment="Top" Width="220" Source="C:\Users\Korisnik\Documents\Visual Studio 2012\Projects\FanShop\FanShop\View\poz.jpg"/>
+                    <Image HorizontalAlignment="Left" Height="195" Margin="798,87,0,0" VerticalAlignment="Top" Width="220" Source="C:\Users\Korisnik\Documents\Visual Studio 2012\Projects\FanShop\FanShop\View\poz.jpg"/>
+                    <Button Content="prev" HorizontalAlignment="Left" Margin="25,380,0,0" VerticalAlignment="Top" Width="45"/>
+                    <Button Content="next" HorizontalAlignment="Left" Margin="200,380,0,0" VerticalAlignment="Top" Width="45"/>
+                    <Button Content="prev" HorizontalAlignment="Left" Margin="286,380,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"/>
+                    <Button Content="next" HorizontalAlignment="Left" Margin="461,380,0,0" VerticalAlignment="Top" Width="45"/>
+                    <Button Content="prev" HorizontalAlignment="Left" Margin="546,380,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"/>
+                    <Button Content="next" HorizontalAlignment="Left" Margin="721,380,0,0" VerticalAlignment="Top" Width="45"/>
+                    <Button Content="prev" HorizontalAlignment="Left" Margin="798,380,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"/>
+                    <Button Content="next" HorizontalAlignment="Left" Margin="973,380,0,0" VerticalAlignment="Top" Width="45"/>
+                    <Button Content="Kupi" HorizontalAlignment="Left" Margin="92,380,0,0" VerticalAlignment="Top" Width="66"/>
+                    <Button Content="Kupi" HorizontalAlignment="Left" Margin="360,380,0,0" VerticalAlignment="Top" Width="66"/>
+                    <Button Content="Kupi" HorizontalAlignment="Left" Margin="628,380,0,0" VerticalAlignment="Top" Width="66"/>
+                    <Button Content="Kupi" HorizontalAlignment="Left" Margin="872,380,0,0" VerticalAlignment="Top" Width="66"/>
+                    <ListBox HorizontalAlignment="Left" Height="392" Margin="1059,87,0,0" VerticalAlignment="Top" Width="281"/>
+                    <Label Content="Korpa:"  FontSize="18" HorizontalAlignment="Left" Margin="1059,38,0,0" VerticalAlignment="Top" Width="180"/>
+                    <Button Content="Plati" FontSize="18" HorizontalAlignment="Left" Margin="1059,549,0,0" VerticalAlignment="Top" Width="111" Height="31" Click="Button_Click"/>
+                    <Label FontSize="18" Content="Ukoliko želite kupiti proizvod kliknite dugme 'Kupi' ispod slike, ako želite obaviti kupovinu kliknite dugme 'Plati'&#xD;&#xA; koje se nalazi ispod korpe.&#xD;&#xA;Ukoliko ste se predomislili u vezi nekog proizvoda, selektirajte ga u korpi, a zatim pritisnite dugme 'Izbaci'" HorizontalAlignment="Left" Margin="10,498,0,0" VerticalAlignment="Top" Width="1008"/>
+                    <Button Content="Izbaci" FontSize="15" HorizontalAlignment="Left" Margin="1059,497,0,0" VerticalAlignment="Top" Width="111" Height="31"/>
+                    <Label Content="Cijena:" HorizontalAlignment="Left" Margin="25,300,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="26" Margin="125,300,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Cijena:" HorizontalAlignment="Left" Margin="286,300,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="26" Margin="386,300,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Cijena:" HorizontalAlignment="Left" Margin="546,300,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="26" Margin="646,300,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Cijena:" HorizontalAlignment="Left" Margin="798,302,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="26" Margin="898,302,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    <Label Content="Upišite veličinu S-M-X-XL" HorizontalAlignment="Left" Margin="25,331,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="188,331,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="57"/>
+                    <Grid Background="#FFE5E5E5" Margin="0,-5,0,5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <ComboBox  Margin="25,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220" />
+                        <ComboBox  Margin="286,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"/>
+                        <ComboBox  Margin="546,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220" />
+                        <ComboBox  Margin="798,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"/>
+                        <Image HorizontalAlignment="Left" Height="195" Margin="25,87,0,0" VerticalAlignment="Top" Width="220" Source="/FanShop;component/poz.jpg"/>
+                        <Image HorizontalAlignment="Left" Height="195" Margin="286,87,0,0" VerticalAlignment="Top" Width="220" Source="/FanShop;component/poz1.jpg"/>
+                        <Image HorizontalAlignment="Left" Height="195" Margin="546,87,0,0" VerticalAlignment="Top" Width="220" Source="/FanShop;component/poz2.jpg"/>
+                        <Image HorizontalAlignment="Left" Height="195" Margin="798,87,0,0" VerticalAlignment="Top" Width="220" Source="/FanShop;component/poz3.jpg"/>
+                        <Button Content="prev" HorizontalAlignment="Left" Margin="25,405,0,0" VerticalAlignment="Top" Width="45"/>
+                        <Button Content="next" HorizontalAlignment="Left" Margin="200,405,0,0" VerticalAlignment="Top" Width="45"/>
+                        <Button Content="prev" HorizontalAlignment="Left" Margin="286,405,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"/>
+                        <Button Content="next" HorizontalAlignment="Left" Margin="461,405,0,0" VerticalAlignment="Top" Width="45"/>
+                        <Button Content="prev" HorizontalAlignment="Left" Margin="546,405,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"/>
+                        <Button Content="next" HorizontalAlignment="Left" Margin="721,405,0,0" VerticalAlignment="Top" Width="45"/>
+                        <Button Content="prev" HorizontalAlignment="Left" Margin="798,405,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"/>
+                        <Button Content="next" HorizontalAlignment="Left" Margin="973,405,0,0" VerticalAlignment="Top" Width="45"/>
+                        <Button Content="Kupi" HorizontalAlignment="Left" Margin="106,405,0,0" VerticalAlignment="Top" Width="66"/>
+                        <Button Content="Kupi" HorizontalAlignment="Left" Margin="360,405,0,0" VerticalAlignment="Top" Width="66"/>
+                        <Button Content="Kupi" HorizontalAlignment="Left" Margin="628,405,0,0" VerticalAlignment="Top" Width="66"/>
+                        <Button Content="Kupi" HorizontalAlignment="Left" Margin="872,405,0,0" VerticalAlignment="Top" Width="66"/>
+                        <ListBox HorizontalAlignment="Left" Height="392" Margin="1059,87,0,0" VerticalAlignment="Top" Width="281"/>
+                        <Label Content="Korpa:"  FontSize="18" HorizontalAlignment="Left" Margin="1059,38,0,0" VerticalAlignment="Top" Width="180"/>
+                        <Button Content="Plati" FontSize="18" HorizontalAlignment="Left" Margin="1059,549,0,0" VerticalAlignment="Top" Width="111" Height="31" Click="Button_Click"/>
+                        <Label FontSize="18" Content="Ukoliko želite kupiti proizvod kliknite dugme 'Kupi' ispod slike, ako želite obaviti kupovinu kliknite dugme 'Plati'&#xA; koje se nalazi ispod korpe.&#xA;Ukoliko ste se predomislili u vezi nekog proizvoda, selektirajte ga u korpi, a zatim pritisnite dugme 'Izbaci'" HorizontalAlignment="Left" Margin="10,498,0,0" VerticalAlignment="Top" Width="1008"/>
+                        <Button Content="Izbaci" FontSize="15" HorizontalAlignment="Left" Margin="1059,497,0,0" VerticalAlignment="Top" Width="111" Height="31"/>
+                        <Label Content="Cijena:" HorizontalAlignment="Left" Margin="25,300,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="125,300,0,0" TextWrapping="Wrap"  Text="{Binding Path=Dres.cijena}" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Cijena:" HorizontalAlignment="Left" Margin="286,300,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="386,300,0,0" TextWrapping="Wrap" Text="{Binding Path=Kapa.cijena}" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Cijena:" HorizontalAlignment="Left" Margin="546,300,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="646,300,0,0" TextWrapping="Wrap" Text="{Binding Path=Privjesak.cijena}" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Cijena:" HorizontalAlignment="Left" Margin="798,302,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="898,302,0,0" TextWrapping="Wrap" Text="{Binding Path=Sal.cijena}" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Upišite veličinu S-M-X-XL:" HorizontalAlignment="Left" Margin="25,331,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="188,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+                        <Label Content="Upišite veličinu S-M-X-XL" HorizontalAlignment="Left" Margin="286,331,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="449,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+                        <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="25,362,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="125,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="286,362,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="386,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="546,362,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="646,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="798,362,0,0" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="898,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Dresovi:" HorizontalAlignment="Left" Margin="25,23,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Kape:" HorizontalAlignment="Left" Margin="286,24,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Privjesci:" HorizontalAlignment="Left" Margin="546,19,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Šalovi:" HorizontalAlignment="Left" Margin="798,19,0,0" VerticalAlignment="Top"/>
+
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Novosti"/>
+        </TabControl>
+
+    </Grid>
+</Window>
