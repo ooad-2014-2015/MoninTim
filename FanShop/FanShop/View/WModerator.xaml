@@ -6,11 +6,13 @@
         <TabControl HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto">
             <TabItem Header="Proizvodi">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox HorizontalAlignment="Left" Height="auto" Margin="10,63,0,60" VerticalAlignment="Stretch" Width="467"/>
+                    <ListBox HorizontalAlignment="Left" Height="auto" Margin="10,63,0,60" VerticalAlignment="Stretch" Width="467" ItemsSource="{Binding Path=Proizvodi}" 
+                             SelectedValue="{Binding Path=ProizvodID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             SelectedValuePath="Id" />
                     <Label Content="Proizvodi" FontSize="15" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Obriši" HorizontalAlignment="Left" Margin="10,0,0,22" VerticalAlignment="Bottom" Width="109" Height="28"/>
-                    <Image HorizontalAlignment="Stretch" Source="C:\Users\Korisnik\Documents\Visual Studio 2012\Projects\FanShop\FanShop\View\poz.jpg" Height="289" Margin="533,63,10,0" VerticalAlignment="Top" Width="317" RenderTransformOrigin="0.5,0.5" />
-                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="150,0,0,22" VerticalAlignment="Bottom" Width="109" Height="28" Click="Button_Click"/>
+                    <Button Content="Obriši" HorizontalAlignment="Left" Margin="10,0,0,22" VerticalAlignment="Bottom" Width="109" Height="28" Command="{Binding Path=Obrisi}"/>
+                    <Image HorizontalAlignment="Stretch" Height="289" Margin="533,63,10,0" VerticalAlignment="Top" Width="317" RenderTransformOrigin="0.5,0.5" />
+                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="150,0,0,22" VerticalAlignment="Bottom" Width="109" Height="28" Command="{Binding Path=Dodaj}"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Statistike prodaje"/>

@@ -28,13 +28,7 @@ namespace FanShop
         public Login2()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            WModerator wm = new WModerator();
-            wm.Show();
-            this.Hide();
+            this.DataContext = new ViewModel.PrijavaViewModel(this);
         }
     }
 }

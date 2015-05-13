@@ -8,14 +8,6 @@ namespace FanShop
 {
     public class Administrator
     {
-        public void obrisiClana(Clan c)
-        {
- 
-        }
-        public void dodajModeratora(Moderator m)
-        { 
-        }
-        public void obrisiModeratora(Moderator m)
-        { }
+        
     }
 }

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace FanShop
 {
     public class Osoba
     {
-        public int id
+        /*public int id
         {
             get;
             set;
@@ -27,6 +28,6 @@ namespace FanShop
         {
             get;
             set;
-        }
+        }*/
     }
 }

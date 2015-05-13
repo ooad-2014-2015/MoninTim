@@ -4,73 +4,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.ComponentModel;
 
 namespace FanShop
 {
-   public class Moderator : Osoba
+    public class Moderator : Osoba, INotifyPropertyChanged
     {
+        private string username, password, ime_prezime;
+        private int id;
 
-       public int izbroji()
-       {
-           Konekcija kon = new Konekcija();
-           kon.Konektirajmenadatabejz();
-
-           MySqlConnection con = kon.con;
-           con.Open();
-
-           int broj = 0;
-           MySqlCommand upit = new MySqlCommand("select max(id) from katalog", con);
-
-           MySqlDataReader r = upit.ExecuteReader();
-
-           while (r.Read())
-           {
-               broj = int.Parse(r.GetString("max(id)"));
-           }
-
-           r.Close();
-
-           return broj;
-       }
-
-        public void dodajProizvod(Proizvod p)
+        public string Username
         {
+            get { return username; }
+            set { username = value; OnPropertyChanged("Username"); }
+        }
 
-            Konekcija kon = new Konekcija();
-            kon.Konektirajmenadatabejz();
+        public string Password
+        {
+            get { return password; }
+            set { password = value; OnPropertyChanged("Password"); }
+        }
 
-            MySqlConnection con = kon.con;
-            con.Open();
-            string s = "";
+        public string Ime_prezime
+        {
+            get { return ime_prezime; }
+            set { ime_prezime = value; OnPropertyChanged("Ime_prezime"); }
+        }
 
-            if (p is Dres)
+        public int Id
+        {
+            get { return id; }
+            set { id = value; OnPropertyChanged("Id"); }
+        }
+
+        public override string ToString()
+        {
+            return "(" + this.Id + ") " + this.Ime_prezime + " - " + this.Username;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
             {
-                MySqlCommand ins = new MySqlCommand("insert into Katalog(tip) values ('" + "d" + "')", con);
-                ins.ExecuteNonQuery();
-                s += "dresovi";
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
-
-            else if (p is Kapa)
-            {
-                MySqlCommand ins = new MySqlCommand("insert into Katalog(tip) values ('" + "k" + "')", con);
-                ins.ExecuteNonQuery();
-                s+="kape";
-            }
-            else if (p is Privjesak)
-            {
-                MySqlCommand ins = new MySqlCommand("insert into Katalog(tip) values ('" + "p" + "')", con);
-                ins.ExecuteNonQuery();
-                s+="privjesci";
-            }
-            else if(p is Sal)
-            {
-                MySqlCommand ins = new MySqlCommand("insert into Katalog(tip) values ('" + "s" + "')", con);
-                ins.ExecuteNonQuery();
-                s+="privjesci";
-            }
-            MySqlCommand nova = new MySqlCommand("insert into "+ s + "(id,slika, cijena) values ('" + izbroji() + "','" + p.slika + "','" + p.cijena + "')", con);
-                nova.ExecuteNonQuery();
-
         }
     }
 }

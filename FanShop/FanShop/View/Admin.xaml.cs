@@ -29,12 +29,5 @@ namespace FanShop
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            AddModerator am = new AddModerator();
-            am.Show();
-        }
-      
     }
 }

@@ -56,9 +56,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Baza\BazaPodataka.cs" />
     <Compile Include="Plaćanje.xaml.cs">
       <DependentUpon>Plaćanje.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\AddModeratorViewModel.cs" />
+    <Compile Include="ViewModel\AdminViewModel.cs" />
+    <Compile Include="ViewModel\GlavnaFormaViewModel.cs" />
+    <Compile Include="ViewModel\PrijavaViewModel.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\SignUpViewModel.cs" />
+    <Compile Include="ViewModel\WModeratorViewModel.cs" />
     <Compile Include="View\WFanShop.xaml.cs">
       <DependentUpon>WFanShop.xaml</DependentUpon>
     </Compile>

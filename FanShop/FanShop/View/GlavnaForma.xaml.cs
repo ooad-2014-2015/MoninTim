@@ -29,35 +29,5 @@ namespace FanShop
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            SignUp s = new SignUp();
-            s.Show();
-            
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Login1 l = new Login1();
-            l.Show();
-            this.Hide();
-                
-        }
-
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-            Login2 l = new Login2();
-            l.Show();
-            this.Hide();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            WFanShop fs = new WFanShop();
-            fs.Show();
-            this.Hide();
-        }
     }
 }

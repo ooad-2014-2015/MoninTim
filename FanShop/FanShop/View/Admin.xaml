@@ -7,10 +7,12 @@
         <TabControl HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" Grid.ColumnSpan="2">
             <TabItem Header="Moderatori">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Stretch" Width="334" Margin="19,53,0,147" />
+                    <ListBox HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Stretch" Width="334" Margin="19,53,0,147" ItemsSource="{Binding Path=Moderatori}" 
+                             SelectedValue="{Binding Path=ModeratorID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             SelectedValuePath="Id"/>
 
                     <Label Content="Pregled moderatora sistema:" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Obriši" HorizontalAlignment="Left" Margin="19,0,0,100" VerticalAlignment="Bottom" Width="85" Height="auto"/>
+                    <Button Content="Obriši" HorizontalAlignment="Left" Margin="19,0,0,100" VerticalAlignment="Bottom" Width="85" Height="auto" Command="{Binding Path=ObrisiUposlenik}"/>
                     <RichTextBox HorizontalAlignment="Right" Height="auto" Margin="477,53,13,147" VerticalAlignment="Stretch" Width="Auto">
                         <FlowDocument>
                             <Paragraph>
@@ -19,18 +21,21 @@
                         </FlowDocument>
                     </RichTextBox>
                     <Label Content="Nedavne aktivnosti moderatora:" HorizontalAlignment="Left" Margin="477,22,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Dodaj novog" HorizontalAlignment="Left" Margin="127,0,0,100" VerticalAlignment="Bottom" Width="78" Height="auto" Click="Button_Click"/>
+                    <Button Content="Dodaj novog" HorizontalAlignment="Left" Margin="127,0,0,100" VerticalAlignment="Bottom" Width="78" Height="auto" Command="{Binding Path=DodajNovog}" />
                 </Grid>
             </TabItem>
             <TabItem Header="Članovi">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="45*"/>
+                        <ColumnDefinition Width="16*"/>
+                        <ColumnDefinition Width="29*"/>
                         <ColumnDefinition Width="692*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Članovi Fan Kluba" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="177" Grid.ColumnSpan="2"/>
-                    <ListBox HorizontalAlignment="Stretch" Height="auto" Margin="10,36,315,38" VerticalAlignment="Stretch" Width="auto" Grid.ColumnSpan="2"/>
-                    <Button Content="Obriši" HorizontalAlignment="Left" Margin="10,0,0,6" VerticalAlignment="Bottom" Width="75" Grid.ColumnSpan="2"/>
+                    <Label Content="Članovi Fan Kluba" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="177" Grid.ColumnSpan="3"/>
+                    <ListBox HorizontalAlignment="Stretch" Height="auto" Margin="10,36,315,38" VerticalAlignment="Stretch" Width="auto" Grid.ColumnSpan="3" ItemsSource="{Binding Path=Clanovi}"
+                             SelectedValue="{Binding Path=ClanID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             SelectedValuePath="Id"/>
+                    <Button Content="Obriši" HorizontalAlignment="Left" Margin="10,0,0,6" VerticalAlignment="Bottom" Width="75" Grid.ColumnSpan="3" Command="{Binding Path=ObrisiClan}"/>
                 </Grid>
             </TabItem>
         </TabControl>

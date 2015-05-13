@@ -1,15 +1,16 @@
-﻿<Window x:Class="FanShop.AddModerator"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ViewModel="clr-namespace:FanShop.ViewModel" x:Class="FanShop.AddModerator"
         Title="Dodaj moderatora" Height="318.75" Width="379.688" ResizeMode="NoResize">
-    <Grid  >
+    <Grid>        
         <Label Content="Ime i prezime:" HorizontalAlignment="Left" Margin="59,89,0,0" VerticalAlignment="Top" Width="105"/>
         <Label Content="Username:" HorizontalAlignment="Left" Margin="79,115,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.499,-0.371"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="82,144,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="150,87,0,0" TextWrapping="Wrap" Text="{Binding Path=Moderator.ime_prezime}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="150,115,0,0" TextWrapping="Wrap" Text="{Binding Path=Moderator.username}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="150,143,0,0" TextWrapping="Wrap" Text="{Binding Path=Moderator.password}" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="195,193,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="150,87,0,0" TextWrapping="Wrap" Text="{Binding Moderator.Ime_prezime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="150,115,0,0" TextWrapping="Wrap" Text="{Binding Moderator.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="150,143,0,0" TextWrapping="Wrap" Text="{Binding Moderator.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="195,193,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Dodaj}"/>
 
     </Grid>
 </Window>

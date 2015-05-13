@@ -28,6 +28,7 @@ namespace FanShop
         public Login1()
         {
             InitializeComponent();
+            this.DataContext = new ViewModel.PrijavaViewModel(this);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

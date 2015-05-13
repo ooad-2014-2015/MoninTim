@@ -40,5 +40,27 @@ namespace FanShop
                 string s = File.ReadAllText(ofd.FileName);
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Baza.BazaPodataka bp = new Baza.BazaPodataka(); 
+            
+            if (rbSal.IsChecked == true)
+            {
+                bp.UnesiSal("slika??", tbCijena.Text);
+            }
+            else if (rbDres.IsChecked == true)
+            {
+                bp.UnesiDres("ime igraca", "slika??", tbCijena.Text);
+            }
+            else if (rbKapa.IsChecked == true)
+            {
+                bp.UnesiKapu("slika??", tbCijena.Text);
+            }
+            else if (rbPrivjesak.IsChecked == true)
+            {
+                bp.UnesiPrivjesak("slika??", tbCijena.Text);
+            }
+        }
     }
 }
