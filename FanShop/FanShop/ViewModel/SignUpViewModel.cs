@@ -30,14 +30,24 @@ namespace FanShop.ViewModel
 
         private void registracija(object parametar)
         {
-            Baza.BazaPodataka bp = new Baza.BazaPodataka();
-            Clan.Id = bp.UnesiClana(Clan.Username, Clan.Password, Clan.Email, Clan.Adresa, Clan.Broj_telefona);
-            // i sta sad ?? gdje će? xD
+            if (clan.IsValid)
+            {
+                Baza.BazaPodataka bp = new Baza.BazaPodataka();
+                Clan.Id = bp.UnesiClana(Clan.Username, Clan.Password, Clan.Email, Clan.Adresa, Clan.Broj_telefona);
+                
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("pokušavate unijeti pogrešne podatke!");
+            }
         }
 
         private void nazad(object parametar)
         {
-            // hau ?!?! 
+            // hau ?!?!  MAYBE LIKE THIS??
+            GlavnaForma g = new GlavnaForma();
+            g.Show();
+            // :D
         }
     }
 }

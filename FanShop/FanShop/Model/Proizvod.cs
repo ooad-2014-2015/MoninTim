@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace FanShop
 {
-    public class Proizvod : INotifyPropertyChanged
+    public class Proizvod : INotifyPropertyChanged, INotifyDataErrorInfo
     {
         private int id;
         private decimal cijena;
@@ -37,5 +37,74 @@ namespace FanShop
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        public bool IsValid
+        {
+            get
+            {
+                foreach (string property in validateProperties)
+                {
+                    if (getValidationError(property) != null)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+
+        static readonly string[] validateProperties =
+        {
+            "Cijena"
+        };
+
+        string IDataErrorInfo.Error
+        {
+            get { return null; }
+        }
+        //Ponasa se tako da ako se vrati null nema errora ako se vrati neka vrijednost validacija nije uspjela
+        string IDataErrorInfo.this[string propertyName]
+        {
+            get { return getValidationError(propertyName); }
+        }
+        //Ovisno o tome koji property se mjenja
+        string getValidationError(string propertyName)
+        {
+            string error = null;
+            switch (propertyName)
+            {
+                case "Cijena":
+                    error = validirajCijenu();
+                    break;
+               /* case "Slika":
+                    error = validirajSliku();
+                    break;*/
+                
+            }
+            return error;
+        }
+
+        public string validirajCijenu()
+        {
+            if (String.IsNullOrEmpty(Cijena.ToString()))
+            {
+                return "Morate unijeti cijenu";
+            }
+            
+
+            return null;
+        }
+        /*public string validirajSliku()
+        {
+            if (String.IsNullOrEmpty(Slika))
+            {
+                return "Morate učitati sliku";
+            }
+
+
+            return null;
+        }*/
+
+       
     }
 }

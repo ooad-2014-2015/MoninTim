@@ -33,9 +33,7 @@ namespace FanShop
             this.Hide();
             GlavnaForma g = new GlavnaForma();
             g.DataContext = new ViewModel.GlavnaFormaViewModel(g);
-            g.Show();
-            
-          
+            g.Show();          
         }
     }
 }

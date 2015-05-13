@@ -6,8 +6,11 @@
         <Label Content="Username:" HorizontalAlignment="Left" Margin="66,81,0,0" VerticalAlignment="Top"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="72,112,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="140,81,0,0" TextWrapping="Wrap" Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="176" TabIndex="1"/>
-        <Button Content="Sign in" HorizontalAlignment="Left" Height="23" Margin="241,166,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Path=Login}" TabIndex="3"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="140,112,0,0" TextWrapping="Wrap" Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="176" TabIndex="2"/>
-
+        <Button Content="Sign in" HorizontalAlignment="Left" Height="23" Margin="241,166,0,0" VerticalAlignment="Top" Width="75"   Command="{Binding Path=Login}" TabIndex="3"/>
+        <TextBox HorizontalAlignment="Left" Height="23"  Margin="140,112,0,0" TextWrapping="Wrap" Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="176" TabIndex="2" >
+            <TextBox.InputBindings>
+                <KeyBinding  Key="Enter" Command="{Binding Path=Login, Mode=TwoWay}"/>
+            </TextBox.InputBindings>
+        </TextBox>
     </Grid>
 </Window>

@@ -67,6 +67,7 @@
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\SignUpViewModel.cs" />
     <Compile Include="ViewModel\WModeratorViewModel.cs" />
+    <Compile Include="ViewModel\WProizvodViewModel.cs" />
     <Compile Include="View\WFanShop.xaml.cs">
       <DependentUpon>WFanShop.xaml</DependentUpon>
     </Compile>
@@ -86,7 +87,6 @@
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Gost.cs" />
-    <Compile Include="Baza\Konektirajmenadatabejz.cs" />
     <Compile Include="Model\Administrator.cs" />
     <Compile Include="Model\Arhiva.cs" />
     <Compile Include="Model\Clan.cs" />

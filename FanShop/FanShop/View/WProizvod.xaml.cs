@@ -51,7 +51,7 @@ namespace FanShop
             }
             else if (rbDres.IsChecked == true)
             {
-                bp.UnesiDres("ime igraca", "slika??", tbCijena.Text);
+                bp.UnesiDres("slika??", tbCijena.Text);
             }
             else if (rbKapa.IsChecked == true)
             {
@@ -62,5 +62,7 @@ namespace FanShop
                 bp.UnesiPrivjesak("slika??", tbCijena.Text);
             }
         }
+
+      
     }
 }

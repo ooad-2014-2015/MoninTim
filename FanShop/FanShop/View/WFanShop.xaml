@@ -16,10 +16,10 @@
                     <ComboBox  Margin="286,38,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"/>
                     <ComboBox  Margin="546,38,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220" />
                     <ComboBox  Margin="798,38,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"/>
-                    <Image HorizontalAlignment="Left" Height="195" Margin="25,87,0,0" VerticalAlignment="Top" Width="220" Source="C:\Users\Korisnik\Documents\Visual Studio 2012\Projects\FanShop\FanShop\View\poz.jpg"/>
-                    <Image HorizontalAlignment="Left" Height="195" Margin="286,87,0,0" VerticalAlignment="Top" Width="220" Source="C:\Users\Korisnik\Documents\Visual Studio 2012\Projects\FanShop\FanShop\View\poz.jpg"/>
-                    <Image HorizontalAlignment="Left" Height="195" Margin="546,87,0,0" VerticalAlignment="Top" Width="220" Source="C:\Users\Korisnik\Documents\Visual Studio 2012\Projects\FanShop\FanShop\View\poz.jpg"/>
-                    <Image HorizontalAlignment="Left" Height="195" Margin="798,87,0,0" VerticalAlignment="Top" Width="220" Source="C:\Users\Korisnik\Documents\Visual Studio 2012\Projects\FanShop\FanShop\View\poz.jpg"/>
+                    <Image HorizontalAlignment="Left" Height="195" Margin="25,87,0,0" VerticalAlignment="Top" Width="220" Source= "poz.jpg"/>
+                    <Image HorizontalAlignment="Left" Height="195" Margin="286,87,0,0" VerticalAlignment="Top" Width="220" Source="poz.jpg"/>
+                    <Image HorizontalAlignment="Left" Height="195" Margin="546,87,0,0" VerticalAlignment="Top" Width="220" Source="poz.jpg"/>
+                    <Image HorizontalAlignment="Left" Height="195" Margin="798,87,0,0" VerticalAlignment="Top" Width="220" Source="poz.jpg"/>
                     <Button Content="prev" HorizontalAlignment="Left" Margin="25,380,0,0" VerticalAlignment="Top" Width="45"/>
                     <Button Content="next" HorizontalAlignment="Left" Margin="200,380,0,0" VerticalAlignment="Top" Width="45"/>
                     <Button Content="prev" HorizontalAlignment="Left" Margin="286,380,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"/>
@@ -88,7 +88,7 @@
                         <Label Content="Cijena:" HorizontalAlignment="Left" Margin="798,302,0,0" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="898,302,0,0" TextWrapping="Wrap" Text="{Binding Path=Sal.cijena}" VerticalAlignment="Top" Width="120"/>
                         <Label Content="Upišite veličinu S-M-X-XL:" HorizontalAlignment="Left" Margin="25,331,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="188,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
+                        <TextBox HorizontalAlignment="Left"  Height="23" Margin="188,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
                         <Label Content="Upišite veličinu S-M-X-XL" HorizontalAlignment="Left" Margin="286,331,0,0" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Height="23" Margin="449,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"/>
                         <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="25,362,0,0" VerticalAlignment="Top"/>
@@ -103,6 +103,8 @@
                         <Label Content="Kape:" HorizontalAlignment="Left" Margin="286,24,0,0" VerticalAlignment="Top"/>
                         <Label Content="Privjesci:" HorizontalAlignment="Left" Margin="546,19,0,0" VerticalAlignment="Top"/>
                         <Label Content="Šalovi:" HorizontalAlignment="Left" Margin="798,19,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="lab" Content="Logirani ste kao:" FontSize="18" HorizontalAlignment="Left" Margin="1059,11,0,0" VerticalAlignment="Top"/>
+                        <Label HorizontalAlignment="Left" Margin="1239,15,0,0" VerticalAlignment="Top"/>
 
                     </Grid>
 

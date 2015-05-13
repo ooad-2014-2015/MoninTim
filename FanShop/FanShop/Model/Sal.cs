@@ -11,7 +11,7 @@ namespace FanShop
     {
         public override string ToString()
         {
-            return "(" + this.Id + ") SAL";
+            return "(" + this.Id + ") ŠAL";
         }
     }
 }

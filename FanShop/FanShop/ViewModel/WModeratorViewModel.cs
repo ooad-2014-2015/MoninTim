@@ -37,10 +37,10 @@ namespace FanShop.ViewModel
             get { return proizvodId; }
             set { proizvodId = value; OnPropertyChanged("ProizvodID"); }
         }
-
+        public WProizvod w;
         private void dodaj(object parametar)
         {
-            WProizvod w = new WProizvod();
+             w = new WProizvod();
             // w.DataContext = new WProizvodViewModel(this);
             w.Show();
         }

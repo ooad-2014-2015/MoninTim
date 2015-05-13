@@ -21,6 +21,7 @@ namespace FanShop.ViewModel
             AdminLogin = new RelayCommand(adminLogin);
             ModeratorLogin = new RelayCommand(moderatorLogin);
             Registracija = new RelayCommand(registracija);
+            Gost = new RelayCommand(gost);
         }
 
         public Clan Clan
@@ -33,6 +34,7 @@ namespace FanShop.ViewModel
         public ICommand AdminLogin { get; set; }
         public ICommand ModeratorLogin { get; set; }
         public ICommand Registracija { get; set; }
+        public ICommand Gost { get; set; }
 
         private void userLogin(object parametar)
         {
@@ -68,6 +70,16 @@ namespace FanShop.ViewModel
             s.DataContext = new SignUpViewModel();
             glavnaView.Hide();
             s.Show();
+        }
+
+        private void gost(object parametar)
+        {
+            WFanShop fs = new WFanShop();
+            fs.Show();
+            Gost g = new Gost();
+            string s = g.generisiNick();
+            fs.lab.Content = fs.lab.Content + "   " + s;
+            glavnaView.Hide();
         }
     }
 }

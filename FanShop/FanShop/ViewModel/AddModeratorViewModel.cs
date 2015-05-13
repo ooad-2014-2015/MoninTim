@@ -36,10 +36,16 @@ namespace FanShop.ViewModel
 
         private void dodaj(object parametar)
         {
-            // TODO: validacija
-            Baza.BazaPodataka bp = new Baza.BazaPodataka();
-            Moderator.Id = bp.UnesiUposlenika(mod.Username, mod.Password, mod.Ime_prezime);
-            this.Parent.Moderatori.Add(this.Moderator);
+            if (this.mod.IsValid )
+            {
+                Baza.BazaPodataka bp = new Baza.BazaPodataka();
+                Moderator.Id = bp.UnesiUposlenika(mod.Username, mod.Password, mod.Ime_prezime);
+                this.Parent.Moderatori.Add(this.Moderator);
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Pokušavate unijeti pogrešne podatke");
+            }
         }
     }
 }

@@ -27,12 +27,11 @@ namespace FanShop.Baza
 
         // ==============>> INSERTI:
 
-        public bool UnesiDres(string imeIgraca, string slika, string cijena) {
+        public bool UnesiDres( string slika, string cijena) {
             Connect();
             
             MySqlCommand insertQuery = new MySqlCommand(
-                  "INSERT INTO dresovi (ime_igraca, slika, cijena) VALUES (" +
-                      "'" + imeIgraca + "', '" + slika + "', " + cijena + ");", con);
+                  "INSERT INTO dresovi (ime_igraca, slika, cijena) VALUES (" + slika + "', " + cijena + ");", con);
             
             insertQuery.ExecuteNonQuery();
             Disconnect();
@@ -164,7 +163,6 @@ namespace FanShop.Baza
                 Dres d = new Dres();
                 d.Cijena = r.GetDecimal("cijena");
                 d.Id = r.GetInt32("id");
-                d.ImeIgraca = r.GetString("ime_igraca");
                 d.Slika = r.GetString("slika");
                 d.Velicine = r.GetString("velicine");
 
@@ -285,7 +283,6 @@ namespace FanShop.Baza
                 Dres d = new Dres();
                 d.Cijena = r.GetDecimal("cijena");
                 d.Id = r.GetInt32("id");
-                d.ImeIgraca = r.GetString("ime_igraca");
                 d.Slika = r.GetString("slika");
                 d.Velicine = r.GetString("velicine");
 

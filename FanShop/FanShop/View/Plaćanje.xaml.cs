@@ -15,9 +15,9 @@ using System.Windows.Shapes;
 namespace FanShop
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for Plaćanje.xaml
     /// </summary>
-    public partial class Login1 : Window
+    public partial class Plaćanje : Window
     {
         protected override void OnClosed(EventArgs e)
         {
@@ -25,24 +25,20 @@ namespace FanShop
 
             Application.Current.Shutdown();
         }
-        public Login1()
+        public Plaćanje()
         {
             InitializeComponent();
-            this.DataContext = new ViewModel.PrijavaViewModel(this);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            Admin a = new Admin();
-            a.Show();
-            this.Hide();
-
-
-        }
-
-        private void Button_KeyDown(object sender, KeyEventArgs e)
-        {
-
+            if (check1.IsChecked.Value==true)
+            {
+                BrojKartice.Visibility = System.Windows.Visibility.Visible;
+                Ccv.Visibility = System.Windows.Visibility.Visible;
+                p.Visibility = System.Windows.Visibility.Visible;
+                q.Visibility = System.Windows.Visibility.Visible;
+            }
         }
     }
 }
