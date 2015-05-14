@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace FanShop
 {
-    public class Dres : Proizvod, INotifyPropertyChanged, INotifyDataErrorInfo
+    public class Dres : Proizvod, INotifyPropertyChanged, IDataErrorInfo
     {
         private string velicine;
 
@@ -31,7 +31,7 @@ namespace FanShop
             return "(" + this.Id + ") DRES";
         }
 
-            public bool IsValid
+        public bool IsValid
         {
             get
             {

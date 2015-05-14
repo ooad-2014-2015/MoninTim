@@ -57,6 +57,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Baza\BazaPodataka.cs" />
+    <Compile Include="Helper\Luhn.cs" />
     <Compile Include="Plaćanje.xaml.cs">
       <DependentUpon>Plaćanje.xaml</DependentUpon>
     </Compile>

@@ -2,26 +2,114 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel;
 using System.Threading.Tasks;
+using FanShop.Helper;
 
 namespace FanShop
 {
-    public class Kartica
+    public class Kartica: INotifyPropertyChanged, IDataErrorInfo
     {
-        public string brojKartice
+        private string brojKreditneKartice;
+
+        public string BrojKreditneKartice
         {
-            get;
-            set;
+            get { return brojKreditneKartice; }
+            set { brojKreditneKartice = value; OnPropertyChanged("BrojKreditneKartice"); }
         }
-        public int ccv
+        private DateTime datumIsteka;
+
+        public DateTime DatumIsteka
         {
-            get;
-            set;
+            get { return datumIsteka; }
+            set { datumIsteka = value; OnPropertyChanged("DatumIsteka"); }
         }
-        public DateTime datumIsteka
+        private int ccv;
+
+        public int Ccv
         {
-            get;
-            set;
+            get { return ccv; }
+            set { ccv = value; OnPropertyChanged("Ccv"); }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        public bool IsValid
+        {
+            get
+            {
+                foreach (string property in validateProperties)
+                {
+                    if (getValidationError(property) != null)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        static readonly string[] validateProperties =
+        {
+            "BrojKreditneKartice","DatumIsteka","Ccv"
+        };
+        string IDataErrorInfo.Error
+        {
+            get { return null; }
+        }
+        string IDataErrorInfo.this[string propertyName]
+        {
+            get { return getValidationError(propertyName); }
+        }
+        string getValidationError(string propertyName)
+        {
+            string error = null;
+            switch (propertyName)
+            {
+                case "BrojKreditneKartice":
+                    error = validirajBroj();
+                    break;
+                case "DatumIsteka":
+                    error = validirajDatum();
+                    break;
+                case "Ccv":
+                    error = validirajCcv();
+                    break;
+            }
+            return error;
+        }
+
+        private string validirajBroj()
+        {
+            if (String.IsNullOrWhiteSpace(BrojKreditneKartice))
+            {
+                return "Broj kreditne kartice mora biti unesen!";
+            }
+            if (!BrojKreditneKartice.LuhnCheck() || BrojKreditneKartice.Length > 19 || BrojKreditneKartice.Length < 11)
+            {
+                return "Broj kreditne kartice ne postoji!";
+            }
+            return null;
+        }
+        private string validirajCcv()
+        {
+           if (ccv < 1000 || ccv > 9999) return "CCV mora biti cetverocifren broj!";
+            return null;
+        }
+
+        private string validirajDatum()
+        {
+            if (datumIsteka <= DateTime.Now)
+            {
+                return "Unesite datum u buducnosti!";
+            }
+            return null;
+        }
+
     }
 }

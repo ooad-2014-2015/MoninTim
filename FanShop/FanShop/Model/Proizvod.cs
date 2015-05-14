@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace FanShop
 {
-    public class Proizvod : INotifyPropertyChanged, INotifyDataErrorInfo
+    public class Proizvod : INotifyPropertyChanged, IDataErrorInfo
     {
         private int id;
         private decimal cijena;
@@ -52,10 +52,9 @@ namespace FanShop
                 return true;
             }
         }
-
         static readonly string[] validateProperties =
         {
-            "Cijena"
+            "Cijena", "Slika"
         };
 
         string IDataErrorInfo.Error
@@ -76,9 +75,9 @@ namespace FanShop
                 case "Cijena":
                     error = validirajCijenu();
                     break;
-               /* case "Slika":
+               case "Slika":
                     error = validirajSliku();
-                    break;*/
+                    break;
                 
             }
             return error;
@@ -94,16 +93,14 @@ namespace FanShop
 
             return null;
         }
-        /*public string validirajSliku()
+        public string validirajSliku()
         {
             if (String.IsNullOrEmpty(Slika))
             {
-                return "Morate učitati sliku";
+                return "Morate učitati sliku klikom da dugme dodaj";
             }
-
-
             return null;
-        }*/
+        }
 
        
     }
