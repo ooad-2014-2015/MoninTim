@@ -181,7 +181,11 @@ namespace FanShop.ViewModel
             StavkaPrivjesak.Proizvod = Privjesak;
 
             if (Korpa.Stavke.Any(x => x.Proizvod == StavkaPrivjesak.Proizvod))
-                Korpa.Stavke.First(x => x.Proizvod == StavkaPrivjesak.Proizvod).Kolicina++;
+            {
+                Stavka s = new Stavka(Korpa.Stavke.First(x => x.Proizvod == StavkaPrivjesak.Proizvod));
+                s.Kolicina += StavkaPrivjesak.Kolicina;
+                IzmjeniStavkuUListi(s);
+            }
             else
                 Korpa.Stavke.Add(new Stavka(StavkaPrivjesak));
         }
@@ -191,7 +195,11 @@ namespace FanShop.ViewModel
             StavkaDres.Proizvod = Dres;
 
             if (Korpa.Stavke.Any(x => x.Proizvod == StavkaDres.Proizvod))
-                Korpa.Stavke.First(x => x.Proizvod == StavkaDres.Proizvod).Kolicina++;
+            {
+                Stavka s = new Stavka(Korpa.Stavke.First(x => x.Proizvod == StavkaDres.Proizvod));
+                s.Kolicina += StavkaDres.Kolicina;
+                IzmjeniStavkuUListi(s);
+            }
             else
                 Korpa.Stavke.Add(new Stavka(StavkaDres));
         }
@@ -201,7 +209,11 @@ namespace FanShop.ViewModel
             StavkaSal.Proizvod = Sal;
 
             if (Korpa.Stavke.Any(x => x.Proizvod == StavkaSal.Proizvod))
-                Korpa.Stavke.First(x => x.Proizvod == StavkaSal.Proizvod).Kolicina++;
+            {
+                Stavka s = new Stavka(Korpa.Stavke.First(x => x.Proizvod == StavkaSal.Proizvod));
+                s.Kolicina += StavkaSal.Kolicina;
+                IzmjeniStavkuUListi(s);
+            }
             else
                 Korpa.Stavke.Add(new Stavka(StavkaSal));
         }
@@ -211,9 +223,31 @@ namespace FanShop.ViewModel
             StavkaKapa.Proizvod = Kapa;
 
             if (Korpa.Stavke.Any(x => x.Proizvod == StavkaKapa.Proizvod))
-                Korpa.Stavke.First(x => x.Proizvod == StavkaKapa.Proizvod).Kolicina++;
+            {
+                Stavka s = new Stavka(Korpa.Stavke.First(x => x.Proizvod == StavkaKapa.Proizvod));
+                s.Kolicina += StavkaKapa.Kolicina;
+                IzmjeniStavkuUListi(s);
+            }
             else
                 Korpa.Stavke.Add(new Stavka(StavkaKapa));
+        }
+
+        private void IzmjeniStavkuUListi(Stavka s)
+        {
+            /* razlog za ovo je što se OnPropertyChanged neće raisati ako samo uradim Količina++
+             * u ObservableCollection. Tj raisa se samo na dodavanje i brisanje pa moram
+             * bruteforceom da na ovaj objekat "nalijepim" novi. 
+             * I da, moram for petljom jer ObservableCollection nema metode Find(predikat) >.<
+             */ 
+
+            for (int i = 0; i < Korpa.Stavke.Count; i++)
+            {
+                if (Korpa.Stavke[i].Proizvod.Id == s.Proizvod.Id)
+                {
+                    Korpa.Stavke[i] = new Stavka(s);
+                    return;
+                }
+            }
         }
 
         private void prevDres(object parametar)
