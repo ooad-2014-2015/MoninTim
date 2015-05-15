@@ -27,11 +27,11 @@
         <RadioButton x:Name="rbDres" Content="Dres" HorizontalAlignment="Left" Margin="146,42,0,0" VerticalAlignment="Top" />
         <RadioButton x:Name="rbKapa" Content="Kapa" HorizontalAlignment="Left" Margin="144,84,0,0" VerticalAlignment="Top"/>
         <Label Content="Cijena:" HorizontalAlignment="Left" Margin="53,151,0,0" VerticalAlignment="Top" Width="62"/>
-        <TextBox x:Name="tbCijena" HorizontalAlignment="Left" Height="23" Margin="100,151,0,0" TextWrapping="Wrap" Text="{Binding Path=Proizvod.cijena, Mode=TwoWay,  ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbCijena" HorizontalAlignment="Left" Height="23" Margin="100,151,0,0" TextWrapping="Wrap" Text="{Binding Path=Proizvod.Cijena, Mode=TwoWay,  ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" VerticalAlignment="Top" Width="120"/>
         <Label Content="  Slika:" HorizontalAlignment="Left" Margin="52,193,0,0" VerticalAlignment="Top"/>
         <Button x:Name="bSlika" Content="Dodaj" HorizontalAlignment="Left" Margin="100,193,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Sl}"/>
         <Button x:Name="bDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="152,270,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Dodaj}"/>
-        <TextBox x:Name="sl" HorizontalAlignment="Left" Height="23" Margin="64,224,0,0" TextWrapping="Wrap"  IsReadOnly="True" Text="{Binding Path=Proizvod.slika, Mode=TwoWay,  ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" VerticalAlignment="Top" Width="156"/>
+        <TextBox x:Name="sl" HorizontalAlignment="Left" Height="23" Margin="64,224,0,0" TextWrapping="Wrap"  IsReadOnly="True" Text="{Binding Path=Proizvod.Slika, Mode=TwoWay,  ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" VerticalAlignment="Top" Width="156"/>
 
     </Grid>
 </Window>

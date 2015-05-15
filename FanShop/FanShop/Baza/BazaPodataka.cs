@@ -27,50 +27,54 @@ namespace FanShop.Baza
 
         // ==============>> INSERTI:
 
-        public bool UnesiDres( string slika, string cijena) {
+        public bool UnesiDres(string id, string slika, string cijena) {
             Connect();
             
             MySqlCommand insertQuery = new MySqlCommand(
-                  "INSERT INTO dresovi (ime_igraca, slika, cijena) VALUES (" + slika + "', " + cijena + ");", con);
+                  //"INSERT INTO dresovi (ime_igraca, slika, cijena) VALUES (" + 
+                  //   id + ", '" + slika + "', " + cijena + ");", con);
+                  "INSERT INTO dresovi (id, slika, cijena) VALUES (" + 
+                     id + ", '" + slika + "', " + cijena + ");", con);
+
             
             insertQuery.ExecuteNonQuery();
             Disconnect();
             return true;
         }
 
-        public bool UnesiSal(string slika, string cijena)
+        public bool UnesiSal(string id, string slika, string cijena)
         {
             Connect();
 
             MySqlCommand insertQuery = new MySqlCommand(
-                 "INSERT INTO salovi (slika, cijena) VALUES (" +
-                     "'" + slika + "', " + cijena + ");", con);
+                 "INSERT INTO salovi (id, slika, cijena) VALUES (" +
+                     id + ", '" + slika + "', " + cijena + ");", con);
 
             insertQuery.ExecuteNonQuery();
             Disconnect();
             return true;
         }
 
-        public bool UnesiKapu(string slika, string cijena)
+        public bool UnesiKapu(string id, string slika, string cijena)
         {
             Connect();
 
             MySqlCommand insertQuery = new MySqlCommand(
-                "INSERT INTO kape (slika, cijena) VALUES (" +
-                    "'" + slika + "', " + cijena + ");", con);
+                "INSERT INTO kape (id, slika, cijena) VALUES (" +
+                    id + ", '" + slika + "', " + cijena + ");", con);
 
             insertQuery.ExecuteNonQuery();
             Disconnect();
             return true;
         }
 
-        public bool UnesiPrivjesak(string slika, string cijena)
+        public bool UnesiPrivjesak(string id, string slika, string cijena)
         {
             Connect();
 
             MySqlCommand insertQuery = new MySqlCommand(
-                "INSERT INTO privjesci (slika, cijena) VALUES (" +
-                    "'" + slika + "', " + cijena + ");", con);
+                "INSERT INTO privjesci (id, slika, cijena) VALUES (" +
+                    id + ", '" + slika + "', " + cijena + ");", con);
 
             insertQuery.ExecuteNonQuery();
             Disconnect();
@@ -93,6 +97,7 @@ namespace FanShop.Baza
 
             r.Read();
             int id = Int32.Parse(r.GetString("id"));
+
             Disconnect();
             return id;
         }

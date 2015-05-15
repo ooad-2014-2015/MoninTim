@@ -40,8 +40,8 @@ namespace FanShop.ViewModel
         public WProizvod w;
         private void dodaj(object parametar)
         {
-             w = new WProizvod();
-            // w.DataContext = new WProizvodViewModel(this);
+            w = new WProizvod();
+            w.DataContext = new WProizvodViewModel(this);
             w.Show();
         }
 

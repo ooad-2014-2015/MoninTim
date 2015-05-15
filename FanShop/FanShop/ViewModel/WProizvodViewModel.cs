@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.Win32;
 using System.IO;
+using System.ComponentModel;
 
 namespace FanShop.ViewModel
 {
@@ -36,13 +37,16 @@ namespace FanShop.ViewModel
 
         public ICommand Dodaj { get; set; }
         public ICommand Sl { get; set; }
+
         public Action CloseAction { get; set; }
 
         private void slika(object parametar)
         {
             OpenFileDialog o = new OpenFileDialog();
             if (o.ShowDialog() == true)
-                parent.w.sl.DataContext = File.ReadAllText(o.FileName);
+            {
+                Proizvod.Slika = o.FileName;
+            }
            
         }
 
@@ -75,24 +79,51 @@ namespace FanShop.ViewModel
                         c = "k";
                     }
 
+                    int id = bp.UnesiUKatalog(c);
+                    Proizvod.Slika = Proizvod.Slika.Replace("\\", "\\\\"); // da se u bazi escape-a '\' char
+
                     switch (c)
                     {
                         case "d":
-                            bp.UnesiDres(pro.Slika, (pro.Cijena).ToString());
+                            bp.UnesiDres(id.ToString(), pro.Slika, (pro.Cijena).ToString());
+                            Dres d = new Dres();
+                            d.Id = id;
+                            d.Cijena = Proizvod.Cijena;
+                            d.Slika = Proizvod.Slika;
+                            this.Parent.Proizvodi.Add(d);
+                            //d.Velicine = ??
                             break;
                         case "s":
-                            bp.UnesiSal(pro.Slika, (pro.Cijena).ToString());
+                            bp.UnesiSal(id.ToString(), pro.Slika, (pro.Cijena).ToString());
+                            Sal s = new Sal();
+                            s.Id = id;
+                            s.Cijena = Proizvod.Cijena;
+                            s.Slika = Proizvod.Slika;
+                            this.Parent.Proizvodi.Add(s);
                             break;
                         case "k":
-                            bp.UnesiKapu(pro.Slika, (pro.Cijena).ToString());
+                            bp.UnesiKapu(id.ToString(), pro.Slika, (pro.Cijena).ToString());
+                            Kapa k = new Kapa();
+                            k.Id = id;
+                            k.Id = id;
+                            k.Cijena = Proizvod.Cijena;
+                            k.Slika = Proizvod.Slika;
+                            // k.Velicine = ??
+                            this.Parent.Proizvodi.Add(k);
                             break;
                         case "p":
-                            bp.UnesiPrivjesak(pro.Slika, (pro.Cijena).ToString());
+                            bp.UnesiPrivjesak(id.ToString(), pro.Slika, (pro.Cijena).ToString());
+                            Privjesak p = new Privjesak();
+                            p.Id = id;
+                            p.Id = id;
+                            p.Cijena = Proizvod.Cijena;
+                            p.Slika = Proizvod.Slika;
+                            this.Parent.Proizvodi.Add(p);
                             break;
                     }
-                    bp.UnesiUKatalog(c);
+                    
                     //Moderator.Id = bp.UnesiUposlenika(mod.Username, mod.Password, mod.Ime_prezime);
-                    this.Parent.Proizvodi.Add(this.Proizvod);
+                    
                 }
             }
             else
@@ -100,7 +131,15 @@ namespace FanShop.ViewModel
                 System.Windows.MessageBox.Show("Pokušavate unijeti pogrešne parametre!");
             }
         }
-        
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 
 
