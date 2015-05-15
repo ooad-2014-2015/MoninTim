@@ -11,6 +11,19 @@ namespace FanShop
     {
         private string velicine;
 
+        public Kapa()
+        {
+            velicine = "";
+        }
+
+        public Kapa(Proizvod p)
+        {
+            this.Id = p.Id;
+            this.Cijena = p.Cijena;
+            this.Slika = p.Slika;
+            velicine = "";
+        }
+
         public string Velicine
         {
             get { return velicine; }

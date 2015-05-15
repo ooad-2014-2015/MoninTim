@@ -13,5 +13,17 @@ namespace FanShop
         {
             return "(" + this.Id + ") PRIVJESAK";
         }
+
+        public Privjesak()
+        {
+
+        }
+
+        public Privjesak(Proizvod p)
+        {
+            this.Id = p.Id;
+            this.Cijena = p.Cijena;
+            this.Slika = p.Slika;
+        }
     }
 }

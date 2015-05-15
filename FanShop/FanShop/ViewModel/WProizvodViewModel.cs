@@ -86,38 +86,28 @@ namespace FanShop.ViewModel
                     {
                         case "d":
                             bp.UnesiDres(id.ToString(), pro.Slika, (pro.Cijena).ToString());
-                            Dres d = new Dres();
+                            Dres d = new Dres(Proizvod);
                             d.Id = id;
-                            d.Cijena = Proizvod.Cijena;
-                            d.Slika = Proizvod.Slika;
                             this.Parent.Proizvodi.Add(d);
                             //d.Velicine = ??
                             break;
                         case "s":
                             bp.UnesiSal(id.ToString(), pro.Slika, (pro.Cijena).ToString());
-                            Sal s = new Sal();
+                            Sal s = new Sal(Proizvod);
                             s.Id = id;
-                            s.Cijena = Proizvod.Cijena;
-                            s.Slika = Proizvod.Slika;
                             this.Parent.Proizvodi.Add(s);
                             break;
                         case "k":
                             bp.UnesiKapu(id.ToString(), pro.Slika, (pro.Cijena).ToString());
-                            Kapa k = new Kapa();
+                            Kapa k = new Kapa(Proizvod);
                             k.Id = id;
-                            k.Id = id;
-                            k.Cijena = Proizvod.Cijena;
-                            k.Slika = Proizvod.Slika;
                             // k.Velicine = ??
                             this.Parent.Proizvodi.Add(k);
                             break;
                         case "p":
                             bp.UnesiPrivjesak(id.ToString(), pro.Slika, (pro.Cijena).ToString());
-                            Privjesak p = new Privjesak();
+                            Privjesak p = new Privjesak(Proizvod);
                             p.Id = id;
-                            p.Id = id;
-                            p.Cijena = Proizvod.Cijena;
-                            p.Slika = Proizvod.Slika;
                             this.Parent.Proizvodi.Add(p);
                             break;
                     }
