@@ -30,10 +30,24 @@ namespace FanShop
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void PromijeniSelektiraniDres(int i) 
         {
-            Plaćanje p = new Plaćanje();
-            p.Show();
+            cbDresovi.SelectedIndex = i;
+        }
+
+        public void PromijeniSelektiranuKapu(int i)
+        {
+            cbKape.SelectedIndex = i;
+        }
+
+        public void PromijeniSelektiraniSal(int i)
+        {
+            cbSalovi.SelectedIndex = i;
+        }
+
+        public void PromijeniSelektiraniPrivjesak(int i)
+        {
+            cbPrivjesci.SelectedIndex = i;
         }
     }
 }

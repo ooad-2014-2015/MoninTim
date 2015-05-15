@@ -42,7 +42,7 @@ namespace FanShop.ViewModel
             if (bp.ProvjeriLoginPodatke(Clan.Username, Clan.Password, false))
             {
                 WFanShop fs = new WFanShop();
-                // TODO: data context za fanshop
+                fs.DataContext = new WFanShopViewModel(fs);
                 fs.Show();
                 glavnaView.Hide();
             }

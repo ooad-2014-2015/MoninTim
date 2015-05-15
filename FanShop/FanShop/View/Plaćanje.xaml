@@ -6,18 +6,20 @@
         <RichTextBox HorizontalAlignment="Left" Height="347" Margin="23,95,0,0" VerticalAlignment="Top" Width="293">
             <FlowDocument>
                 <Paragraph>
-                    <Run Text="RichTextBox"/>
+                    <Run Text="{Binding Path=RacunTekst}"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
         <Label Content="Račun:" FontSize="17" HorizontalAlignment="Left" Margin="21,57,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="check1" Content="Plaćanje karticom" HorizontalAlignment="Left" Margin="357,95,0,0" VerticalAlignment="Top" Width="127" Checked="CheckBox_Checked"/>
+        <CheckBox x:Name="check1" Content="Plaćanje karticom" HorizontalAlignment="Left" Margin="357,95,0,0" VerticalAlignment="Top" Width="127" 
+                  IsChecked="{Binding Path=Kartica}"/>
         <Label x:Name="p" Visibility="Hidden" Content="Broj kartice:" HorizontalAlignment="Left" Margin="412,148,0,0" VerticalAlignment="Top"/>
         <Label x:Name="q" Visibility="Hidden" Content="Ccv:" HorizontalAlignment="Left" Margin="453,179,0,0" VerticalAlignment="Top"/>
         <TextBox  x:Name ="BrojKartice" HorizontalAlignment="Left" Visibility="Hidden" Height="23" Margin="503,148,0,0" TextWrapping="Wrap" Text="{Binding Path=Kartica.brojKartice}" VerticalAlignment="Top" Width="149"/>
         <TextBox x:Name="Ccv" HorizontalAlignment="Left" Visibility="Hidden" Height="23" Margin="503,179,0,0" TextWrapping="Wrap" Text="{Binding Path=Kartica.Ccv}" VerticalAlignment="Top" Width="149"/>
         <Button Content="Print" HorizontalAlignment="Left" Margin="23,466,0,0" VerticalAlignment="Top" Width="102"/>
-        <Button Content="Naruči" HorizontalAlignment="Left" Margin="348,466,0,0" VerticalAlignment="Top" Width="114"/>
+        <Button Content="Naruči" HorizontalAlignment="Left" Margin="348,466,0,0" VerticalAlignment="Top" Width="114" 
+                Command="{Binding Path=Naruci}"/>
 
     </Grid>
 </Window>
