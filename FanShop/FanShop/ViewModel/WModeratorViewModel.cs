@@ -12,12 +12,20 @@ namespace FanShop.ViewModel
     class WModeratorViewModel
     {
         private ObservableCollection<Proizvod> listaProizvoda;
+        private ObservableCollection<Proizvod> statistikaDan;
+        private ObservableCollection<Proizvod> statistikaMjesec;
+        private ObservableCollection<Proizvod> statistikaGodina;
+
         private int proizvodId;
+
 
         public WModeratorViewModel() 
         {
             Baza.BazaPodataka bp = new Baza.BazaPodataka();
             listaProizvoda = new ObservableCollection<Proizvod>(bp.VratiKatalog());
+            statistikaDan = new ObservableCollection<Proizvod>(bp.VratiZaDanas());
+            statistikaMjesec = new ObservableCollection<Proizvod>(bp.VratiZaMjesec());
+            statistikaGodina = new ObservableCollection<Proizvod>(bp.VratiZaGodinu());
 
             Dodaj = new RelayCommand(dodaj);
             Obrisi = new RelayCommand(obrisi);
@@ -31,6 +39,23 @@ namespace FanShop.ViewModel
             get { return listaProizvoda; }
             set { listaProizvoda = value; OnPropertyChanged("Proizvodi"); }
         }
+
+        public ObservableCollection<Proizvod> StatistikaDan
+        {
+            get { return statistikaDan; }
+            set { statistikaDan = value; OnPropertyChanged("StatistikaDan"); }
+        }
+        public ObservableCollection<Proizvod> StatistikaMjesec
+        {
+            get { return statistikaMjesec; }
+            set { statistikaMjesec = value; OnPropertyChanged("StatistikaMjesec"); }
+        }
+        public ObservableCollection<Proizvod> StatistikaGodina
+        {
+            get { return statistikaGodina; }
+            set { statistikaGodina = value; OnPropertyChanged("StatistikaGodina"); }
+        }
+
 
         public int ProizvodID
         {

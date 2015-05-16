@@ -54,93 +54,95 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
+                       
                         <ComboBox  x:Name="cbDresovi" Margin="25,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220" 
                                    IsSynchronizedWithCurrentItem="True"
-                                   ItemsSource="{Binding Path=Dresovi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                   SelectedItem="{Binding Path=Dres, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                   ItemsSource="{Binding Dresovi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                   SelectedItem="{Binding Dres, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                    />
                         <ComboBox  x:Name="cbKape" Margin="286,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"
-                                   ItemsSource="{Binding Path=Kape, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                   SelectedItem="{Binding Path=Kapa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                   ItemsSource="{Binding Kape, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                   SelectedItem="{Binding Kapa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                    />
                         <ComboBox  x:Name="cbPrivjesci" Margin="546,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220" 
-                                   ItemsSource="{Binding Path=Privjesci, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                   SelectedItem="{Binding Path=Privjesak, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                   ItemsSource="{Binding Privjesci, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                   SelectedItem="{Binding Privjesak, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                    />
                         <ComboBox  x:Name="cbSalovi" Margin="798,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"
-                                   ItemsSource="{Binding Path=Salovi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                   SelectedItem="{Binding Path=Sal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                   ItemsSource="{Binding Salovi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                   SelectedItem="{Binding Sal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                    />
                         <Image HorizontalAlignment="Left" Height="195" Margin="25,87,0,0" VerticalAlignment="Top" Width="220" Source="/FanShop;component/poz.jpg"/>
                         <Image HorizontalAlignment="Left" Height="195" Margin="286,87,0,0" VerticalAlignment="Top" Width="220" Source="/FanShop;component/poz1.jpg"/>
                         <Image HorizontalAlignment="Left" Height="195" Margin="546,87,0,0" VerticalAlignment="Top" Width="220" Source="/FanShop;component/poz2.jpg"/>
                         <Image HorizontalAlignment="Left" Height="195" Margin="798,87,0,0" VerticalAlignment="Top" Width="220" Source="/FanShop;component/poz3.jpg"/>
                         <Button Content="prev" HorizontalAlignment="Left" Margin="25,405,0,0" VerticalAlignment="Top" Width="45"
-                                Command="{Binding Path=PrevDres}"/>
+                                Command="{Binding PrevDres}"/>
                         <Button Content="next" HorizontalAlignment="Left" Margin="200,405,0,0" VerticalAlignment="Top" Width="45"
-                                Command="{Binding Path=NextDres}"/>
+                                Command="{Binding NextDres}"/>
                         <Button Content="prev" HorizontalAlignment="Left" Margin="286,405,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"
-                                Command="{Binding Path=PrevKapa}"/>
+                                Command="{Binding PrevKapa}"/>
                         <Button Content="next" HorizontalAlignment="Left" Margin="461,405,0,0" VerticalAlignment="Top" Width="45"
-                                Command="{Binding Path=NextKapa}"/>
+                                Command="{Binding NextKapa}"/>
                         <Button Content="prev" HorizontalAlignment="Left" Margin="546,405,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"
-                                Command="{Binding Path=PrevPrivjesak}"/>
+                                Command="{Binding PrevPrivjesak}"/>
                         <Button Content="next" HorizontalAlignment="Left" Margin="721,405,0,0" VerticalAlignment="Top" Width="45"
-                                Command="{Binding Path=NextPrivjesak}"/>
+                                Command="{Binding NextPrivjesak}"/>
                         <Button Content="prev" HorizontalAlignment="Left" Margin="798,405,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"
-                                Command="{Binding Path=PrevSal}"/>
+                                Command="{Binding PrevSal}"/>
                         <Button Content="next" HorizontalAlignment="Left" Margin="973,405,0,0" VerticalAlignment="Top" Width="45"
-                                Command="{Binding Path=NextSal}"/>
+                                Command="{Binding NextSal}"/>
                         <Button Content="Kupi" HorizontalAlignment="Left" Margin="106,405,0,0" VerticalAlignment="Top" Width="66"
-                                Command="{Binding Path=KupiDres}"/>
+                                Command="{Binding KupiDres}"/>
                         <Button Content="Kupi" HorizontalAlignment="Left" Margin="360,405,0,0" VerticalAlignment="Top" Width="66"
-                                Command="{Binding Path=KupiKapu}"/>
+                                Command="{Binding KupiKapu}"/>
                         <Button Content="Kupi" HorizontalAlignment="Left" Margin="628,405,0,0" VerticalAlignment="Top" Width="66"
-                                Command="{Binding Path=KupiPrivjesak}"/>
+                                Command="{Binding KupiPrivjesak}"/>
                         <Button Content="Kupi" HorizontalAlignment="Left" Margin="872,405,0,0" VerticalAlignment="Top" Width="66"
-                                Command="{Binding Path=KupiSal}"/>
+                                Command="{Binding KupiSal}"/>
                         <ListBox HorizontalAlignment="Left" Height="392" Margin="1059,87,0,0" VerticalAlignment="Top" Width="281"
-                                 ItemsSource="{Binding Path=Korpa.Stavke}"
-                                 SelectedItem="{Binding Path=StavkaKorpa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 ItemsSource="{Binding Korpa.Stavke}"
+                                 SelectedItem="{Binding StavkaKorpa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              />
                         <Label Content="Korpa:"  FontSize="18" HorizontalAlignment="Left" Margin="1059,38,0,0" VerticalAlignment="Top" Width="180"/>
                         <Button Content="Plati" FontSize="18" HorizontalAlignment="Left" Margin="1059,549,0,0" VerticalAlignment="Top" Width="111" Height="31"
-                                Command="{Binding Path=Plati}"/>
+                                Command="{Binding Plati}"/>
                         <Label FontSize="18" Content="Ukoliko želite kupiti proizvod kliknite dugme 'Kupi' ispod slike, ako želite obaviti kupovinu kliknite dugme 'Plati'&#xA; koje se nalazi ispod korpe.&#xA;Ukoliko ste se predomislili u vezi nekog proizvoda, selektirajte ga u korpi, a zatim pritisnite dugme 'Izbaci'" HorizontalAlignment="Left" Margin="10,498,0,0" VerticalAlignment="Top" Width="1008"/>
                         <Button Content="Izbaci" FontSize="15" HorizontalAlignment="Left" Margin="1059,497,0,0" VerticalAlignment="Top" Width="111" Height="31"
-                                Command="{Binding Path=Izbaci}"/>
+                                Command="{Binding Izbaci}"/>
                         <Label Content="Cijena:" HorizontalAlignment="Left" Margin="25,300,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="125,300,0,0" TextWrapping="Wrap"  Text="{Binding Path=Dres.Cijena}" VerticalAlignment="Top" Width="120" />
+                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="125,300,0,0" TextWrapping="Wrap"  Text="{Binding Dres.Cijena}" VerticalAlignment="Top" Width="120" />
                         <Label Content="Cijena:" HorizontalAlignment="Left" Margin="286,300,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="386,300,0,0" TextWrapping="Wrap" Text="{Binding Path=Kapa.Cijena}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="386,300,0,0" TextWrapping="Wrap" Text="{Binding Kapa.Cijena}" VerticalAlignment="Top" Width="120"/>
                         <Label Content="Cijena:" HorizontalAlignment="Left" Margin="546,300,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="646,300,0,0" TextWrapping="Wrap" Text="{Binding Path=Privjesak.Cijena}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="646,300,0,0" TextWrapping="Wrap" Text="{Binding Privjesak.Cijena}" VerticalAlignment="Top" Width="120"/>
                         <Label Content="Cijena:" HorizontalAlignment="Left" Margin="798,302,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="898,302,0,0" TextWrapping="Wrap" Text="{Binding Path=Sal.Cijena}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="898,302,0,0" TextWrapping="Wrap" Text="{Binding Sal.Cijena}" VerticalAlignment="Top" Width="120"/>
                         <Label Content="Upišite veličinu S-M-X-XL:" HorizontalAlignment="Left" Margin="25,331,0,0" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left"  Height="23" Margin="188,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"
-                                 Text="{Binding Path=StavkaDres.Velicina}"/>
+                                 Text="{Binding StavkaDres.Velicina}"/>
                         <Label Content="Upišite veličinu S-M-X-XL" HorizontalAlignment="Left" Margin="286,331,0,0" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Height="23" Margin="449,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"
-                                 Text="{Binding Path=StavkaKapa.Velicina}"/>
+                                 Text="{Binding StavkaKapa.Velicina}"/>
                         <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="25,362,0,0" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Height="23" Margin="125,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
-                                 Text="{Binding Path=StavkaDres.Kolicina}"/>
+                                 Text="{Binding StavkaDres.Kolicina}"/>
                         <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="286,362,0,0" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Height="23" Margin="386,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
-                                 Text="{Binding Path=StavkaKapa.Kolicina}"/>
+                                 Text="{Binding StavkaKapa.Kolicina}"/>
                         <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="546,362,0,0" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Height="23" Margin="646,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
-                                 Text="{Binding Path=StavkaPrivjesak.Kolicina}"/>
+                                 Text="{Binding StavkaPrivjesak.Kolicina}"/>
                         <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="798,362,0,0" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Height="23" Margin="898,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
-                                 Text="{Binding Path=StavkaSal.Kolicina}"/>
+                                 Text="{Binding StavkaSal.Kolicina}"/>
                         <Label Content="Dresovi:" HorizontalAlignment="Left" Margin="25,23,0,0" VerticalAlignment="Top"/>
                         <Label Content="Kape:" HorizontalAlignment="Left" Margin="286,24,0,0" VerticalAlignment="Top"/>
                         <Label Content="Privjesci:" HorizontalAlignment="Left" Margin="546,19,0,0" VerticalAlignment="Top"/>
                         <Label Content="Šalovi:" HorizontalAlignment="Left" Margin="798,19,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="lab" Content="Logirani ste kao:" FontSize="18" HorizontalAlignment="Left" Margin="1059,11,0,0" VerticalAlignment="Top"/>
                         <Label HorizontalAlignment="Left" Margin="1239,15,0,0" VerticalAlignment="Top"/>
+                       
 
                     </Grid>
 

@@ -8,21 +8,45 @@ namespace FanShop
 {
     public class Arhiva
     {
-        public Proizvod dajNajprodavanijeZaDatum()
+        public int ID
+        { get; set; }
+
+      
+
+        public int Kolicina
+        { get; set; }
+
+        public string Tip
         {
-            Proizvod p = new Proizvod();
-            return p;
+            get;
+            set;
         }
 
-        public Proizvod dajNajprodavanijeZaGodinu()
+        public Arhiva(int id,  int kolicina, string tip)
         {
-            Proizvod p = new Proizvod();
-            return p;
+            ID = id;
+         
+            Kolicina = kolicina;
+            Tip = tip;
         }
-        public Proizvod dajNajprodavanijeZaSedmicu()
+
+       
+
+        public List<Proizvod> dajNajprodavanijeZaDan()
         {
-            Proizvod p = new Proizvod();
-            return p;
+            Baza.BazaPodataka bp = new Baza.BazaPodataka();
+            return bp.VratiZaDanas();
+        }
+
+        public List<Proizvod> dajNajprodavanijeZaGodinu()
+        {
+            Baza.BazaPodataka bp = new Baza.BazaPodataka();
+            return bp.VratiZaGodinu();
+        }
+        public List<Proizvod> dajNajprodavanijeZaMjesec()
+        {
+            Baza.BazaPodataka bp = new Baza.BazaPodataka();
+            return bp.VratiZaMjesec();
         }
 
     }

@@ -14,6 +14,7 @@ namespace FanShop.ViewModel
     {
         private Proizvod pro;
         private WModeratorViewModel parent;
+        private bool rbSal, rbDres, rbPrivjesak, rbKapa;
 
         public WProizvodViewModel(WModeratorViewModel p)
         {
@@ -21,6 +22,30 @@ namespace FanShop.ViewModel
             Dodaj = new RelayCommand(dodaj);
             Sl = new RelayCommand(slika);
             pro = new Proizvod();
+        }
+
+        public bool RbSal
+        {
+            get { return rbSal; }
+            set { rbSal = value; }
+        }
+
+        public bool RbDres
+        {
+            get { return rbDres; }
+            set { rbDres = value; }
+        }
+
+        public bool RbKapa
+        {
+            get { return rbKapa; }
+            set { rbKapa = value; }
+        }
+
+        public bool RbPrivjesak
+        {
+            get { return rbPrivjesak; }
+            set { rbPrivjesak = value; }
         }
 
         public WModeratorViewModel Parent
@@ -54,7 +79,7 @@ namespace FanShop.ViewModel
         {
             if (pro.IsValid)
             {
-                if (parent.w.rbDres.IsChecked == false && parent.w.rbSal.IsChecked == false && parent.w.rbPrivjesak.IsChecked == false && parent.w.rbKapa.IsChecked == false)
+                if (RbDres == false && RbSal== false && rbPrivjesak == false && rbKapa == false)
                 {
                     System.Windows.MessageBox.Show("Selektirajte koji tip proizvoda unesete klikom na jednu od opcija.");
                 }
@@ -62,19 +87,19 @@ namespace FanShop.ViewModel
                 {
                     Baza.BazaPodataka bp = new Baza.BazaPodataka();
                     string c = " ";
-                    if (parent.w.rbDres.IsChecked == true)
+                    if (RbDres== true)
                     {
                         c = "d";
                     }
-                    else if (parent.w.rbSal.IsChecked == true)
+                    else if (RbSal == true)
                     {
                         c = "s";
                     }
-                    else if (parent.w.rbPrivjesak.IsChecked == true)
+                    else if (RbPrivjesak == true)
                     {
                         c = "p";
                     }
-                    else if (parent.w.rbKapa.IsChecked == true)
+                    else if (RbKapa== true)
                     {
                         c = "k";
                     }
@@ -89,6 +114,7 @@ namespace FanShop.ViewModel
                             Dres d = new Dres(Proizvod);
                             d.Id = id;
                             this.Parent.Proizvodi.Add(d);
+                            pro.Slika = ""; pro.Cijena = 0; RbDres=false;
                             //d.Velicine = ??
                             break;
                         case "s":
@@ -96,6 +122,8 @@ namespace FanShop.ViewModel
                             Sal s = new Sal(Proizvod);
                             s.Id = id;
                             this.Parent.Proizvodi.Add(s);
+                               pro.Slika = ""; pro.Cijena = 0; RbSal=false;
+                         
                             break;
                         case "k":
                             bp.UnesiKapu(id.ToString(), pro.Slika, (pro.Cijena).ToString());
@@ -103,12 +131,16 @@ namespace FanShop.ViewModel
                             k.Id = id;
                             // k.Velicine = ??
                             this.Parent.Proizvodi.Add(k);
+                               pro.Slika = ""; pro.Cijena = 0; RbKapa=false;
+                         
                             break;
                         case "p":
                             bp.UnesiPrivjesak(id.ToString(), pro.Slika, (pro.Cijena).ToString());
                             Privjesak p = new Privjesak(Proizvod);
                             p.Id = id;
                             this.Parent.Proizvodi.Add(p);
+                               pro.Slika = ""; pro.Cijena = 0; RbPrivjesak=false;
+                         
                             break;
                     }
                     

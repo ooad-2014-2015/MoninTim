@@ -28,7 +28,9 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="151,66,0,0" TextWrapping="Wrap" Text="{Binding Moderator.Ime_prezime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True,NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="151,94,0,0" TextWrapping="Wrap" Text="{Binding Moderator.Username, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}"  VerticalAlignment="Top"  Width="120"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="151,122,0,0" TextWrapping="Wrap" Text="{Binding Moderator.Password, Mode=TwoWay, ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="177,162,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Dodaj}"/>
+        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="194,162,0,0" VerticalAlignment="Top" Width="77" Command="{Binding Dodaj}"/>
+        <TextBox Text="{Binding Path= Moderator.Lab, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Foreground="Red" BorderBrush="Transparent" HorizontalAlignment="Left" Height="23" Margin="60,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="211"/>
+        <TextBlock HorizontalAlignment="Left" Margin="-192,195,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

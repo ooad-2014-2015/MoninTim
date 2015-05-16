@@ -20,19 +20,19 @@
         </Style>
     </Window.Resources>
     <Grid Margin="0,0,2,1">
-        <GroupBox Header="Selektiraj tip" HorizontalAlignment="Left" Margin="38,18,0,0" VerticalAlignment="Top" Height="106" Width="189">
-            <RadioButton x:Name="rbSal" Content="Šal" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="51" Margin="10,10,0,0"/>
-        </GroupBox>
-        <RadioButton x:Name="rbPrivjesak" Content="Privjesak" HorizontalAlignment="Left" Margin="53,84,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbDres" Content="Dres" HorizontalAlignment="Left" Margin="146,42,0,0" VerticalAlignment="Top" />
-        <RadioButton x:Name="rbKapa" Content="Kapa" HorizontalAlignment="Left" Margin="144,84,0,0" VerticalAlignment="Top"/>
+        <RadioButton IsChecked="{Binding Path=RbPrivjesak}" Content="Privjesak" HorizontalAlignment="Left" Margin="64,102,0,0" VerticalAlignment="Top"/>
+        <RadioButton IsChecked="{Binding Path=RbDres}" Content="Dres" HorizontalAlignment="Left" Margin="157,60,0,0" VerticalAlignment="Top" />
+        <RadioButton IsChecked="{Binding Path=RbKapa}" Content="Kapa" HorizontalAlignment="Left" Margin="155,102,0,0" VerticalAlignment="Top"/>
+        <RadioButton IsChecked="{Binding Path=RbSal}" Content="Šal" HorizontalAlignment="Left" Margin="64,60,0,0" VerticalAlignment="Top"/>
+
         <Label Content="Cijena:" HorizontalAlignment="Left" Margin="53,151,0,0" VerticalAlignment="Top" Width="62"/>
-        <TextBox x:Name="tbCijena" HorizontalAlignment="Left" Height="23" Margin="100,151,0,0" TextWrapping="Wrap" Text="{Binding Path=Proizvod.Cijena, Mode=TwoWay,  ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbCijena" HorizontalAlignment="Left" Height="23" Margin="100,151,0,0" TextWrapping="Wrap" Text="{Binding Path=Proizvod.Cijena, Mode=TwoWay,  ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" VerticalAlignment="Top" Width="127"/>
         <Label Content="  Slika:" HorizontalAlignment="Left" Margin="52,193,0,0" VerticalAlignment="Top"/>
         <Button x:Name="bSlika" Content="Dodaj" HorizontalAlignment="Left" Margin="100,193,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Sl}"/>
-        <Button x:Name="bDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="152,270,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Dodaj}"/>
-        <TextBox x:Name="sl" HorizontalAlignment="Left" Height="23" Margin="64,224,0,0" TextWrapping="Wrap"  IsReadOnly="True" Text="{Binding Path=Proizvod.Slika, Mode=TwoWay,  ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" VerticalAlignment="Top" Width="156"/>
-
+        <Button x:Name="bDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="152,271,0,0" VerticalAlignment="Top" Width="75" Command="{Binding Dodaj}"/>
+        <TextBox x:Name="sl" HorizontalAlignment="Left" Height="23" Margin="100,224,0,0" TextWrapping="Wrap"  IsReadOnly="True" Text="{Binding Path=Proizvod.Slika, Mode=TwoWay,  ValidatesOnDataErrors=True,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}" Validation.ErrorTemplate="{StaticResource ErrorTemplate}" VerticalAlignment="Top" Width="127"/>
+        <Label Content="Selektiraj tip: " HorizontalAlignment="Left" Margin="52,10,0,0" VerticalAlignment="Top"/>
+      
     </Grid>
 </Window>
  

@@ -39,10 +39,7 @@ namespace FanShop
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-        public override string ToString()
-        {
-            return "(" + this.Id + ") DRES";
-        }
+        
 
         public bool IsValid
         {
@@ -101,7 +98,10 @@ namespace FanShop
             return null;
         }
             
-
+        public override string ToString()
+        {
+            return Id + " Dres        " + Cijena + " KM";
+        }
             
     }
 }

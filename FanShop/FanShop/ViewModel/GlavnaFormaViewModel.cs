@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.ComponentModel;
 
 namespace FanShop.ViewModel
 {
-    class GlavnaFormaViewModel
+    class GlavnaFormaViewModel: INotifyPropertyChanged
     {
         private Clan clan;
         private GlavnaForma glavnaView; // view
@@ -22,6 +23,7 @@ namespace FanShop.ViewModel
             ModeratorLogin = new RelayCommand(moderatorLogin);
             Registracija = new RelayCommand(registracija);
             Gost = new RelayCommand(gost);
+            ImageUrl = Environment.CurrentDirectory + @"\slika.jpg";
         }
 
         public Clan Clan
@@ -30,6 +32,33 @@ namespace FanShop.ViewModel
             set { clan = value; }
         }
 
+        string s;
+        string str;
+
+        public string Str
+        {
+            get { return str; }
+            set { str = value; OnPropertyChanged("Str"); }
+        }
+
+        public string ImageUrl
+        {
+            get { return AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\slika.jpg"; }
+            set
+            {
+                s = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "")  + @"\slika.jpg";
+                OnPropertyChanged("ImageUrl");
+            }
+            
+        }
+       public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
         public ICommand UserLogin { get; set; }
         public ICommand AdminLogin { get; set; }
         public ICommand ModeratorLogin { get; set; }
@@ -44,7 +73,12 @@ namespace FanShop.ViewModel
                 WFanShop fs = new WFanShop();
                 fs.DataContext = new WFanShopViewModel(fs);
                 fs.Show();
+                fs.lab.Content = fs.lab.Content + " " + Clan.Username;
                 glavnaView.Hide();
+            }
+            else
+            {
+                Str = "Username ili password nisu tačni.";
             }
         }
 

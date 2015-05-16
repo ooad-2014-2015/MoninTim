@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.ComponentModel;
 
 namespace FanShop.ViewModel
 {
-    public class PrijavaViewModel
+    public class PrijavaViewModel: INotifyPropertyChanged
     {
         private string username;
         private string password;
@@ -19,6 +20,7 @@ namespace FanShop.ViewModel
             username = password = "";
             bindedView = view;
         }
+        private string s;
         
         public string Username 
         {
@@ -30,6 +32,21 @@ namespace FanShop.ViewModel
         {
             get { return password; }
             set { password = value; }
+        }
+
+        public string S
+        {
+            get { return s;}
+            set { s = value; OnPropertyChanged("S"); }
+
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
 
         public ICommand Login { get; set; }
@@ -57,12 +74,17 @@ namespace FanShop.ViewModel
                 }
                 else
                 {
-                    // TODO: obavijestiti da je fulao formu (??? ili se podrazumijeva ???)
+                    if (bindedView is Login1)
+                    {
+ 
+                    }
                 }
             }
             else
             {
-                // TODO: obavijestiti da ne valja password 
+              
+                S = "Unijeli ste neispravne podatke.";
+                 
             }
             //CloseAction();
         }

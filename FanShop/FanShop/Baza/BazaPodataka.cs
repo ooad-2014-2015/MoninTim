@@ -269,6 +269,93 @@ namespace FanShop.Baza
             return lista;
         }
 
+
+        public List<Arhiva> UcitajArhivuDan()
+        {
+            List<Arhiva> arhiva = new List<Arhiva>();
+            MySqlCommand query = new MySqlCommand("SELECT id, Sum(kolicina), tip FROM arhiva  WHERE datum = SYSDATE GROUP BY id ORDER BY Sum(Kolicina) DESC LIMIT 10;", con);
+            MySqlDataReader r = query.ExecuteReader(); 
+
+            while (r.Read())
+                arhiva.Add(new Arhiva(r.GetInt32("id"), r.GetInt32("kolicina"), r.GetString("tip")));
+
+            r.Close();
+            Disconnect();
+
+
+            return arhiva;
+        }
+        public List<Arhiva> UcitajArhivuMjesec()
+        {
+            List<Arhiva> arhiva = new List<Arhiva>();
+            MySqlCommand query = new MySqlCommand("SELECT id, Sum(kolicina), tip FROM arhiva  WHERE TO_NUMBER (TO_CHAR('datum', 'YYYY')) = TO_NUMBER(TO_CHAR('SYSDATE', 'YYYY')) AND TO_NUMBER (TO_CHAR('datum', 'MM')) = TO_NUMBER(TO_CHAR('SYSDATE', 'MM')) GROUP BY id ORDER BY Sum(Kolcina) DESC LIMIT 10;", con);
+            MySqlDataReader r = query.ExecuteReader();
+
+            while (r.Read() )
+            {
+                arhiva.Add(new Arhiva(r.GetInt32("id"), r.GetInt32("Sum(kolicina)"), r.GetString("tip")));
+               
+            }
+
+            r.Close();
+            Disconnect();
+
+
+            return arhiva;
+        }
+        public List<Arhiva> UcitajArhivuGodina()
+        {
+            List<Arhiva> arhiva = new List<Arhiva>();
+            MySqlCommand query = new MySqlCommand("SELECT id, Sum(kolicina), tip  WHERE TO_NUMBER (TO_CHAR('datum', 'YYYY')) = TO_NUMBER(TO_CHAR('SYSDATE', 'YYYY')) GROUP BY id ORDER BY Sum(Kolicina) DESC LIMIT 10;", con);
+            MySqlDataReader r = query.ExecuteReader();
+
+            
+            while (r.Read()){
+                arhiva.Add(new Arhiva(r.GetInt32("id"), r.GetInt32("Sum(kolicina)"), r.GetString("tip")));
+    
+            }
+
+            r.Close();
+            Disconnect();
+
+
+            return arhiva;
+        }
+
+
+        public List<Proizvod> VratiZaDanas()
+        {
+
+            List<Proizvod> lista = new List<Proizvod>();
+            List<Arhiva> arh = UcitajArhivuDan();
+            for (int i = 0; i < arh.Count; i++ )
+                lista.Add(DajProizvodPoIdu((arh[i].ID).ToString(), arh[i].Tip));
+
+            return lista;
+        }
+
+        public List<Proizvod> VratiZaMjesec()
+        {
+            List<Proizvod> lista = new List<Proizvod>();
+            List<Arhiva> arh = UcitajArhivuMjesec();
+            for (int i = 0; i < arh.Count; i++)
+                lista.Add(DajProizvodPoIdu((arh[i].ID).ToString(), arh[i].Tip));
+
+            return lista;
+
+        }
+        public List<Proizvod> VratiZaGodinu()
+        {
+            List<Proizvod> lista = new List<Proizvod>();
+            List<Arhiva> arh = UcitajArhivuGodina();
+            for (int i = 0; i < arh.Count; i++)
+                lista.Add(DajProizvodPoIdu((arh[i].ID).ToString(), arh[i].Tip));
+
+            return lista;
+        }
+
+   
+
         private Proizvod DajProizvodPoIdu(string id, string tip)
         {
             Connect();

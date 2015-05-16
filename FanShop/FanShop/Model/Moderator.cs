@@ -10,7 +10,7 @@ namespace FanShop
 {
     public class Moderator : Osoba, INotifyPropertyChanged, IDataErrorInfo
     {
-        private string username, password, ime_prezime;
+        private string username, password, ime_prezime, lab;
         private int id;
 
         public string Username
@@ -18,6 +18,13 @@ namespace FanShop
             get { return username; }
             set { username = value; OnPropertyChanged("Username"); }
         }
+
+        public string Lab
+        {
+            get { return lab; }
+            set { lab = value; OnPropertyChanged("Lab"); }
+        }
+
 
         public string Password
         {

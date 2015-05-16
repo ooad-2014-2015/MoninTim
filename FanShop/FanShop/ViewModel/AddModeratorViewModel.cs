@@ -11,6 +11,7 @@ namespace FanShop.ViewModel
     {
         private Moderator mod;
         private AdminViewModel parent;
+        private string lab;
 
         public AddModeratorViewModel(AdminViewModel p)
         {
@@ -23,6 +24,12 @@ namespace FanShop.ViewModel
         {
             get { return parent; }
             set { parent = value; }
+        }
+
+        public string Lab
+        {
+            get { return lab; }
+            set {lab= value;}
         }
 
         public Moderator Moderator
@@ -41,6 +48,8 @@ namespace FanShop.ViewModel
                 Baza.BazaPodataka bp = new Baza.BazaPodataka();
                 Moderator.Id = bp.UnesiUposlenika(mod.Username, mod.Password, mod.Ime_prezime);
                 this.Parent.Moderatori.Add(this.Moderator);
+                mod.Lab = "Uspješno ste dodali modeartora. ";
+                mod.Username = mod.Password = mod.Ime_prezime = "";
             }
             else
             {
