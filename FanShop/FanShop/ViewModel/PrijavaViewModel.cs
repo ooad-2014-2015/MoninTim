@@ -68,7 +68,7 @@ namespace FanShop.ViewModel
                 else if (Username != "admin" && bindedView is Login2)
                 {
                     WModerator w = new WModerator();
-                    w.DataContext = new WModeratorViewModel();
+                    w.DataContext = new WModeratorViewModel(Username);
                     w.Show();
                     (bindedView as Login2).Hide();
                 }

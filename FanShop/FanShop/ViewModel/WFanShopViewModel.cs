@@ -180,6 +180,8 @@ namespace FanShop.ViewModel
         {
             StavkaPrivjesak.Proizvod = Privjesak;
 
+            if (ValidirajStavku(StavkaSal, false) == false) System.Windows.Forms.MessageBox.Show("Prosljeđene informacije o proizvodu koji želite kupiti nisu uredu!", "Greška!");
+
             if (Korpa.Stavke.Any(x => x.Proizvod == StavkaPrivjesak.Proizvod))
             {
                 Stavka s = new Stavka(Korpa.Stavke.First(x => x.Proizvod == StavkaPrivjesak.Proizvod));
@@ -193,6 +195,8 @@ namespace FanShop.ViewModel
         private void kupiDres(object parametar)
         {
             StavkaDres.Proizvod = Dres;
+
+            if (ValidirajStavku(StavkaSal) == false) System.Windows.Forms.MessageBox.Show("Prosljeđene informacije o proizvodu koji želite kupiti nisu uredu!", "Greška!");
 
             if (Korpa.Stavke.Any(x => x.Proizvod == StavkaDres.Proizvod))
             {
@@ -208,6 +212,8 @@ namespace FanShop.ViewModel
         {
             StavkaSal.Proizvod = Sal;
 
+            if (ValidirajStavku(StavkaSal, false) == false) System.Windows.Forms.MessageBox.Show("Prosljeđene informacije o proizvodu koji želite kupiti nisu uredu!", "Greška!");
+
             if (Korpa.Stavke.Any(x => x.Proizvod == StavkaSal.Proizvod))
             {
                 Stavka s = new Stavka(Korpa.Stavke.First(x => x.Proizvod == StavkaSal.Proizvod));
@@ -222,6 +228,8 @@ namespace FanShop.ViewModel
         {
             StavkaKapa.Proizvod = Kapa;
 
+            if (ValidirajStavku(StavkaSal) == false) System.Windows.Forms.MessageBox.Show("Prosljeđene informacije o proizvodu koji želite kupiti nisu uredu!", "Greška!");
+            
             if (Korpa.Stavke.Any(x => x.Proizvod == StavkaKapa.Proizvod))
             {
                 Stavka s = new Stavka(Korpa.Stavke.First(x => x.Proizvod == StavkaKapa.Proizvod));
@@ -369,6 +377,15 @@ namespace FanShop.ViewModel
             p.Show();
         }
 
+        private bool ValidirajStavku(Stavka s, bool ima_velicinu = true)
+        {
+            if (s.Kolicina == 0 || s.Proizvod == null) return false;
+
+            if (ima_velicinu)
+                if (s.Velicina.ToUpper() != "S" && s.Velicina.ToUpper() != "M" && s.Velicina.ToUpper() != "L" && s.Velicina.ToUpper() != "XL") return false;
+
+            return true; // ako nista ne prodje, onda je uredu
+        }
       
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)

@@ -111,6 +111,8 @@ namespace FanShop.ViewModel
                     {
                         case "d":
                             bp.UnesiDres(id.ToString(), pro.Slika, (pro.Cijena).ToString());
+                            bp.UnesiULog(Parent.idModeratora.ToString(), "Unio/la dres sa ID-om " + id.ToString(), "DATE(CURDATE())");
+
                             Dres d = new Dres(Proizvod);
                             d.Id = id;
                             this.Parent.Proizvodi.Add(d);
@@ -119,6 +121,8 @@ namespace FanShop.ViewModel
                             break;
                         case "s":
                             bp.UnesiSal(id.ToString(), pro.Slika, (pro.Cijena).ToString());
+                            bp.UnesiULog(Parent.idModeratora.ToString(), "Unio/la sal sa ID-om " + id.ToString(), "DATE(CURDATE())");
+
                             Sal s = new Sal(Proizvod);
                             s.Id = id;
                             this.Parent.Proizvodi.Add(s);
@@ -127,6 +131,8 @@ namespace FanShop.ViewModel
                             break;
                         case "k":
                             bp.UnesiKapu(id.ToString(), pro.Slika, (pro.Cijena).ToString());
+                            bp.UnesiULog(Parent.idModeratora.ToString(), "Unio/la kapu sa ID-om " + id.ToString(), "DATE(CURDATE())");
+
                             Kapa k = new Kapa(Proizvod);
                             k.Id = id;
                             // k.Velicine = ??
@@ -136,6 +142,8 @@ namespace FanShop.ViewModel
                             break;
                         case "p":
                             bp.UnesiPrivjesak(id.ToString(), pro.Slika, (pro.Cijena).ToString());
+                            bp.UnesiULog(Parent.idModeratora.ToString(), "Unio/la privjesak sa ID-om " + id.ToString(), "DATE(CURDATE())");
+
                             Privjesak p = new Privjesak(Proizvod);
                             p.Id = id;
                             this.Parent.Proizvodi.Add(p);
@@ -143,9 +151,6 @@ namespace FanShop.ViewModel
                          
                             break;
                     }
-                    
-                    //Moderator.Id = bp.UnesiUposlenika(mod.Username, mod.Password, mod.Ime_prezime);
-                    
                 }
             }
             else

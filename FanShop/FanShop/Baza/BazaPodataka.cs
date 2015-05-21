@@ -31,8 +31,6 @@ namespace FanShop.Baza
             Connect();
             
             MySqlCommand insertQuery = new MySqlCommand(
-                  //"INSERT INTO dresovi (ime_igraca, slika, cijena) VALUES (" + 
-                  //   id + ", '" + slika + "', " + cijena + ");", con);
                   "INSERT INTO dresovi (id, slika, cijena) VALUES (" + 
                      id + ", '" + slika + "', " + cijena + ");", con);
 
@@ -105,10 +103,17 @@ namespace FanShop.Baza
         public bool UnesiUArhivu(string id, string kolicina, string datum)
         {
             Connect();
+            string tip = "";
+
+            MySqlCommand tipcmd = new MySqlCommand("SELECT tip FROM katalog WHERE id=" + id, con);
+            MySqlDataReader r = tipcmd.ExecuteReader();
+            r.Read();
+            tip = r.GetString("tip");
+            r.Close();
 
             MySqlCommand insertQuery = new MySqlCommand(
-                "INSERT INTO arhiva (id, kolicina, datum) VALUES (" +
-                    id + ", " + kolicina + ", " + datum + ");", con);
+                "INSERT INTO arhiva (id, kolicina, datum, tip) VALUES (" +
+                    id + ", " + kolicina + ", " + datum + ", '" + tip + "');", con);
 
             insertQuery.ExecuteNonQuery();
             Disconnect();
@@ -154,6 +159,19 @@ namespace FanShop.Baza
             Disconnect();
             return id;
         }
+
+        public void UnesiULog(string id, string akcija, string datum)
+        {
+            Connect();
+
+            MySqlCommand insertQuery = new MySqlCommand(
+                "INSERT INTO log (id, akcija, datum) VALUES (" +
+                    id + ", '" + akcija + "', " + datum + ");", con);
+
+            insertQuery.ExecuteNonQuery();
+            Disconnect();
+        }
+
         // ==============>> SELECTI:
 
         public List<Dres> VratiDresove()
@@ -272,12 +290,13 @@ namespace FanShop.Baza
 
         public List<Arhiva> UcitajArhivuDan()
         {
+            Connect();
             List<Arhiva> arhiva = new List<Arhiva>();
-            MySqlCommand query = new MySqlCommand("SELECT id, Sum(kolicina), tip FROM arhiva  WHERE datum = SYSDATE GROUP BY id ORDER BY Sum(Kolicina) DESC LIMIT 10;", con);
+            MySqlCommand query = new MySqlCommand("SELECT id, Sum(kolicina), tip FROM arhiva  WHERE DATE(datum) = CURDATE() GROUP BY id ORDER BY Sum(Kolicina) DESC LIMIT 10;", con);
             MySqlDataReader r = query.ExecuteReader(); 
 
             while (r.Read())
-                arhiva.Add(new Arhiva(r.GetInt32("id"), r.GetInt32("kolicina"), r.GetString("tip")));
+                arhiva.Add(new Arhiva(r.GetInt32("id"), r.GetInt32("Sum(kolicina)"), r.GetString("tip")));
 
             r.Close();
             Disconnect();
@@ -287,8 +306,9 @@ namespace FanShop.Baza
         }
         public List<Arhiva> UcitajArhivuMjesec()
         {
+            Connect();
             List<Arhiva> arhiva = new List<Arhiva>();
-            MySqlCommand query = new MySqlCommand("SELECT id, Sum(kolicina), tip FROM arhiva  WHERE TO_NUMBER (TO_CHAR('datum', 'YYYY')) = TO_NUMBER(TO_CHAR('SYSDATE', 'YYYY')) AND TO_NUMBER (TO_CHAR('datum', 'MM')) = TO_NUMBER(TO_CHAR('SYSDATE', 'MM')) GROUP BY id ORDER BY Sum(Kolcina) DESC LIMIT 10;", con);
+            MySqlCommand query = new MySqlCommand("SELECT id, Sum(kolicina), tip FROM arhiva  WHERE YEAR(DATE(datum)) = YEAR(CURDATE()) AND MONTH(DATE(datum)) = MONTH(CURDATE()) GROUP BY id ORDER BY Sum(kolicina) DESC LIMIT 10;", con);
             MySqlDataReader r = query.ExecuteReader();
 
             while (r.Read() )
@@ -305,8 +325,9 @@ namespace FanShop.Baza
         }
         public List<Arhiva> UcitajArhivuGodina()
         {
+            Connect();
             List<Arhiva> arhiva = new List<Arhiva>();
-            MySqlCommand query = new MySqlCommand("SELECT id, Sum(kolicina), tip  WHERE TO_NUMBER (TO_CHAR('datum', 'YYYY')) = TO_NUMBER(TO_CHAR('SYSDATE', 'YYYY')) GROUP BY id ORDER BY Sum(Kolicina) DESC LIMIT 10;", con);
+            MySqlCommand query = new MySqlCommand("SELECT id, Sum(kolicina), tip FROM arhiva WHERE YEAR(DATE(datum)) = YEAR(CURDATE()) GROUP BY id ORDER BY Sum(kolicina) DESC LIMIT 10;", con);
             MySqlDataReader r = query.ExecuteReader();
 
             
@@ -325,7 +346,6 @@ namespace FanShop.Baza
 
         public List<Proizvod> VratiZaDanas()
         {
-
             List<Proizvod> lista = new List<Proizvod>();
             List<Arhiva> arh = UcitajArhivuDan();
             for (int i = 0; i < arh.Count; i++ )
@@ -453,6 +473,40 @@ namespace FanShop.Baza
             return lista;
         }
 
+        public List<string> VratiLog()
+        {
+            Connect();
+            List<string> lista = new List<string>();
+
+            MySqlCommand query = new MySqlCommand("SELECT * FROM log;", con);
+            MySqlDataReader r = query.ExecuteReader();
+
+            while (r.Read())
+            {
+                string id = r.GetString("id");
+                string akcija = r.GetString("akcija");
+                string datum = r.GetString("datum");
+
+                lista.Add(id + " - " + akcija + " (" + datum + ")");
+            }
+
+            Disconnect();
+            return lista;
+        }
+
+        public int VratiIDModeratora(string username)
+        {
+            Connect();
+            int id = 0;
+
+            MySqlCommand query = new MySqlCommand("SELECT id FROM uposlenici WHERE username='" + username + "';", con);
+            MySqlDataReader r = query.ExecuteReader();
+            r.Read();
+
+            id = r.GetInt32("id");
+            Disconnect();
+            return id;
+        }
         // ==============>> DROPOVI:
 
         public void ObrisiDres(string id, int ugasi_konekciju = 1)
@@ -460,6 +514,7 @@ namespace FanShop.Baza
             Connect();
             MySqlCommand delquery = new MySqlCommand("DELETE FROM dresovi WHERE id = " + id + ";", con);
             delquery.ExecuteNonQuery();
+            IzbrisiIzArhive(id);
             if (ugasi_konekciju == 1) Disconnect();
         }
 
@@ -468,6 +523,7 @@ namespace FanShop.Baza
             Connect();
             MySqlCommand delquery = new MySqlCommand("DELETE FROM salovi WHERE id = " + id + ";", con);
             delquery.ExecuteNonQuery();
+            IzbrisiIzArhive(id);
             if (ugasi_konekciju == 1) Disconnect();
         }
 
@@ -476,6 +532,7 @@ namespace FanShop.Baza
             Connect();
             MySqlCommand delquery = new MySqlCommand("DELETE FROM kape WHERE id = " + id + ";", con);
             delquery.ExecuteNonQuery();
+            IzbrisiIzArhive(id);
             if (ugasi_konekciju == 1) Disconnect();
         }
 
@@ -484,6 +541,7 @@ namespace FanShop.Baza
             Connect();
             MySqlCommand delquery = new MySqlCommand("DELETE FROM privjesci WHERE id = " + id + ";", con);
             delquery.ExecuteNonQuery();
+            IzbrisiIzArhive(id);
             if (ugasi_konekciju == 1) Disconnect();
         }
 
@@ -550,6 +608,12 @@ namespace FanShop.Baza
             if (r.HasRows == false) return false; // fallback ako nema tog usernamea
             else
                 return r.GetString("password") == pw;
+        }
+
+        private void IzbrisiIzArhive(string id)
+        {
+            MySqlCommand delquery = new MySqlCommand("DELETE FROM arhiva WHERE id = " + id + ";", con);
+            delquery.ExecuteNonQuery();
         }
     }
 }

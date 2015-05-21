@@ -22,8 +22,6 @@ namespace FanShop
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-
-            Application.Current.Shutdown();
         }
         public Plaćanje()
         {
@@ -39,6 +37,14 @@ namespace FanShop
                 p.Visibility = System.Windows.Visibility.Visible;
                 q.Visibility = System.Windows.Visibility.Visible;
             }
+        }
+
+        private void check1_Unchecked(object sender, RoutedEventArgs e)
+        {
+            BrojKartice.Visibility = System.Windows.Visibility.Hidden;
+            Ccv.Visibility = System.Windows.Visibility.Hidden;
+            p.Visibility = System.Windows.Visibility.Hidden;
+            q.Visibility = System.Windows.Visibility.Hidden;
         }
     }
 }

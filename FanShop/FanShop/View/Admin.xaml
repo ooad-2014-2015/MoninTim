@@ -13,15 +13,11 @@
 
                     <Label Content="Pregled moderatora sistema:" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top"/>
                     <Button Content="Obriši" HorizontalAlignment="Left" Margin="19,0,0,100" VerticalAlignment="Bottom" Width="85" Height="auto" Command="{Binding Path=ObrisiUposlenik}"/>
-                    <RichTextBox HorizontalAlignment="Right" Height="auto" Margin="477,53,13,147" VerticalAlignment="Stretch" Width="Auto">
-                        <FlowDocument>
-                            <Paragraph>
-                                <Run Text="RichTextBox"/>
-                            </Paragraph>
-                        </FlowDocument>
-                    </RichTextBox>
+
                     <Label Content="Nedavne aktivnosti moderatora:" HorizontalAlignment="Left" Margin="477,22,0,0" VerticalAlignment="Top"/>
                     <Button Content="Dodaj novog" HorizontalAlignment="Left" Margin="127,0,0,100" VerticalAlignment="Bottom" Width="78" Height="auto" Command="{Binding Path=DodajNovog}" />
+                    <ListBox HorizontalAlignment="Left" Height="304" VerticalAlignment="Top" Width="254" Margin="477,53,0,0"
+                             ItemsSource="{Binding Path=Log}"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Članovi">

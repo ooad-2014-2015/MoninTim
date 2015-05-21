@@ -22,6 +22,7 @@ namespace FanShop.ViewModel
             Baza.BazaPodataka bp = new Baza.BazaPodataka();
             listaModeratora = new ObservableCollection<Moderator>(bp.VratiUposlenike());
             listaClanova = new ObservableCollection<Clan>(bp.VratiClanove());
+            Log = new List<string>(bp.VratiLog());
 
             DodajNovog = new RelayCommand(dodajNovog);
             ObrisiUposlenik = new RelayCommand(obrisiUposlenik);
@@ -53,6 +54,8 @@ namespace FanShop.ViewModel
             get { return clanId; }
             set { clanId = value; OnPropertyChanged("ClanID"); }
         }
+
+        public List<string> Log { get; set; }
 
         public ICommand DodajNovog { get; set; }
         public ICommand ObrisiUposlenik { get; set; }

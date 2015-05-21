@@ -35,7 +35,7 @@
         <Button Content="Pretplati se" HorizontalAlignment="Left" Margin="421,483,0,0" VerticalAlignment="Top" Width="121" Height="30" Command="{Binding Registracija}" />
         <Label Content=" Još uvijek nemaš račun?" HorizontalAlignment="Left" Margin="212,484,0,0" VerticalAlignment="Top" FontSize="15"  FontStyle="Oblique" Width="178"/>
         <Label Content="ili" HorizontalAlignment="Left" Margin="570,484,0,0" VerticalAlignment="Top" FontSize="15"  FontStyle="Oblique" Width="60" Height="30"/>
-        <TextBox HorizontalAlignment="Left" Height="62" Margin="502,61,0,0" FontSize="35" FontWeight="ExtraBold" Foreground="SeaShell" Background="LightSeaGreen" TextWrapping="Wrap" Text="     FK Hepek" VerticalAlignment="Top" Width="275"/>
+        <TextBox HorizontalAlignment="Left" Height="62" Margin="502,61,0,0" FontSize="35" FontWeight="ExtraBold" Foreground="SeaShell" Background="LightSeaGreen" TextWrapping="Wrap" Text="     FK Hepek" VerticalAlignment="Top" Width="275" IsReadOnly="True"/>
         <TextBox HorizontalAlignment="Left" Height="35" FontSize="14" Margin="502,381,0,0" TextWrapping="Wrap" BorderBrush="Transparent" Foreground="Red" Text="{Binding Str, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="274"/>
 
     </Grid>

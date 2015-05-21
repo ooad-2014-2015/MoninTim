@@ -129,9 +129,9 @@ namespace FanShop
             {
                 return "Username ne može glasiti -Admin- ";
             }
-            if (Username.ToUpper() == "DROP TABLE")
+            if (Regex.Match(Username.ToUpper(), "DROP TABLE").Success)
             {
-                return "Username ne može glasiti -DROP TABLE-";
+                return "Username ne može sadržavati -DROP TABLE-";
             }
             return null;
         }
@@ -148,9 +148,9 @@ namespace FanShop
             {
                 return "Password mora imati više od 4 znaka!";
             }
-            if (Password.ToUpper() == "DROP TABLE")
+            if (Regex.Match(Password.ToUpper(), "DROP TABLE").Success)
             {
-                return "Username ne može glasiti -DROP TABLE-";
+                return "Password ne može sadržavati -DROP TABLE-";
             }
             return null;
         }
@@ -179,6 +179,8 @@ namespace FanShop
             {
                 return "Morate navesti broj";
             }
+            if (Regex.Match(Broj_telefona, @"^0\d{8}$").Success == false)
+                return "Broj telefona mora biti oblika: 0XXXXXXXX (0 pa 8 brojeva!)";
 
             return null;
         }
@@ -189,9 +191,9 @@ namespace FanShop
             {
                 return "Morate navesti adresu";
             }
-            if (Adresa.ToUpper() == "DROP TABLE")
+            if (Regex.Match(Adresa.ToUpper(), "DROP TABLE").Success)
             {
-                return "Adresa ne može glasiti -drop table-";
+                return "Adresa ne može sadržavati -drop table-";
             }
             return null;
         }

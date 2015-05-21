@@ -17,9 +17,9 @@ namespace FanShop.ViewModel
         private ObservableCollection<Proizvod> statistikaGodina;
 
         private int proizvodId;
+        public int idModeratora;
 
-
-        public WModeratorViewModel() 
+        public WModeratorViewModel(string username) 
         {
             Baza.BazaPodataka bp = new Baza.BazaPodataka();
             listaProizvoda = new ObservableCollection<Proizvod>(bp.VratiKatalog());
@@ -29,6 +29,8 @@ namespace FanShop.ViewModel
 
             Dodaj = new RelayCommand(dodaj);
             Obrisi = new RelayCommand(obrisi);
+
+            idModeratora = bp.VratiIDModeratora(username);
         }
 
         public ICommand Dodaj { get; set; }
@@ -74,6 +76,7 @@ namespace FanShop.ViewModel
         {
             Baza.BazaPodataka bp = new Baza.BazaPodataka();
             bp.ObrisiProizvod(ProizvodID.ToString());
+            bp.UnesiULog(idModeratora.ToString(), "Obrisao/la artikal sa ID-om " + ProizvodID.ToString(), "DATE(CURDATE())"); 
             this.Proizvodi.Remove(x => x.Id == ProizvodID);
         }
 
