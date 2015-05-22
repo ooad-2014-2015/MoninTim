@@ -31,9 +31,16 @@ public class LevelInfo : MonoBehaviour {
     }
 
     public static int nextLevel = 1;
+    private static LevelStruct customLevel;
+    public static bool isCustomLevel = false;
 
     public static LevelStruct GetLevel(int index)
     {
+        if (isCustomLevel)
+            return customLevel;
+        else if (index == 5) // koliko ima levela
+            Application.LoadLevel("MenuScene");
+
         LevelStruct level1 = new LevelStruct();
         level1.levelarray = new string[] { "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
                                             "W                                      W",
@@ -132,5 +139,12 @@ public class LevelInfo : MonoBehaviour {
         levels.Add(level5);
         
         return levels[index - 1];
+    }
+
+    public static void SetCustomLevel(string[] arr, int coins)
+    {
+        isCustomLevel = true;
+        customLevel.levelarray = arr;
+        customLevel.numberOfCoins = coins;
     }
 }

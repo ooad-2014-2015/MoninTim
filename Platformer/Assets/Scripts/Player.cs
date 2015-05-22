@@ -76,19 +76,21 @@ public class Player : MonoBehaviour {
 
     private void CollectCoin()
     {
-        Debug.Log(score + " == " + Level.numberOfCoins);
-
         score += 1;
         if (score == Level.numberOfCoins)
         {
-            Application.LoadLevel("LevelScene");
+            if (LevelInfo.isCustomLevel == false) // ako nije user-defined level, nek ide na sljedeci level iz liste
+                Application.LoadLevel("LevelScene");
+            else
+            {
+                Level.GameOver();
+            }
         }
     }
 
     private void Die()
     {
         Destroy(rbd.gameObject);
-
-        // TODO: kraj levela
+        Level.GameOver();
     }
 }

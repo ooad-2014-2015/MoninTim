@@ -32,19 +32,36 @@ public class Level : MonoBehaviour {
 
     private LevelStruct currentLevel;
     public static int numberOfCoins;
-
-	// Use this for initialization
+    public static GameObject gameOverPanel;
+	
+    // Use this for initialization
 	void Start () {
         currentLevel = LevelInfo.GetLevel(LevelInfo.nextLevel);
         numberOfCoins = currentLevel.numberOfCoins;
         this.DrawLevel(currentLevel.levelarray);
 
         LevelInfo.nextLevel += 1; // sljedeci level
+
+        gameOverPanel = GameObject.FindObjectOfType<Canvas>().gameObject; // referenca na GameOver panel
+        gameOverPanel.SetActive(false);                                   
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	    
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R))
+        {
+            this.Restart();
+        }
+
+        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Q))
+        {
+            this.Quit();
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.LoadLevel("MainScene");
+        }
 	}
 
     private void DrawLevel(string[] arrlevel)
@@ -116,5 +133,21 @@ public class Level : MonoBehaviour {
         float y = 4.7f - i / 2f; 
         
         return new Vector3(x, y, 0);
+    }
+
+    public void Restart()
+    {
+        LevelInfo.nextLevel -= 1; // da ne otvori sljedeci nego trenutni level!
+        Application.LoadLevel("LevelScene");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public static void GameOver()
+    {
+        gameOverPanel.SetActive(true);
     }
 }
