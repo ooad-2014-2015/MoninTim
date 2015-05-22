@@ -109,16 +109,14 @@ namespace FanShop.ViewModel
 
 
          PaperSize psize = new PaperSize("Custom", 100, 200);
-         //ps.DefaultPageSettings.PaperSize = psize;
-
+    
          pd.Document= pdoc;
          pd.Document.DefaultPageSettings.PaperSize = psize;
-         //pdoc.DefaultPageSettings.PaperSize.Height =320;
          pdoc.DefaultPageSettings.PaperSize.Height = 820;
 
          pdoc.DefaultPageSettings.PaperSize.Width = 520;
 
-         pdoc.PrintPage += new PrintPageEventHandler(pdoc_PrintPage);
+         pdoc.PrintPage += new PrintPageEventHandler(Stranica);
 
          DialogResult result = pd.ShowDialog();
          if (result == DialogResult.OK)
@@ -133,7 +131,7 @@ namespace FanShop.ViewModel
          }
     }
 
-        void pdoc_PrintPage(object sender, PrintPageEventArgs e)
+        void Stranica(object sender, PrintPageEventArgs e)
         {
             Graphics graphics = e.Graphics;
             Font font = new Font("Courier New", 10);
