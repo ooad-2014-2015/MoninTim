@@ -9,7 +9,6 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rbd;
 
     private int score = 0;
-    public int lives = 3;
 
     // TODO
     // public int x;    // startne
@@ -41,10 +40,6 @@ public class Player : MonoBehaviour {
     // Prvi collider koji registruje kolizije sa Coinom ili Lavom
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Coin")) {
-            this.ActOnCollision("Coin");
-        }
-        
         if (col.gameObject.CompareTag("Lava")) {
             this.ActOnCollision("Lava");
         }
@@ -53,47 +48,47 @@ public class Player : MonoBehaviour {
     // Drugi collider koji služi kao trigger za skakanje (nalazi se na dnu Playera)
     void OnTriggerEnter2D(Collider2D col)
     {
-        grounded = true;
+        if (col.gameObject.CompareTag("Coin"))
+        {
+            this.ActOnCollision("Coin");
+        }
+        else // drugi trigger u igri je Ground
+            grounded = true;
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        grounded = false;
+        // da ne bude double jump nakon sto se pokupi Coin
+        if (col.gameObject.CompareTag("Coin") == false)
+            grounded = false;
     }
 
     // Poziva odgovarajuce metode u slucaju collide-a
     void ActOnCollision(string tag)
     {
         if (tag == "Coin")
+        {
             this.CollectCoin();
+        }
         else if (tag == "Lava")
             this.Die(); 
     }
 
     private void CollectCoin()
     {
+        Debug.Log(score + " == " + Level.numberOfCoins);
+
         score += 1;
+        if (score == Level.numberOfCoins)
+        {
+            Application.LoadLevel("LevelScene");
+        }
     }
 
     private void Die()
     {
-        lives -= 1;
         Destroy(rbd.gameObject);
 
-        if (lives == -1)
-        {    
-            // TODO: kraj levela
-        }
-        else
-        {
-            // TODO
-            // this.ResetNaStartnePozicije(); 
-        }
-    }
-
-    private void ResetStats()
-    {
-        score = 0;
-        lives = 3;
+        // TODO: kraj levela
     }
 }

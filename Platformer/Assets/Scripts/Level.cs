@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Level : MonoBehaviour {
     // dimenzije string arraya su: 40 x 19
-    private string[] arrlevel = new string[] { "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+    /*private string[] arrlevel = new string[] { "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
                                                "W                    C                 W",
                                                "W                                      W",
                                                "W      C                               W",
@@ -28,11 +28,18 @@ public class Level : MonoBehaviour {
      *      - -> Horizontalna lava (pomjerajuca)
      *      C -> Novcic ([C]oin)
      *      
-     */ 
+     */
+
+    private LevelStruct currentLevel;
+    public static int numberOfCoins;
 
 	// Use this for initialization
 	void Start () {
-        this.DrawLevel();
+        currentLevel = LevelInfo.GetLevel(LevelInfo.nextLevel);
+        numberOfCoins = currentLevel.numberOfCoins;
+        this.DrawLevel(currentLevel.levelarray);
+
+        LevelInfo.nextLevel += 1; // sljedeci level
 	}
 	
 	// Update is called once per frame
@@ -40,7 +47,7 @@ public class Level : MonoBehaviour {
 	    
 	}
 
-    private void DrawLevel()
+    private void DrawLevel(string[] arrlevel)
     {
         for (int i = 0; i < arrlevel.Length; i ++ )
         {

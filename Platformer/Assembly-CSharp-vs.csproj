@@ -49,6 +49,8 @@
      <Compile Include="Assets\Scripts\Coin.cs" />
      <Compile Include="Assets\Scripts\DroppingLava.cs" />
      <Compile Include="Assets\Scripts\Level.cs" />
+     <Compile Include="Assets\Scripts\MenuScripts\LevelInfo.cs" />
+     <Compile Include="Assets\Scripts\MenuScripts\MenuManager.cs" />
      <Compile Include="Assets\Scripts\MovingLava.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\StacionaryLava.cs" />
