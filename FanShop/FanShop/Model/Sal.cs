@@ -11,7 +11,7 @@ namespace FanShop
     {
         public override string ToString()
         {
-            return Id + " Šal          " + Cijena + " KM";
+            return Id + " Šal             " + Cijena + " KM";
         }
             
 

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Drawing;
 
 namespace FanShop
 {
@@ -22,6 +23,8 @@ namespace FanShop
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
+         
+            
 
             Application.Current.Shutdown();
         }
@@ -48,6 +51,11 @@ namespace FanShop
         public void PromijeniSelektiraniPrivjesak(int i)
         {
             cbPrivjesci.SelectedIndex = i;
+        }
+
+        private void cbDresovi_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+        
         }
     }
 }

@@ -79,6 +79,7 @@ namespace FanShop.ViewModel
             // hau ?!?!  MAYBE LIKE THIS??
             
             GlavnaForma g = new GlavnaForma();
+            g.DataContext = new GlavnaFormaViewModel(g);
             g.Show();
             // :D
         }

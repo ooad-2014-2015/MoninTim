@@ -59,6 +59,7 @@
                                    IsSynchronizedWithCurrentItem="True"
                                    ItemsSource="{Binding Dresovi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                    SelectedItem="{Binding Dres, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                   SelectionChanged="cbDresovi_SelectionChanged_1"
                                    />
                         <ComboBox  x:Name="cbKape" Margin="286,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"
                                    ItemsSource="{Binding Kape, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
@@ -72,10 +73,10 @@
                                    ItemsSource="{Binding Salovi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                                    SelectedItem="{Binding Sal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                    />
-                        <Image HorizontalAlignment="Left" Height="195" Margin="25,87,0,0" VerticalAlignment="Top" Width="220" Source="/FanShop;component/poz.jpg"/>
-                        <Image HorizontalAlignment="Left" Height="195" Margin="286,87,0,0" VerticalAlignment="Top" Width="220" Source="/FanShop;component/poz1.jpg"/>
-                        <Image HorizontalAlignment="Left" Height="195" Margin="546,87,0,0" VerticalAlignment="Top" Width="220" Source="/FanShop;component/poz2.jpg"/>
-                        <Image HorizontalAlignment="Left" Height="195" Margin="798,87,0,0" VerticalAlignment="Top" Width="220" Source="/FanShop;component/poz3.jpg"/>
+                        <Image HorizontalAlignment="Left" Height="195" Margin="25,87,0,0" VerticalAlignment="Top" Width="220" Source="{Binding Dres.Slika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Image HorizontalAlignment="Left" Height="195" Margin="286,87,0,0" VerticalAlignment="Top" Width="220" Source="{Binding  Kapa.Slika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Image HorizontalAlignment="Left" Height="195" Margin="546,87,0,0" VerticalAlignment="Top" Width="220" Source="{Binding Privjesak.Slika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Image HorizontalAlignment="Left" Height="195" Margin="798,87,0,0" VerticalAlignment="Top" Width="220" Source="{Binding Sal.Slika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <Button Content="prev" HorizontalAlignment="Left" Margin="25,405,0,0" VerticalAlignment="Top" Width="45"
                                 Command="{Binding PrevDres}"/>
                         <Button Content="next" HorizontalAlignment="Left" Margin="200,405,0,0" VerticalAlignment="Top" Width="45"
@@ -100,7 +101,7 @@
                                 Command="{Binding KupiPrivjesak}"/>
                         <Button Content="Kupi" HorizontalAlignment="Left" Margin="872,405,0,0" VerticalAlignment="Top" Width="66"
                                 Command="{Binding KupiSal}"/>
-                        <ListBox HorizontalAlignment="Left" Height="392" Margin="1059,87,0,0" VerticalAlignment="Top" Width="281"
+                        <ListBox x:Name="lb"  HorizontalAlignment="Left" Height="392"  FontFamily="Courier New" Margin="1059,87,0,0" VerticalAlignment="Top" Width="281"
                                  ItemsSource="{Binding Korpa.Stavke}"
                                  SelectedItem="{Binding StavkaKorpa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              />
@@ -118,10 +119,10 @@
                         <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="646,300,0,0" TextWrapping="Wrap" Text="{Binding Privjesak.Cijena}" VerticalAlignment="Top" Width="120"/>
                         <Label Content="Cijena:" HorizontalAlignment="Left" Margin="798,302,0,0" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="898,302,0,0" TextWrapping="Wrap" Text="{Binding Sal.Cijena}" VerticalAlignment="Top" Width="120"/>
-                        <Label Content="Upišite veličinu S-M-X-XL:" HorizontalAlignment="Left" Margin="25,331,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Upišite veličinu S-M-L-XL:" HorizontalAlignment="Left" Margin="25,331,0,0" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left"  Height="23" Margin="188,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"
                                  Text="{Binding StavkaDres.Velicina}"/>
-                        <Label Content="Upišite veličinu S-M-X-XL" HorizontalAlignment="Left" Margin="286,331,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Upišite veličinu S-M-L-XL" HorizontalAlignment="Left" Margin="286,331,0,0" VerticalAlignment="Top"/>
                         <TextBox HorizontalAlignment="Left" Height="23" Margin="449,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"
                                  Text="{Binding StavkaKapa.Velicina}"/>
                         <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="25,362,0,0" VerticalAlignment="Top"/>

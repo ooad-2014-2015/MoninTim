@@ -29,6 +29,11 @@ namespace FanShop.Baza
 
         public bool UnesiDres(string id, string slika, string cijena) {
             Connect();
+            string s = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "");
+            s = s.Replace("\\", "\\\\");
+           
+            
+            slika =slika.Replace(s, "");
             
             MySqlCommand insertQuery = new MySqlCommand(
                   "INSERT INTO dresovi (id, slika, cijena) VALUES (" + 
@@ -43,6 +48,11 @@ namespace FanShop.Baza
         public bool UnesiSal(string id, string slika, string cijena)
         {
             Connect();
+            string s = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "");
+            s = s.Replace("\\", "\\\\");
+
+
+            slika = slika.Replace(s, "");
 
             MySqlCommand insertQuery = new MySqlCommand(
                  "INSERT INTO salovi (id, slika, cijena) VALUES (" +
@@ -57,6 +67,11 @@ namespace FanShop.Baza
         {
             Connect();
 
+            string s = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "");
+            s = s.Replace("\\", "\\\\");
+
+
+            slika = slika.Replace(s, "");
             MySqlCommand insertQuery = new MySqlCommand(
                 "INSERT INTO kape (id, slika, cijena) VALUES (" +
                     id + ", '" + slika + "', " + cijena + ");", con);
@@ -69,7 +84,11 @@ namespace FanShop.Baza
         public bool UnesiPrivjesak(string id, string slika, string cijena)
         {
             Connect();
+            string s = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "");
+            s = s.Replace("\\", "\\\\");
 
+
+            slika = slika.Replace(s, "");
             MySqlCommand insertQuery = new MySqlCommand(
                 "INSERT INTO privjesci (id, slika, cijena) VALUES (" +
                     id + ", '" + slika + "', " + cijena + ");", con);

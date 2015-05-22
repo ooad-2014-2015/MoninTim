@@ -23,7 +23,13 @@ namespace FanShop.ViewModel
             ModeratorLogin = new RelayCommand(moderatorLogin);
             Registracija = new RelayCommand(registracija);
             Gost = new RelayCommand(gost);
-            ImageUrl = Environment.CurrentDirectory + @"\slika.jpg";
+            ImageUrl = Environment.CurrentDirectory + AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\slika.jpg";
+        }
+
+        public GlavnaForma GlavaView
+        {
+            get;
+            set;
         }
 
         public Clan Clan
@@ -108,12 +114,16 @@ namespace FanShop.ViewModel
 
         private void gost(object parametar)
         {
+
             WFanShop fs = new WFanShop();
-            fs.Show();
+            fs.DataContext = new WFanShopViewModel(fs);
             Gost g = new Gost();
             string s = g.generisiNick();
             fs.lab.Content = fs.lab.Content + "   " + s;
+            fs.Show();
             glavnaView.Hide();
+          
+            
         }
     }
 }

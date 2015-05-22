@@ -16,6 +16,17 @@ namespace FanShop.ViewModel
         private ObservableCollection<Sal>       collSal;
         private ObservableCollection<Kapa>      collKapa;
 
+        string dres;
+        public string DresUrl
+        {
+            get { return dres; }
+            set { 
+                    dres = value;
+                    OnPropertyChanged("DresUrl");
+                }
+        }
+
+
         private Privjesak selectedPrivjesak;
         private Dres      selectedDres;
         private Sal       selectedSal;
@@ -36,6 +47,10 @@ namespace FanShop.ViewModel
             View = view;
             
             UcitajProizvodeUKolekcije();
+            selectedDres = collDres[0];
+            selectedKapa = collKapa[0];
+            selectedPrivjesak = collPrivjesak[0];
+            selectedSal = collSal[0];
 
             korpa = new Korpa();
             stavkaKorpa = new Stavka();
@@ -98,28 +113,42 @@ namespace FanShop.ViewModel
             set { collKapa = value; OnPropertyChanged("Kape"); }
         }
 
+     
+
         public Dres Dres { // trenutno selektirani
             get { return selectedDres; }
-            set { selectedDres = value; OnPropertyChanged("CurrDres"); }
-        }
+            set { selectedDres = value;
+                  OnPropertyChanged("CurrDres");
+                }
+            }
+        
 
         public Sal Sal
         {
             get { return selectedSal; }
-            set { selectedSal = value; OnPropertyChanged("CurrSal"); }
-        }
+            set { 
+                  selectedSal = value;
+                  OnPropertyChanged("CurrSal"); }
+                }
 
         public Kapa Kapa
         {
             get { return selectedKapa; }
-            set { selectedKapa = value; OnPropertyChanged("CurrKapa"); }
+            set
+            {
+                  selectedKapa = value;
+                  OnPropertyChanged("CurrKapa"); }
         }
 
         public Privjesak Privjesak
         {
             get { return selectedPrivjesak; }
-            set { selectedPrivjesak = value; OnPropertyChanged("CurrPrivjesak"); }
-        }
+            set
+            {
+               
+                selectedPrivjesak = value;
+                OnPropertyChanged("CurrPrivjesak"); }
+            }
 
         public Stavka StavkaDres
         {
@@ -180,9 +209,9 @@ namespace FanShop.ViewModel
         {
             StavkaPrivjesak.Proizvod = Privjesak;
 
-            if (ValidirajStavku(StavkaSal, false) == false) System.Windows.Forms.MessageBox.Show("Prosljeđene informacije o proizvodu koji želite kupiti nisu uredu!", "Greška!");
+            if (ValidirajStavku(StavkaPrivjesak, false) == false) System.Windows.Forms.MessageBox.Show("Prosljeđene informacije o proizvodu koji želite kupiti nisu uredu!", "Greška!");
 
-            if (Korpa.Stavke.Any(x => x.Proizvod == StavkaPrivjesak.Proizvod))
+            else if (Korpa.Stavke.Any(x => x.Proizvod == StavkaPrivjesak.Proizvod))
             {
                 Stavka s = new Stavka(Korpa.Stavke.First(x => x.Proizvod == StavkaPrivjesak.Proizvod));
                 s.Kolicina += StavkaPrivjesak.Kolicina;
@@ -196,9 +225,9 @@ namespace FanShop.ViewModel
         {
             StavkaDres.Proizvod = Dres;
 
-            if (ValidirajStavku(StavkaSal) == false) System.Windows.Forms.MessageBox.Show("Prosljeđene informacije o proizvodu koji želite kupiti nisu uredu!", "Greška!");
+            if (ValidirajStavku(StavkaDres, true) == false) System.Windows.Forms.MessageBox.Show("Prosljeđene informacije o proizvodu koji želite kupiti nisu uredu!", "Greška!");
 
-            if (Korpa.Stavke.Any(x => x.Proizvod == StavkaDres.Proizvod))
+            else if (Korpa.Stavke.Any(x => x.Proizvod == StavkaDres.Proizvod))
             {
                 Stavka s = new Stavka(Korpa.Stavke.First(x => x.Proizvod == StavkaDres.Proizvod));
                 s.Kolicina += StavkaDres.Kolicina;
@@ -214,7 +243,7 @@ namespace FanShop.ViewModel
 
             if (ValidirajStavku(StavkaSal, false) == false) System.Windows.Forms.MessageBox.Show("Prosljeđene informacije o proizvodu koji želite kupiti nisu uredu!", "Greška!");
 
-            if (Korpa.Stavke.Any(x => x.Proizvod == StavkaSal.Proizvod))
+            else if (Korpa.Stavke.Any(x => x.Proizvod == StavkaSal.Proizvod))
             {
                 Stavka s = new Stavka(Korpa.Stavke.First(x => x.Proizvod == StavkaSal.Proizvod));
                 s.Kolicina += StavkaSal.Kolicina;
@@ -228,9 +257,9 @@ namespace FanShop.ViewModel
         {
             StavkaKapa.Proizvod = Kapa;
 
-            if (ValidirajStavku(StavkaSal) == false) System.Windows.Forms.MessageBox.Show("Prosljeđene informacije o proizvodu koji želite kupiti nisu uredu!", "Greška!");
+            if (ValidirajStavku(StavkaKapa, true) == false) System.Windows.Forms.MessageBox.Show("Prosljeđene informacije o proizvodu koji želite kupiti nisu uredu!", "Greška!");
             
-            if (Korpa.Stavke.Any(x => x.Proizvod == StavkaKapa.Proizvod))
+            else if (Korpa.Stavke.Any(x => x.Proizvod == StavkaKapa.Proizvod))
             {
                 Stavka s = new Stavka(Korpa.Stavke.First(x => x.Proizvod == StavkaKapa.Proizvod));
                 s.Kolicina += StavkaKapa.Kolicina;

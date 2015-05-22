@@ -32,7 +32,7 @@ namespace FanShop
 
         public override string ToString()
         {
-            return Id + " Kapa       " + Cijena + " KM";
+            return Id + " Kapa            " + Cijena + " KM";
         }
             
     }

@@ -28,6 +28,29 @@ namespace FanShop.ViewModel
             ObrisiUposlenik = new RelayCommand(obrisiUposlenik);
             ObrisiClan = new RelayCommand(obrisiClan);
         }
+        string s;
+        public string ImageUr
+        {
+            get { return AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\sl.jpg"; }
+            set
+            {
+                s = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\sl.jpg";
+                OnPropertyChanged("ImageUrl");
+            }
+
+        }
+
+        public string ImageUrl
+        {
+            get { return AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\s.png"; }
+            set
+            {
+                s = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\s.png";
+                OnPropertyChanged("ImageUrl");
+            }
+
+        }
+
 
         public ObservableCollection<Moderator> Moderatori
         {

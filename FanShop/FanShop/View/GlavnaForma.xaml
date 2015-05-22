@@ -24,10 +24,14 @@
         <Label Content=" Username:" HorizontalAlignment="Left" Margin="396,229,0,0" VerticalAlignment="Top" Height="36" Width="101" FontSize="18"/>
 
         <Label Content="  Password:" HorizontalAlignment="Left" Margin="396,270,0,0" VerticalAlignment="Top" FontSize="18" Width="101"/>
-        <TextBox HorizontalAlignment="Left" BorderBrush="LightSeaGreen" BorderThickness="3" Background="Transparent" Height="36" Margin="502,229,0,0" TextWrapping="Wrap"  Text="{Binding Clan.Username}" VerticalAlignment="Top" Width="275" RenderTransformOrigin="0.503,0.228" FontSize="18" />
+        <TextBox HorizontalAlignment="Left" BorderBrush="LightSeaGreen" BorderThickness="3" Background="Transparent" Height="36" Margin="502,229,0,0" TextWrapping="Wrap"  Text="{Binding Clan.Username}" VerticalAlignment="Top" Width="275" RenderTransformOrigin="0.503,0.228" FontSize="18" >
+        <TextBox.InputBindings>
+            <KeyBinding  Key="Enter" Command="{Binding UserLogin}"/>
+        </TextBox.InputBindings>
+        </TextBox>
         <TextBox HorizontalAlignment="Left" BorderBrush="LightSeaGreen" BorderThickness="3" Background="Transparent" Height="36" Margin="502,270,0,0" TextWrapping="Wrap"  Text="{Binding Clan.Password}" VerticalAlignment="Top" Width="275" RenderTransformOrigin="0.503,0.228" FontSize="18" >
             <TextBox.InputBindings>
-                <KeyBinding  Key="Enter" Command="{Binding UserLogin, Mode=TwoWay}"/>
+                <KeyBinding  Key="Enter" Command="{Binding UserLogin}"/>
             </TextBox.InputBindings>
         </TextBox>
         <Button Content="Login" HorizontalAlignment="Left" Margin="655,322,0,0" VerticalAlignment="Top" Width="121" Height="31" RenderTransformOrigin="0.431,-0.37" Command="{Binding UserLogin}"/>

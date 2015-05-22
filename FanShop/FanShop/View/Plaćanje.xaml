@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Plaćanje" Height="535.714" Width="684.586" ResizeMode="CanMinimize">
     <Grid>
-        <RichTextBox HorizontalAlignment="Left" Height="347" Margin="23,95,0,0" VerticalAlignment="Top" Width="293" IsReadOnly="True">
+        <RichTextBox  x:Name="print_textbox" HorizontalAlignment="Left" Height="347"  ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="Courier New" Margin="23,95,0,0" VerticalAlignment="Top" Width="293" IsReadOnly="True">
             <FlowDocument>
                 <Paragraph>
                     <Run Text="{Binding Path=RacunTekst}"/>
@@ -17,9 +17,10 @@
         <Label x:Name="q" Visibility="Hidden" Content="Ccv:" HorizontalAlignment="Left" Margin="453,179,0,0" VerticalAlignment="Top"/>
         <TextBox  x:Name ="BrojKartice" HorizontalAlignment="Left" Visibility="Hidden" Height="23" Margin="503,148,0,0" TextWrapping="Wrap" Text="{Binding Path=Kartica.BrojKartice}" VerticalAlignment="Top" Width="149"/>
         <TextBox x:Name="Ccv" HorizontalAlignment="Left" Visibility="Hidden" Height="23" Margin="503,179,0,0" TextWrapping="Wrap" Text="{Binding Path=Kartica.Ccv}" VerticalAlignment="Top" Width="149"/>
-        <Button Content="Print" HorizontalAlignment="Left" Margin="23,466,0,0" VerticalAlignment="Top" Width="102"/>
+        <Button Content="Print" HorizontalAlignment="Left" Margin="23,466,0,0" VerticalAlignment="Top" Width="102" Command="{Binding Path=Print}"/>
         <Button Content="Naruči" HorizontalAlignment="Left" Margin="348,466,0,0" VerticalAlignment="Top" Width="114" 
                 Command="{Binding Path=Naruci}"/>
+        <Label Content="Ukoliko ste gost, plaćanje možete izvršiti jedino karticom,inače će kupovina biti poništena" HorizontalAlignment="Left" Margin="105,27,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

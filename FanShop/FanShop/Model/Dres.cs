@@ -100,7 +100,7 @@ namespace FanShop
             
         public override string ToString()
         {
-            return Id + " Dres        " + Cijena + " KM";
+            return Id + " Dres            " + Cijena + " KM";
         }
             
     }

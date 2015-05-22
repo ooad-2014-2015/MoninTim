@@ -4,7 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Xps;
+using System.IO;
+using System.Windows.Media;
+using System.Windows.Documents;
+using System.Windows.Shapes;
 using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing.Printing;
+
+using System.Drawing;
+
+
 
 namespace FanShop.ViewModel
 {
@@ -28,6 +39,8 @@ namespace FanShop.ViewModel
             RacunTekst = Transakcija.DajRacun();
 
             Naruci = new RelayCommand(naruci);
+            Print = new RelayCommand(print);
+           
         }
 
         public bool KarticaCb
@@ -55,6 +68,7 @@ namespace FanShop.ViewModel
         }
 
         public ICommand Naruci { get; set; }
+        public ICommand Print { get; set; }
 
         private void naruci(object parametar)
         {
@@ -81,6 +95,61 @@ namespace FanShop.ViewModel
             System.Windows.Forms.MessageBox.Show("Uspješno kupljeno! Zahvaljujemo se!", "Čestitamo");
             naruceno = true;
         }
+
+
+
+      PrintDocument pdoc = null;
+       
+     private void print (object parametar)
+     {
+         PrintDialog pd = new PrintDialog();
+         pdoc = new PrintDocument();
+         PrinterSettings ps = new PrinterSettings();
+         Font font = new Font("Courier New", 15);
+
+
+         PaperSize psize = new PaperSize("Custom", 100, 200);
+         //ps.DefaultPageSettings.PaperSize = psize;
+
+         pd.Document= pdoc;
+         pd.Document.DefaultPageSettings.PaperSize = psize;
+         //pdoc.DefaultPageSettings.PaperSize.Height =320;
+         pdoc.DefaultPageSettings.PaperSize.Height = 820;
+
+         pdoc.DefaultPageSettings.PaperSize.Width = 520;
+
+         pdoc.PrintPage += new PrintPageEventHandler(pdoc_PrintPage);
+
+         DialogResult result = pd.ShowDialog();
+         if (result == DialogResult.OK)
+         {
+             PrintPreviewDialog pp = new PrintPreviewDialog();
+             pp.Document = pdoc;
+             result = pp.ShowDialog();
+             if (result == DialogResult.OK)
+             {
+                 pdoc.Print();
+             }
+         }
+    }
+
+        void pdoc_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Graphics graphics = e.Graphics;
+            Font font = new Font("Courier New", 10);
+            float fontHeight = font.GetHeight();
+            int startX = 50;
+            int startY = 55;
+            int Offset = 40;
+              
+            graphics.DrawString(RacunTekst, new Font("Courier New", 10), 
+                     new SolidBrush(System.Drawing.Color.Black), startX, startY + Offset);
+ 
+                Offset = Offset + 20;
+          
+       }
+    
+   
 
         private void SetujTransakciju()
         {

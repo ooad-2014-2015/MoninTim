@@ -26,6 +26,7 @@ namespace FanShop.ViewModel
             statistikaDan = new ObservableCollection<Proizvod>(bp.VratiZaDanas());
             statistikaMjesec = new ObservableCollection<Proizvod>(bp.VratiZaMjesec());
             statistikaGodina = new ObservableCollection<Proizvod>(bp.VratiZaGodinu());
+            ImageUrl = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\slika.jpg";
 
             Dodaj = new RelayCommand(dodaj);
             Obrisi = new RelayCommand(obrisi);
@@ -35,6 +36,30 @@ namespace FanShop.ViewModel
 
         public ICommand Dodaj { get; set; }
         public ICommand Obrisi { get; set; }
+
+        string s;
+
+        public string ImageUr
+        {
+            get { return AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\slik.jpg"; }
+            set
+            {
+                s = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\slik.jpg";
+                OnPropertyChanged("ImageUrl");
+            }
+
+        }
+
+        public string ImageUrl
+        {
+            get { return AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\slika.jpg"; }
+            set
+            {
+                s = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\slika.jpg";
+                OnPropertyChanged("ImageUrl");
+            }
+
+        }
 
         public ObservableCollection<Proizvod> Proizvodi
         {

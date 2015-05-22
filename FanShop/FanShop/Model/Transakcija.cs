@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime;
+
 
 namespace FanShop
 {
@@ -48,15 +50,43 @@ namespace FanShop
         // testni racun!!
         public string DajRacun()
         {
-            string ukupno = ProracunajPopust(Korpa.UkupnoCijena).ToString();
-            string ispis = "";
+            string ukupno = Korpa.UkupnoCijena.ToString();
 
+       
+            string rac = "Racun:";
+            rac += Environment.NewLine;
+            rac += GenerisiBrojRacuna();
+            rac += Environment.NewLine;
+           
+            rac += Environment.NewLine;
+
+            string head = "Kol. BR.Proizvod        Cijena";
+           
+            rac += head;
+
+            rac += Environment.NewLine;
+            
+            rac += "__________________________________";
+            rac += Environment.NewLine;
+            rac += Environment.NewLine;
+         
+            
             foreach (Stavka s in Korpa.Stavke)
             {
-                ispis += s.Proizvod.ToString() + "\n";
+                rac += s.Kolicina + "    " + s.Proizvod.ToString();
+                rac += Environment.NewLine;
             }
 
-            return ispis;
+            rac += "__________________________________";
+            rac += Environment.NewLine;
+            rac += "Ukupno:                " + ukupno + "  KM";
+            rac += Environment.NewLine;
+            rac += Environment.NewLine;
+            rac += "Datum i vrijeme: " + Environment.NewLine +DateTime.Now;
+            rac += Environment.NewLine;
+            rac += "Hvala na posjeti."; 
+
+            return rac;
         }
 
         private decimal ProracunajPopust(decimal cijena)
@@ -66,6 +96,12 @@ namespace FanShop
 
             // else gost 
             // return cijena;
+        }
+
+        private int GenerisiBrojRacuna()
+        {
+             Random random = new Random(); 
+             return random.Next(151247, 957296);
         }
     }
 }
