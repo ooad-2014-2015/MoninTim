@@ -24,14 +24,9 @@ namespace FanShop
             set { cijena = value; OnPropertyChanged("Cijena"); }
         }
 
-        public string DajApsolutniPath(string slika)
-        {
-            return Environment.CurrentDirectory.Replace(@"bin\debug", "") + @"\" + slika;
-        }
-
         public string Slika
         {
-            get { return DajApsolutniPath(slika); }
+            get { return slika; }
             set { slika = value; OnPropertyChanged("Slika"); }
         }
 

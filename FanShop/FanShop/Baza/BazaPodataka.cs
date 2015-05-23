@@ -193,6 +193,11 @@ namespace FanShop.Baza
 
         // ==============>> SELECTI:
 
+        public string DajApsolutniPath(string slika)
+        {
+            return Environment.CurrentDirectory.Replace(@"bin\Debug", "") + @"\" + slika;
+        }
+
         public List<Dres> VratiDresove()
         {
             Connect();
@@ -205,7 +210,7 @@ namespace FanShop.Baza
                 Dres d = new Dres();
                 d.Cijena = r.GetDecimal("cijena");
                 d.Id = r.GetInt32("id");
-                d.Slika = r.GetString("slika");
+                d.Slika = DajApsolutniPath(r.GetString("slika"));
                 d.Velicine = r.GetString("velicine");
 
                 lista.Add(d);
@@ -227,7 +232,7 @@ namespace FanShop.Baza
             {
                 Sal s = new Sal();
                 s.Id = r.GetInt32("id");
-                s.Slika = r.GetString("slika");
+                s.Slika = DajApsolutniPath(r.GetString("slika"));
                 s.Cijena = r.GetDecimal("cijena");
 
                 lista.Add(s);
@@ -250,7 +255,7 @@ namespace FanShop.Baza
                 Kapa k = new Kapa();
                 k.Cijena = r.GetDecimal("cijena");
                 k.Id = r.GetInt32("id");
-                k.Slika = r.GetString("slika");
+                k.Slika = DajApsolutniPath(r.GetString("slika"));
                 k.Velicine = r.GetString("velicine");
 
                 lista.Add(k);
@@ -273,7 +278,7 @@ namespace FanShop.Baza
                 Privjesak p = new Privjesak();
                 p.Cijena = r.GetDecimal("cijena");
                 p.Id = r.GetInt32("id");
-                p.Slika = r.GetString("slika");
+                p.Slika = DajApsolutniPath(r.GetString("slika"));
 
                 lista.Add(p);
             }
@@ -414,7 +419,7 @@ namespace FanShop.Baza
                 Dres d = new Dres();
                 d.Cijena = r.GetDecimal("cijena");
                 d.Id = r.GetInt32("id");
-                d.Slika = r.GetString("slika");
+                d.Slika = DajApsolutniPath(r.GetString("slika"));
                 d.Velicine = r.GetString("velicine");
 
                 return d;
@@ -423,7 +428,7 @@ namespace FanShop.Baza
             {
                 Sal s = new Sal();
                 s.Id = r.GetInt32("id");
-                s.Slika = r.GetString("slika");
+                s.Slika = DajApsolutniPath(r.GetString("slika"));
                 s.Cijena = r.GetDecimal("cijena");
 
                 return s;
@@ -433,7 +438,7 @@ namespace FanShop.Baza
                 Kapa k = new Kapa();
                 k.Cijena = r.GetDecimal("cijena");
                 k.Id = r.GetInt32("id");
-                k.Slika = r.GetString("slika");
+                k.Slika = DajApsolutniPath(r.GetString("slika"));
                 k.Velicine = r.GetString("velicine");
 
                 return k;
@@ -443,7 +448,7 @@ namespace FanShop.Baza
                 Privjesak p = new Privjesak();
                 p.Cijena = r.GetDecimal("cijena");
                 p.Id = r.GetInt32("id");
-                p.Slika = r.GetString("slika");
+                p.Slika = DajApsolutniPath(r.GetString("slika"));
 
                 return p;
             }
