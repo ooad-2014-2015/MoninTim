@@ -41,8 +41,9 @@ namespace FanShop.ViewModel
         private Stavka stavkaKorpa;
 
         private WFanShop View;
+        private Clan CLAN;
 
-        public WFanShopViewModel(WFanShop view)
+        public WFanShopViewModel(WFanShop view, Clan c)
         {
             View = view;
             
@@ -51,9 +52,12 @@ namespace FanShop.ViewModel
             selectedKapa = collKapa[0];
             selectedPrivjesak = collPrivjesak[0];
             selectedSal = collSal[0];
+            ProfilUrl = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\profil.png";
+            Url = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\social.jpg";
 
             korpa = new Korpa();
             stavkaKorpa = new Stavka();
+            Clan = c;
 
             stavkaDres = new Stavka();
             stavkaPrivjesak = new Stavka();
@@ -77,6 +81,10 @@ namespace FanShop.ViewModel
 
             Izbaci = new RelayCommand(izbaci);
             Plati = new RelayCommand(plati);
+
+            Promijeni = new RelayCommand(promijeni);
+            Deaktiviraj = new RelayCommand(deaktiviraj);
+
         }
 
         private void UcitajProizvodeUKolekcije()
@@ -111,6 +119,14 @@ namespace FanShop.ViewModel
         {
             get { return collKapa; }
             set { collKapa = value; OnPropertyChanged("Kape"); }
+        }
+
+        public Clan Clan
+        {
+            get { return CLAN; }
+            set { CLAN = value;
+                  OnPropertyChanged("Clan");
+                }
         }
 
      
@@ -185,6 +201,28 @@ namespace FanShop.ViewModel
             get { return stavkaKorpa; }
             set { stavkaKorpa = value; OnPropertyChanged("StavkaKorpa"); }
         }
+        string s,p;
+        
+        public string ProfilUrl
+        {
+            get { return AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\profil.png"; }
+            set
+            {
+                s = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\profil.png";
+                OnPropertyChanged("ProfilUrl");
+            }
+        }
+        public string Url
+        {
+            get { return AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\social.jpg"; }
+            set
+            {
+                p = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\social.jpg";
+                OnPropertyChanged("Url");
+            }
+
+        }
+
 
         public ICommand KupiPrivjesak { get; set; }
         public ICommand KupiDres { get; set; }
@@ -203,7 +241,49 @@ namespace FanShop.ViewModel
 
         public ICommand Izbaci { get; set; }
         public ICommand Plati { get; set; }
+        public ICommand Promijeni { get; set; }
+        public ICommand Deaktiviraj { get; set; }
+
+        string novipass;
+        public string NoviPassword
+        {
+            get { return novipass; }
+            set { novipass = value; OnPropertyChanged("NoviPassword"); }
+
+        }
+        string mes;
+        public string Mes
+        {
+            get { return mes; }
+            set { mes = value; OnPropertyChanged("Mes"); }
+
+        }
+
         #endregion
+
+        private void promijeni(object parametar)
+        {
+            if (String.IsNullOrEmpty(NoviPassword)) System.Windows.MessageBox.Show("Novi password ne može biti prazan!");
+            else
+            {
+                Baza.BazaPodataka bp = new Baza.BazaPodataka();
+                bp.ObrisiClana(Clan.Id.ToString());
+                bp.UnesiClana(Clan.Username, NoviPassword, Clan.Email, Clan.Adresa, Clan.Broj_telefona);
+            }
+        }
+        private void deaktiviraj(object parametar)
+        {
+            if (System.Windows.MessageBox.Show("Jeste li sigurni da želite deaktivirati račun?", " ", System.Windows.MessageBoxButton.YesNo, System.Windows.MessageBoxImage.Warning) == System.Windows.MessageBoxResult.Yes)
+            {
+                Baza.BazaPodataka bp = new Baza.BazaPodataka();
+                bp.ObrisiClana(Clan.Id.ToString());
+           
+                if (System.Windows.MessageBox.Show("Hvala na korištenju", "Ubuduće nećete moći koristiti ovaj račun", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning) == System.Windows.MessageBoxResult.OK)
+                {
+                    View.Close();   
+                }
+            }  
+        }
 
         private void kupiPrivjesak(object parametar)
         {

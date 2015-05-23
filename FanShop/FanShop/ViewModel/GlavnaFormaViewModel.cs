@@ -77,7 +77,8 @@ namespace FanShop.ViewModel
             if (bp.ProvjeriLoginPodatke(Clan.Username, Clan.Password, false))
             {
                 WFanShop fs = new WFanShop();
-                fs.DataContext = new WFanShopViewModel(fs);
+                Clan = bp.VratiClana(Clan.Username, Clan.Password);
+                fs.DataContext = new WFanShopViewModel(fs, Clan);
                 fs.Show();
                 fs.lab.Content = fs.lab.Content + " " + Clan.Username;
                 glavnaView.Hide();
@@ -116,7 +117,7 @@ namespace FanShop.ViewModel
         {
 
             WFanShop fs = new WFanShop();
-            fs.DataContext = new WFanShopViewModel(fs);
+            fs.DataContext = new WFanShopViewModel(fs, Clan);
             Gost g = new Gost();
             string s = g.generisiNick();
             fs.lab.Content = fs.lab.Content + "   " + s;

@@ -15,13 +15,13 @@
                         <ColumnDefinition Width="21*"/>
                         <ColumnDefinition Width="734*"/>
                     </Grid.ColumnDefinitions>
-                    <ListBox HorizontalAlignment="Left" Height="auto" Margin="2,63,0,60" VerticalAlignment="Stretch" Width="467" ItemsSource="{Binding Path=Proizvodi}" 
-                             SelectedValue="{Binding Path=ProizvodID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    <Image Grid.Column="3" HorizontalAlignment="Right" Height="495" Margin="0,63,77,60" Source="{Binding ImageUr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" Width="565"/>
+                    <ListBox HorizontalAlignment="Left" Height="auto" Margin="2,63,0,60" VerticalAlignment="Stretch" Width="467" ItemsSource="{Binding Proizvodi}" 
+                             SelectedValue="{Binding ProizvodID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              SelectedValuePath="Id" Grid.Column="1" Grid.ColumnSpan="3" />
                     <Label Content="Proizvodi" FontSize="15" HorizontalAlignment="Left" Margin="2,28,0,0" VerticalAlignment="Top" Grid.Column="1" Height="30" Width="71"/>
-                    <Button Content="Obriši" HorizontalAlignment="Left" Margin="2,0,0,22" VerticalAlignment="Bottom" Width="109" Height="28" Command="{Binding Path=Obrisi}" Grid.Column="1" Grid.ColumnSpan="2"/>
-                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="57.687,0,0,22" VerticalAlignment="Bottom" Width="109" Height="28" Command="{Binding Path=Dodaj}" Grid.Column="3"/>
-                    <Image Grid.Column="3" HorizontalAlignment="Left" Height="495" Margin="423,63,0,0" Source="{Binding ImageUr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="565"/>
+                    <Button Content="Obriši" HorizontalAlignment="Left" Margin="2,0,0,22" VerticalAlignment="Bottom" Width="109" Height="28" Command="{Binding Obrisi}" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="57.687,0,0,22" VerticalAlignment="Bottom" Width="109" Height="auto" Command="{Binding Dodaj}" Grid.Column="3"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Statistike prodaje">

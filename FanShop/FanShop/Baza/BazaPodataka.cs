@@ -466,6 +466,29 @@ namespace FanShop.Baza
             return lista;
         }
 
+        public Clan VratiClana(string username, string password)
+        {
+            Connect();
+            Clan c = new Clan();
+            MySqlCommand query = new MySqlCommand("SELECT * FROM korisnici WHERE username = '" + username + "' AND password ='" + password +"';", con);
+            MySqlDataReader r = query.ExecuteReader();
+
+            while (r.Read())
+            {
+                 c.Id = r.GetInt32("id");
+                c.Username = r.GetString("username");
+                c.Password = r.GetString("password");
+                c.Adresa = r.GetString("adresa");
+                c.Broj_telefona = r.GetString("broj_telefona");
+                c.Email = r.GetString("email");
+
+            }
+
+            r.Close();
+            Disconnect();
+            return c;
+        }
+
         public List<Clan> VratiClanove()
         {
             Connect();
