@@ -12,6 +12,12 @@
                 <KeyBinding  Key="Enter" Command="{Binding Path=Login, Mode=TwoWay}"/>
             </TextBox.InputBindings>
         </TextBox>
-        <TextBox HorizontalAlignment="Left" Text="{Binding S, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Red" BorderBrush="Transparent" Height="23" Margin="123,164,0,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top" Width="176"/>
+        <TextBox HorizontalAlignment="Left" Text="{Binding S, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="Red" BorderBrush="Transparent" Height="23" Margin="123,164,0,0" TextWrapping="Wrap" IsReadOnly="True" VerticalAlignment="Top"  Width="176">
+        <TextBox.Template>
+            <ControlTemplate TargetType="{x:Type TextBox}">
+                <ScrollViewer Name="PART_ContentHost"/>
+            </ControlTemplate>
+        </TextBox.Template>
+        </TextBox>
     </Grid>
 </Window>

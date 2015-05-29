@@ -1,7 +1,7 @@
 ﻿<Window x:Class="FanShop.WProizvod"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="WProizvod" Height="332.568" Width="274.321">
+        Title="Dodaj proizvod" Height="332.568" Width="274.321">
     <Window.Resources>
         <ControlTemplate x:Key="ErrorTemplate">
             <DockPanel LastChildFill="True">

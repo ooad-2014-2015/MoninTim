@@ -3,179 +3,155 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="FanShop" Height="751.885" Width="1366.042" >
     <Grid>
+
+        <Menu HorizontalAlignment="Stretch" Height="30" VerticalAlignment="Top" Width="auto">
+            <MenuItem Header="Help" TextBlock.FontSize ="18" Width="131" Height="30">
+                <MenuItem Header="Pomoć" Command="{Binding Pomoc}" />
+            </MenuItem>
+        </Menu>
         <Image HorizontalAlignment="Left" Height="508" Margin="743,113,0,0" VerticalAlignment="Top" Width="549"/>
 
-        <TabControl HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" RenderTransformOrigin="0.5,0.5">
+        <TabControl HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto" RenderTransformOrigin="0.5,0.5" Margin="0,35,0,0">
             <TabItem Header="Katalog" HorizontalAlignment="Left" Width="58">
-                <Grid Background="#FFE5E5E5" Margin="0,-5,-3,-8">
+                <Grid  Margin="0,-5,-3,-8">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <ComboBox  Margin="25,38,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220" />
-                    <ComboBox  Margin="286,38,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"/>
-                    <ComboBox  Margin="546,38,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220" />
-                    <ComboBox  Margin="798,38,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"/>
-                    <Image HorizontalAlignment="Left" Height="195" Margin="25,87,0,0" VerticalAlignment="Top" Width="220" Source= "poz.jpg"/>
-                    <Image HorizontalAlignment="Left" Height="195" Margin="286,87,0,0" VerticalAlignment="Top" Width="220" Source="poz.jpg"/>
-                    <Image HorizontalAlignment="Left" Height="195" Margin="546,87,0,0" VerticalAlignment="Top" Width="220" Source="poz.jpg"/>
-                    <Image HorizontalAlignment="Left" Height="195" Margin="798,87,0,0" VerticalAlignment="Top" Width="220" Source="poz.jpg"/>
-                    <Button Content="prev" HorizontalAlignment="Left" Margin="25,380,0,0" VerticalAlignment="Top" Width="45"/>
-                    <Button Content="next" HorizontalAlignment="Left" Margin="200,380,0,0" VerticalAlignment="Top" Width="45"/>
-                    <Button Content="prev" HorizontalAlignment="Left" Margin="286,380,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"/>
-                    <Button Content="next" HorizontalAlignment="Left" Margin="461,380,0,0" VerticalAlignment="Top" Width="45"/>
-                    <Button Content="prev" HorizontalAlignment="Left" Margin="546,380,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"/>
-                    <Button Content="next" HorizontalAlignment="Left" Margin="721,380,0,0" VerticalAlignment="Top" Width="45"/>
-                    <Button Content="prev" HorizontalAlignment="Left" Margin="798,380,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"/>
-                    <Button Content="next" HorizontalAlignment="Left" Margin="973,380,0,0" VerticalAlignment="Top" Width="45"/>
-                    <Button Content="Kupi" HorizontalAlignment="Left" Margin="92,380,0,0" VerticalAlignment="Top" Width="66"/>
-                    <Button Content="Kupi" HorizontalAlignment="Left" Margin="360,380,0,0" VerticalAlignment="Top" Width="66"/>
-                    <Button Content="Kupi" HorizontalAlignment="Left" Margin="628,380,0,0" VerticalAlignment="Top" Width="66"/>
-                    <Button Content="Kupi" HorizontalAlignment="Left" Margin="872,380,0,0" VerticalAlignment="Top" Width="66"/>
-                    <ListBox HorizontalAlignment="Left" Height="392" Margin="1059,87,0,0" VerticalAlignment="Top" Width="281"/>
-                    <Label Content="Korpa:"  FontSize="18" HorizontalAlignment="Left" Margin="1059,38,0,0" VerticalAlignment="Top" Width="180"/>
-                    <Button Content="Plati" FontSize="18" HorizontalAlignment="Left" Margin="1059,549,0,0" VerticalAlignment="Top" Width="111" Height="31" />
-                    <Label FontSize="18" Content="Ukoliko želite kupiti proizvod kliknite dugme 'Kupi' ispod slike, ako želite obaviti kupovinu kliknite dugme 'Plati'&#xA; koje se nalazi ispod korpe.&#xA;Ukoliko ste se predomislili u vezi nekog proizvoda, selektirajte ga u korpi, a zatim pritisnite dugme 'Izbaci'" HorizontalAlignment="Left" Margin="10,498,0,0" VerticalAlignment="Top" Width="1008"/>
-                    <Button Content="Izbaci" FontSize="15" HorizontalAlignment="Left" Margin="1059,497,0,0" VerticalAlignment="Top" Width="111" Height="31"/>
-                    <Label Content="Cijena:" HorizontalAlignment="Left" Margin="25,300,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="26" Margin="125,300,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Cijena:" HorizontalAlignment="Left" Margin="286,300,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="26" Margin="386,300,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Cijena:" HorizontalAlignment="Left" Margin="546,300,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="26" Margin="646,300,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Cijena:" HorizontalAlignment="Left" Margin="798,302,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="26" Margin="898,302,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Upišite veličinu S-M-X-XL" HorizontalAlignment="Left" Margin="25,331,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="188,331,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="57"/>
-                    <Grid Background="#FFE5E5E5" Margin="0,-5,0,5">
+                    <Grid  Margin="0,-5,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="106*"/>
+                            <ColumnDefinition Width="1249*"/>
                         </Grid.ColumnDefinitions>
 
                         <ComboBox  x:Name="cbDresovi" Margin="25,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220" 
                                    IsSynchronizedWithCurrentItem="True"
                                    ItemsSource="{Binding Dresovi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                    SelectedItem="{Binding Dres, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                   SelectionChanged="cbDresovi_SelectionChanged_1"
+                                   SelectionChanged="cbDresovi_SelectionChanged_1" Grid.ColumnSpan="2"
                                    />
-                        <ComboBox  x:Name="cbKape" Margin="286,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"
+                        <ComboBox  x:Name="cbKape" Margin="180,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"
                                    ItemsSource="{Binding Kape, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                   SelectedItem="{Binding Kapa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                   SelectedItem="{Binding Kapa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"
                                    />
-                        <ComboBox  x:Name="cbPrivjesci" Margin="546,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220" 
+                        <ComboBox  x:Name="cbPrivjesci" Margin="440,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220" 
                                    ItemsSource="{Binding Privjesci, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                   SelectedItem="{Binding Privjesak, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                   SelectedItem="{Binding Privjesak, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"
                                    />
-                        <ComboBox  x:Name="cbSalovi" Margin="798,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"
+                        <ComboBox  x:Name="cbSalovi" Margin="692,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="22" Width="220"
                                    ItemsSource="{Binding Salovi, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                                   SelectedItem="{Binding Sal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                   SelectedItem="{Binding Sal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"
                                    />
-                        <Image HorizontalAlignment="Left" Height="195" Margin="25,87,0,0" VerticalAlignment="Top" Width="220" Source="{Binding Dres.Slika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <Image HorizontalAlignment="Left" Height="195" Margin="286,87,0,0" VerticalAlignment="Top" Width="220" Source="{Binding Kapa.Slika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <Image HorizontalAlignment="Left" Height="195" Margin="546,87,0,0" VerticalAlignment="Top" Width="220" Source="{Binding Privjesak.Slika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <Image HorizontalAlignment="Left" Height="195" Margin="798,87,0,0" VerticalAlignment="Top" Width="220" Source="{Binding Sal.Slika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Image HorizontalAlignment="Left" Height="195" Margin="25,87,0,0" VerticalAlignment="Top" Width="220" Source="{Binding Dres.Slika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"/>
+                        <Image HorizontalAlignment="Left" Height="195" Margin="180,87,0,0" VerticalAlignment="Top" Width="220" Source="{Binding Kapa.Slika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"/>
+                        <Image HorizontalAlignment="Left" Height="195" Margin="440,87,0,0" VerticalAlignment="Top" Width="220" Source="{Binding Privjesak.Slika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"/>
+                        <Image HorizontalAlignment="Left" Height="195" Margin="692,87,0,0" VerticalAlignment="Top" Width="220" Source="{Binding Sal.Slika, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"/>
                         <Button Content="prev" HorizontalAlignment="Left" Margin="25,405,0,0" VerticalAlignment="Top" Width="45"
                                 Command="{Binding PrevDres}"/>
-                        <Button Content="next" HorizontalAlignment="Left" Margin="200,405,0,0" VerticalAlignment="Top" Width="45"
-                                Command="{Binding NextDres}"/>
-                        <Button Content="prev" HorizontalAlignment="Left" Margin="286,405,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"
-                                Command="{Binding PrevKapa}"/>
-                        <Button Content="next" HorizontalAlignment="Left" Margin="461,405,0,0" VerticalAlignment="Top" Width="45"
-                                Command="{Binding NextKapa}"/>
-                        <Button Content="prev" HorizontalAlignment="Left" Margin="546,405,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"
-                                Command="{Binding PrevPrivjesak}"/>
-                        <Button Content="next" HorizontalAlignment="Left" Margin="721,405,0,0" VerticalAlignment="Top" Width="45"
-                                Command="{Binding NextPrivjesak}"/>
-                        <Button Content="prev" HorizontalAlignment="Left" Margin="798,405,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"
-                                Command="{Binding PrevSal}"/>
-                        <Button Content="next" HorizontalAlignment="Left" Margin="973,405,0,0" VerticalAlignment="Top" Width="45"
-                                Command="{Binding NextSal}"/>
-                        <Button Content="Kupi" HorizontalAlignment="Left" Margin="106,405,0,0" VerticalAlignment="Top" Width="66"
-                                Command="{Binding KupiDres}"/>
-                        <Button Content="Kupi" HorizontalAlignment="Left" Margin="360,405,0,0" VerticalAlignment="Top" Width="66"
-                                Command="{Binding KupiKapu}"/>
-                        <Button Content="Kupi" HorizontalAlignment="Left" Margin="628,405,0,0" VerticalAlignment="Top" Width="66"
-                                Command="{Binding KupiPrivjesak}"/>
-                        <Button Content="Kupi" HorizontalAlignment="Left" Margin="872,405,0,0" VerticalAlignment="Top" Width="66"
-                                Command="{Binding KupiSal}"/>
-                        <ListBox x:Name="lb"  HorizontalAlignment="Left" Height="392"  FontFamily="Courier New" Margin="1059,87,0,0" VerticalAlignment="Top" Width="281"
+                        <Button Content="next" HorizontalAlignment="Left" Margin="94,405,0,0" VerticalAlignment="Top" Width="45"
+                                Command="{Binding NextDres}" Grid.Column="1"/>
+                        <Button Content="prev" HorizontalAlignment="Left" Margin="180,405,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"
+                                Command="{Binding PrevKapa}" Grid.Column="1"/>
+                        <Button Content="next" HorizontalAlignment="Left" Margin="355,405,0,0" VerticalAlignment="Top" Width="45"
+                                Command="{Binding NextKapa}" Grid.Column="1"/>
+                        <Button Content="prev" HorizontalAlignment="Left" Margin="440,405,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"
+                                Command="{Binding PrevPrivjesak}" Grid.Column="1"/>
+                        <Button Content="next" HorizontalAlignment="Left" Margin="615,405,0,0" VerticalAlignment="Top" Width="45"
+                                Command="{Binding NextPrivjesak}" Grid.Column="1"/>
+                        <Button Content="prev" HorizontalAlignment="Left" Margin="692,405,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="5.546,0.054"
+                                Command="{Binding PrevSal}" Grid.Column="1"/>
+                        <Button Content="next" HorizontalAlignment="Left" Margin="867,405,0,0" VerticalAlignment="Top" Width="45"
+                                Command="{Binding NextSal}" Grid.Column="1"/>
+                        <Button Content="Kupi" HorizontalAlignment="Left" Margin="0,405,0,0" VerticalAlignment="Top" Width="66"
+                                Command="{Binding KupiDres}" Grid.Column="1"/>
+                        <Button Content="Kupi" HorizontalAlignment="Left" Margin="254,405,0,0" VerticalAlignment="Top" Width="66"
+                                Command="{Binding KupiKapu}" Grid.Column="1"/>
+                        <Button Content="Kupi" HorizontalAlignment="Left" Margin="522,405,0,0" VerticalAlignment="Top" Width="66"
+                                Command="{Binding KupiPrivjesak}" Grid.Column="1"/>
+                        <Button Content="Kupi" HorizontalAlignment="Left" Margin="766,405,0,0" VerticalAlignment="Top" Width="66"
+                                Command="{Binding KupiSal}" Grid.Column="1"/>
+                        <ListBox x:Name="lb"  HorizontalAlignment="Left" Height="392"  FontFamily="Courier New" Margin="953,87,0,0" VerticalAlignment="Top" Width="281"
                                  ItemsSource="{Binding Korpa.Stavke}"
-                                 SelectedItem="{Binding StavkaKorpa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 SelectedItem="{Binding StavkaKorpa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"
                              />
-                        <Label Content="Korpa:"  FontSize="18" HorizontalAlignment="Left" Margin="1059,38,0,0" VerticalAlignment="Top" Width="180"/>
-                        <Button Content="Plati" FontSize="18" HorizontalAlignment="Left" Margin="1059,549,0,0" VerticalAlignment="Top" Width="111" Height="31"
-                                Command="{Binding Plati}"/>
-                        <Label FontSize="18" Content="Ukoliko želite kupiti proizvod kliknite dugme 'Kupi' ispod slike, ako želite obaviti kupovinu kliknite dugme 'Plati'&#xA; koje se nalazi ispod korpe.&#xA;Ukoliko ste se predomislili u vezi nekog proizvoda, selektirajte ga u korpi, a zatim pritisnite dugme 'Izbaci'" HorizontalAlignment="Left" Margin="10,498,0,0" VerticalAlignment="Top" Width="1008"/>
-                        <Button Content="Izbaci" FontSize="15" HorizontalAlignment="Left" Margin="1059,497,0,0" VerticalAlignment="Top" Width="111" Height="31"
-                                Command="{Binding Izbaci}"/>
+                        <Label Content=""  FontSize="18" HorizontalAlignment="Left" Margin="953,38,0,0" VerticalAlignment="Top" Width="180" Grid.Column="1"/>
+                        <Button Content="Plati" FontSize="18" HorizontalAlignment="Left" Margin="953,549,0,0" VerticalAlignment="Top" Width="111" Height="31"
+                                Command="{Binding Plati}" Grid.Column="1"/>
+                        <Label FontSize="18" Content="Ukoliko želite kupiti proizvod kliknite dugme 'Kupi' ispod slike, ako želite obaviti kupovinu kliknite dugme 'Plati'&#xA; koje se nalazi ispod korpe.&#xA;Ukoliko ste se predomislili u vezi nekog proizvoda, selektirajte ga u korpi, a zatim pritisnite dugme 'Izbaci'" HorizontalAlignment="Left" Margin="10,498,0,0" VerticalAlignment="Top" Width="1008" Grid.ColumnSpan="2"/>
+                        <Button Content="Izbaci" FontSize="15" HorizontalAlignment="Left" Margin="953,497,0,0" VerticalAlignment="Top" Width="111" Height="31"
+                                Command="{Binding Izbaci}" Grid.Column="1"/>
                         <Label Content="Cijena:" HorizontalAlignment="Left" Margin="25,300,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="125,300,0,0" TextWrapping="Wrap"  Text="{Binding Dres.Cijena}" VerticalAlignment="Top" Width="120" />
-                        <Label Content="Cijena:" HorizontalAlignment="Left" Margin="286,300,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="386,300,0,0" TextWrapping="Wrap" Text="{Binding Kapa.Cijena}" VerticalAlignment="Top" Width="120"/>
-                        <Label Content="Cijena:" HorizontalAlignment="Left" Margin="546,300,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="646,300,0,0" TextWrapping="Wrap" Text="{Binding Privjesak.Cijena}" VerticalAlignment="Top" Width="120"/>
-                        <Label Content="Cijena:" HorizontalAlignment="Left" Margin="798,302,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="898,302,0,0" TextWrapping="Wrap" Text="{Binding Sal.Cijena}" VerticalAlignment="Top" Width="120"/>
-                        <Label Content="Upišite veličinu S-M-L-XL:" HorizontalAlignment="Left" Margin="25,331,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left"  Height="23" Margin="188,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"
-                                 Text="{Binding StavkaDres.Velicina}"/>
-                        <Label Content="Upišite veličinu S-M-L-XL" HorizontalAlignment="Left" Margin="286,331,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="449,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"
-                                 Text="{Binding StavkaKapa.Velicina}"/>
-                        <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="25,362,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="125,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
-                                 Text="{Binding StavkaDres.Kolicina}"/>
-                        <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="286,362,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="386,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
-                                 Text="{Binding StavkaKapa.Kolicina}"/>
-                        <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="546,362,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="646,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
-                                 Text="{Binding StavkaPrivjesak.Kolicina}"/>
-                        <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="798,362,0,0" VerticalAlignment="Top"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="898,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
-                                 Text="{Binding StavkaSal.Kolicina}"/>
+                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="19,300,0,0" TextWrapping="Wrap"  Text="{Binding Dres.Cijena}" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+                        <Label Content="Cijena:" HorizontalAlignment="Left" Margin="180,300,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="280,300,0,0" TextWrapping="Wrap" Text="{Binding Kapa.Cijena}" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <Label Content="Cijena:" HorizontalAlignment="Left" Margin="440,300,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="540,300,0,0" TextWrapping="Wrap" Text="{Binding Privjesak.Cijena}" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <Label Content="Cijena:" HorizontalAlignment="Left" Margin="692,302,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="26" IsReadOnly="True" Margin="792,302,0,0" TextWrapping="Wrap" Text="{Binding Sal.Cijena}" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+                        <Label Content="Upišite veličinu S-M-L-XL:" HorizontalAlignment="Left" Margin="25,331,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <TextBox HorizontalAlignment="Left"  Height="23" Margin="82,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"
+                                 Text="{Binding StavkaDres.Velicina}" Grid.Column="1"/>
+                        <Label Content="Upišite veličinu S-M-L-XL" HorizontalAlignment="Left" Margin="180,331,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="343,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57"
+                                 Text="{Binding StavkaKapa.Velicina}" Grid.Column="1"/>
+                        <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="25,362,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="19,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
+                                 Text="{Binding StavkaDres.Kolicina}" Grid.Column="1"/>
+                        <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="180,362,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="280,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
+                                 Text="{Binding StavkaKapa.Kolicina}" Grid.Column="1"/>
+                        <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="440,362,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="540,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
+                                 Text="{Binding StavkaPrivjesak.Kolicina}" Grid.Column="1"/>
+                        <Label Content="Upišite količinu:" HorizontalAlignment="Left" Margin="692,362,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="792,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"
+                                 Text="{Binding StavkaSal.Kolicina}" Grid.Column="1"/>
                         <Label Content="Dresovi:" HorizontalAlignment="Left" Margin="25,23,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Kape:" HorizontalAlignment="Left" Margin="286,24,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Privjesci:" HorizontalAlignment="Left" Margin="546,19,0,0" VerticalAlignment="Top"/>
-                        <Label Content="Šalovi:" HorizontalAlignment="Left" Margin="798,19,0,0" VerticalAlignment="Top"/>
-                        <Label x:Name="lab" Content="Logirani ste kao:" FontSize="18" HorizontalAlignment="Left" Margin="1059,11,0,0" VerticalAlignment="Top"/>
-                        <Label HorizontalAlignment="Left" Margin="1239,15,0,0" VerticalAlignment="Top"/>
+                        <Label Content="Kape:" HorizontalAlignment="Left" Margin="180,24,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <Label Content="Privjesci:" HorizontalAlignment="Left" Margin="440,19,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <Label Content="Šalovi:" HorizontalAlignment="Left" Margin="692,19,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <Label x:Name="lab" Content="Logirani ste kao:" FontSize="18" HorizontalAlignment="Left" Margin="953,11,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <Label HorizontalAlignment="Left" Margin="1133,15,0,0" VerticalAlignment="Top" Grid.Column="1"/>
 
 
                     </Grid>
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Tvoj profil">
+            <TabItem Header="Vaš profil">
                 <Grid Margin="0,4,0,-4">
-                    <Image HorizontalAlignment="Left" Height="369" Margin="853,220,0,0" Source="{Binding Url, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="430"/>
-                    <Image HorizontalAlignment="Left" Source="{Binding ProfilUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="178" Margin="44,38,0,0" VerticalAlignment="Top" Width="179"/>
-                    <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="451,165,0,0" TextWrapping="Wrap" Text="{Binding Path=Clan.Username}" VerticalAlignment="Top" Width="205"/>
-                    <Label Content="Username:"  HorizontalAlignment="Left" Margin="380,158,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="451,193,0,0" TextWrapping="Wrap" Text="{Binding Path=Clan.Email}" VerticalAlignment="Top" Width="205"/>
-                    <Label Content="E-mail:" HorizontalAlignment="Left" Margin="400,189,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Adresa:" HorizontalAlignment="Left" Margin="397,220,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="451,224,0,0" TextWrapping="Wrap" Text="{Binding Path=Clan.Adresa}" VerticalAlignment="Top" Width="205"/>
-                    <Label Content="Broj telefona:" HorizontalAlignment="Left" Margin="369,246,0,0" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="451,252,0,0" TextWrapping="Wrap" Text="{Binding Path=Clan.Broj_telefona}" VerticalAlignment="Top" Width="205"/>
-                    <CheckBox Content="Promijeni password" HorizontalAlignment="Left" Margin="451,376,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Novi password:" HorizontalAlignment="Left" Margin="355,396,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.115,-0.064"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="451,399,0,0" TextWrapping="Wrap" Text="{Binding Path= NoviPassword}" VerticalAlignment="Top" Width="205"/>
-                    <Button Content="Promijeni" Command="{Binding Promijeni}" HorizontalAlignment="Left" Margin="451,427,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.54,1.828"/>
-                    <Button Content="Deaktiviraj račun" Command="{Binding Deaktiviraj}" HorizontalAlignment="Left" Margin="596,596,0,0" VerticalAlignment="Top" Width="113" Height="27"/>
-                    <Border BorderBrush="Blue" BorderThickness="1" HorizontalAlignment="Left" Height="165" Margin="327,134,0,0" VerticalAlignment="Top" Width="382"/>
-                    <Label Content="Licni podaci: " HorizontalAlignment="Left" Margin="327,103,0,0" VerticalAlignment="Top"/>
-                    <Border BorderBrush="Blue" BorderThickness="1" HorizontalAlignment="Left" Height="136" Margin="327,338,0,0" VerticalAlignment="Top" Width="382"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="165*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalAlignment="Left" Height="369" Margin="821.194,220,0,0" Source="{Binding Url, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="430" Grid.Column="1"/>
+                    <Image HorizontalAlignment="Left" Source="{Binding ProfilUrl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="178" Margin="12.194,38,0,0" VerticalAlignment="Top" Width="179" Grid.Column="1"/>
+                    <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="419.194,165,0,0" TextWrapping="Wrap" Text="{Binding Path=Clan.Username}" VerticalAlignment="Top" Width="205" Grid.Column="1"/>
+                    <Label Content="Username:"  HorizontalAlignment="Left" Margin="348.194,158,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="419.194,193,0,0" TextWrapping="Wrap" Text="{Binding Path=Clan.Email}" VerticalAlignment="Top" Width="205" Grid.Column="1"/>
+                    <Label Content="E-mail:" HorizontalAlignment="Left" Margin="368.194,189,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="Adresa:" HorizontalAlignment="Left" Margin="365.194,220,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="419.194,224,0,0" TextWrapping="Wrap" Text="{Binding Path=Clan.Adresa}" VerticalAlignment="Top" Width="205" Grid.Column="1"/>
+                    <Label Content="Broj telefona:" HorizontalAlignment="Left" Margin="337.194,246,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox HorizontalAlignment="Left" IsReadOnly="True" Height="23" Margin="419.194,252,0,0" TextWrapping="Wrap" Text="{Binding Path=Clan.Broj_telefona}" VerticalAlignment="Top" Width="205" Grid.Column="1"/>
+                    <CheckBox Content="Promijeni password" HorizontalAlignment="Left" Margin="419.194,376,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="Novi password:" HorizontalAlignment="Left" Margin="323.194,396,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.115,-0.064" Grid.Column="1"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="419.194,399,0,0" TextWrapping="Wrap" Text="{Binding Path= NoviPassword}" VerticalAlignment="Top" Width="205" Grid.Column="1"/>
+                    <Button Content="Promijeni" Command="{Binding Promijeni}" HorizontalAlignment="Left" Margin="419.194,427,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.54,1.828" Grid.Column="1"/>
+                    <Button Content="Deaktiviraj račun" Command="{Binding Deaktiviraj}" HorizontalAlignment="Left" Margin="564,562,0,0" VerticalAlignment="Top" Width="113" Height="27" Grid.Column="1"/>
+                    <Border BorderBrush="Blue" BorderThickness="1" HorizontalAlignment="Left" Height="165" Margin="295.194,134,0,0" VerticalAlignment="Top" Width="382" Grid.Column="1"/>
+                    <Label Content="Licni podaci: " HorizontalAlignment="Left" Margin="295.194,103,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Border BorderBrush="Blue" BorderThickness="1" HorizontalAlignment="Left" Height="136" Margin="295.194,338,0,0" VerticalAlignment="Top" Width="382" Grid.Column="1"/>
 
                 </Grid>
-            
+
             </TabItem>
-            </TabControl>
+        </TabControl>
 
     </Grid>
 </Window>

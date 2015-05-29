@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Moderator" Height="677.116" Width="1237.861">
     <Grid>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TabControl HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Margin="0,10,0,-10">
+        <TabControl HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" Width="auto" Margin="0,32,0,3">
             <TabItem Header="Proizvodi">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -21,7 +22,7 @@
                              SelectedValuePath="Id" Grid.Column="1" Grid.ColumnSpan="3" />
                     <Label Content="Proizvodi" FontSize="15" HorizontalAlignment="Left" Margin="2,28,0,0" VerticalAlignment="Top" Grid.Column="1" Height="30" Width="71"/>
                     <Button Content="Obriši" HorizontalAlignment="Left" Margin="2,0,0,22" VerticalAlignment="Bottom" Width="109" Height="28" Command="{Binding Obrisi}" Grid.Column="1" Grid.ColumnSpan="2"/>
-                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="57.687,0,0,22" VerticalAlignment="Bottom" Width="109" Height="auto" Command="{Binding Dodaj}" Grid.Column="3"/>
+                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="10,0,0,22" VerticalAlignment="Bottom" Width="114" Height="28" Command="{Binding Dodaj}" Grid.Column="3"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Statistike prodaje">
@@ -40,13 +41,19 @@
                     <Label Content="BR: Proizvod     cijena" HorizontalAlignment="Right" Margin="0,111,146,0" VerticalAlignment="Top" RenderTransformOrigin="-6,1.115"/>
 
                 </Grid>
-               
-                
+
+
             </TabItem>
-            
+
 
 
 
         </TabControl>
+        <Menu HorizontalAlignment="Stretch" Height="27" VerticalAlignment="Top" Width="auto">
+            <MenuItem Header="Help" TextBlock.FontSize ="18" Width="131" Height="27">
+                <MenuItem Header="Pomoc" Command="{Binding Pomoc}" />
+            </MenuItem>
+        </Menu>
+        
     </Grid>
 </Window>

@@ -40,10 +40,16 @@
         
         <Button Content="Registruj se" HorizontalAlignment="Left" Margin="478,339,0,0" VerticalAlignment="Top" Width="94" Height="22" TabIndex="6" Command="{Binding Path=Registracija}"/>
         <Label Content="Ukoliko se registrujete, omogućili ste sebi mnoge pogodnosti kao što su popusti i pokloni." Foreground="LightSeaGreen" FontSize="13" Background="Wheat" HorizontalAlignment="Left" Margin="40,64,0,0" VerticalAlignment="Top" Width="534"/>
-        <Button Content ="Na početnu" Width="94" Height="24" Margin="478,581,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Command="{Binding Path=Nazad}" TabIndex="7"/>
+        <Button Content ="Na početnu" Width="94" Height="24" Margin="480,564,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Command="{Binding Path=Nazad}" TabIndex="7"/>
         <Label Content="Adresa:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,300,0,0"/>
         <Label x:Name="labela" Content=""  FontStyle="Oblique" HorizontalAlignment="Left" Margin="413,361,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="114" BorderBrush="Transparent" Background="Gray" IsReadOnly="True" Foreground="Black"  FontSize="15" Margin="266,407,0,0" TextWrapping="Wrap" Text="{Binding S, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="326"/>
+        <TextBox HorizontalAlignment="Left" Height="114" BorderBrush="Transparent" Background="Gray" IsReadOnly="True" Foreground="Black"  FontSize="15" Margin="266,407,0,0" TextWrapping="Wrap" Text="{Binding S, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="326">
+            <TextBox.Template>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <ScrollViewer Name="PART_ContentHost"/>
+                </ControlTemplate>
+            </TextBox.Template>
+        </TextBox>
         <GroupBox Header="Podaci"  Foreground="White"  BorderBrush="LightBlue" HorizontalAlignment="Left" Margin="266,117,0,0" VerticalAlignment="Top" Height="270" Width="326"/>
         <Image Source="{Binding SourceURL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"  Height="178" Margin="40,133,0,0" VerticalAlignment="Top" Width="182" />
         <TextBox HorizontalAlignment="Left" FontStyle="Oblique"  Background="LightBlue" BorderBrush="SeaGreen" BorderThickness="2" Foreground="White" Height="49" Margin="40,10,0,0" TextWrapping="Wrap" Text="Fan Shop" FontSize="29" FontWeight="Bold" VerticalAlignment="Top" Width="314"/>

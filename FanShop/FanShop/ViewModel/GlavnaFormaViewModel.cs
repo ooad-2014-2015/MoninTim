@@ -19,6 +19,7 @@ namespace FanShop.ViewModel
             glavnaView = gf;
 
             UserLogin = new RelayCommand(userLogin);
+            Login = new RelayCommand(login);
             AdminLogin = new RelayCommand(adminLogin);
             ModeratorLogin = new RelayCommand(moderatorLogin);
             Registracija = new RelayCommand(registracija);
@@ -66,12 +67,32 @@ namespace FanShop.ViewModel
             }
         }
         public ICommand UserLogin { get; set; }
+        public ICommand Login { get; set; }
+       
         public ICommand AdminLogin { get; set; }
         public ICommand ModeratorLogin { get; set; }
         public ICommand Registracija { get; set; }
         public ICommand Gost { get; set; }
 
         private void userLogin(object parametar)
+        {
+            Baza.BazaPodataka bp = new Baza.BazaPodataka();
+            if (bp.ProvjeriLoginPodatke(Clan.Username, Clan.Password, false))
+            {
+                WFanShop fs = new WFanShop();
+                Clan = bp.VratiClana(Clan.Username, Clan.Password);
+                fs.DataContext = new WFanShopViewModel(fs, Clan);
+                fs.Show();
+                fs.lab.Content = fs.lab.Content + " " + Clan.Username;
+                glavnaView.Hide();
+            }
+            else
+            {
+                Str = "Username ili password nisu tačni.";
+            }
+        }
+
+        public void login(object param)
         {
             Baza.BazaPodataka bp = new Baza.BazaPodataka();
             if (bp.ProvjeriLoginPodatke(Clan.Username, Clan.Password, false))

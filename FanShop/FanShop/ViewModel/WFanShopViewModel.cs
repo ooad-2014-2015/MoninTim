@@ -84,6 +84,8 @@ namespace FanShop.ViewModel
 
             Promijeni = new RelayCommand(promijeni);
             Deaktiviraj = new RelayCommand(deaktiviraj);
+            Pomoc = new RelayCommand(pomoc);
+           
 
         }
 
@@ -244,6 +246,9 @@ namespace FanShop.ViewModel
         public ICommand Promijeni { get; set; }
         public ICommand Deaktiviraj { get; set; }
 
+        public ICommand Pomoc { get; set; }
+        public ICommand Help { get; set; }
+
         string novipass;
         public string NoviPassword
         {
@@ -366,6 +371,18 @@ namespace FanShop.ViewModel
                 }
             }
         }
+
+        private void pomoc(object param)
+        {
+            string s = Environment.CurrentDirectory;
+            s = s.Replace("\\bin\\Debug", "");
+            s += @"\HelpUser.xps";
+            View.HelpUser hu = new View.HelpUser();
+            hu.DataContext = new HelpViewModel(hu,s);
+            hu.Show();
+        }
+
+    
 
         private void prevDres(object parametar)
         {

@@ -27,6 +27,7 @@ namespace FanShop.ViewModel
             DodajNovog = new RelayCommand(dodajNovog);
             ObrisiUposlenik = new RelayCommand(obrisiUposlenik);
             ObrisiClan = new RelayCommand(obrisiClan);
+            Help = new RelayCommand(help);
         }
         string s;
         public string ImageUr
@@ -83,12 +84,23 @@ namespace FanShop.ViewModel
         public ICommand DodajNovog { get; set; }
         public ICommand ObrisiUposlenik { get; set; }
         public ICommand ObrisiClan { get; set; }
+        public ICommand Help { get; set; }
 
         private void dodajNovog(object parametar)
         {
             AddModerator am = new AddModerator();
             am.DataContext = new AddModeratorViewModel(this);
             am.Show();
+        }
+
+        private void help(object param)
+        {
+            string s = Environment.CurrentDirectory;
+            s = s.Replace("\\bin\\Debug", "");
+            s += @"\HelpAdmin.xps";
+            View.HelpUser hu = new View.HelpUser();
+            hu.DataContext = new HelpViewModel(hu, s);
+            hu.Show();
         }
 
         private void obrisiUposlenik(object parametar)
@@ -104,6 +116,8 @@ namespace FanShop.ViewModel
             bp.ObrisiClana(ClanID.ToString());
             this.Clanovi.Remove(x => x.Id == ClanID);
         }
+
+    
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)

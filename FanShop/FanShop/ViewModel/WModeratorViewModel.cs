@@ -30,6 +30,7 @@ namespace FanShop.ViewModel
 
             Dodaj = new RelayCommand(dodaj);
             Obrisi = new RelayCommand(obrisi);
+            Pomoc = new RelayCommand(pomoc);
 
             idModeratora = bp.VratiIDModeratora(username);
         }
@@ -95,6 +96,18 @@ namespace FanShop.ViewModel
             w = new WProizvod();
             w.DataContext = new WProizvodViewModel(this);
             w.Show();
+        }
+        public ICommand Pomoc { get; set; }
+
+
+        private void pomoc(object param)
+        {
+            string s = Environment.CurrentDirectory;
+            s = s.Replace("\\bin\\Debug", "");
+            s += @"\HelpModerator.xps";
+            View.HelpUser hu = new View.HelpUser();
+            hu.DataContext = new HelpViewModel(hu, s);
+            hu.Show();
         }
 
         private void obrisi(object parametar)

@@ -136,12 +136,12 @@ namespace FanShop.ViewModel
             Graphics graphics = e.Graphics;
             Font font = new Font("Courier New", 10);
             float fontHeight = font.GetHeight();
-            int startX = 50;
-            int startY = 55;
+            int X = 50;
+            int Y = 55;
             int Offset = 40;
               
             graphics.DrawString(RacunTekst, new Font("Courier New", 10), 
-                     new SolidBrush(System.Drawing.Color.Black), startX, startY + Offset);
+                     new SolidBrush(System.Drawing.Color.Black), X, Y + Offset);
  
                 Offset = Offset + 20;
           
