@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using System.Threading;
+using System.Web;
+using System.Net;
+using System.Runtime.InteropServices;
 
 namespace FanShop.ViewModel
 {
@@ -37,6 +41,8 @@ namespace FanShop.ViewModel
         private Stavka stavkaKapa;
         private Stavka stavkaSal;
 
+        private string adresa;
+
         private Korpa korpa;
         private Stavka stavkaKorpa;
 
@@ -58,8 +64,8 @@ namespace FanShop.ViewModel
             korpa = new Korpa();
             stavkaKorpa = new Stavka();
             Clan = c;
-
-            stavkaDres = new Stavka();
+         
+           stavkaDres = new Stavka();
             stavkaPrivjesak = new Stavka();
             stavkaKapa = new Stavka();
             stavkaSal = new Stavka();
@@ -85,8 +91,11 @@ namespace FanShop.ViewModel
             Promijeni = new RelayCommand(promijeni);
             Deaktiviraj = new RelayCommand(deaktiviraj);
             Pomoc = new RelayCommand(pomoc);
-           
 
+      
+            nit = new Thread(() => ucitaj());
+            nit.IsBackground = true;
+            nit.Start();
         }
 
         private void UcitajProizvodeUKolekcije()
@@ -198,6 +207,12 @@ namespace FanShop.ViewModel
             set { korpa = value; OnPropertyChanged("Korpa"); }
         }
 
+        public string Adresa
+        {
+            get { return adresa; }
+            set { adresa = value; OnPropertyChanged("Adresa"); }
+        }
+
         public Stavka StavkaKorpa
         {
             get { return stavkaKorpa; }
@@ -248,7 +263,7 @@ namespace FanShop.ViewModel
 
         public ICommand Pomoc { get; set; }
         public ICommand Help { get; set; }
-
+     
         string novipass;
         public string NoviPassword
         {
@@ -265,6 +280,37 @@ namespace FanShop.ViewModel
         }
 
         #endregion
+
+        private static Thread nit;
+     
+
+
+
+        private void ucitaj()
+        {
+
+            try
+            {
+
+                string s = "http://www.unogoal.com/free_livescore.aspx";
+
+
+                WebRequest myWebrequest = WebRequest.Create(s);
+                myWebrequest.Timeout = 3000;
+                HttpWebResponse resp;
+                resp = (HttpWebResponse)myWebrequest.GetResponse();
+
+                View.Dispatcher.Invoke(new Action(() => { View.wb.Source = new Uri(@"http://www.unogoal.com/free_livescore.aspx"); }));
+         
+
+            }
+            catch (Exception)
+            {
+
+                System.Windows.MessageBox.Show("Napomena: " + Environment.NewLine + "Ne možete pregledati sportske rezultate uživo na tabu 'Live scores'  ukoliko niste konektovani na internet konekciju.");
+            }
+ 
+        }
 
         private void promijeni(object parametar)
         {
