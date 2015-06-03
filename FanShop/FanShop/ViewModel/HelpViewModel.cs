@@ -13,15 +13,16 @@ namespace FanShop.ViewModel
 {
     class HelpViewModel : INotifyPropertyChanged
     {
-        private string file;
-
+       
         private XpsDocument xps;
+        private string s;
 
 
         public HelpViewModel(Object view, string path)
         {
             xps = new XpsDocument(path, FileAccess.Read);
-            (view as View.HelpUser).doc.Document = xps.GetFixedDocumentSequence();            
+            (view as View.HelpUser).doc.Document = xps.GetFixedDocumentSequence();
+            help = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\help.png";
        
         }
         public XpsDocument XPS
@@ -34,7 +35,15 @@ namespace FanShop.ViewModel
             }
         }
 
-
+        public string help
+        {
+            get { return AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\help.png"; }
+            set
+            {
+                s = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\help.png";
+                OnPropertyChanged("ImageUrl");
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {

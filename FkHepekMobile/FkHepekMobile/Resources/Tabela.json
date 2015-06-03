@@ -1,6 +1,6 @@
 [
 	{
-		"naziv" : "FK Hepek",
+		"naziv" : "Sarajevo",
 		"odigrano" : "4",
 		"pobjeda" : "4",
 		"nerijeseno" : "0",
@@ -8,7 +8,7 @@
 		"poeni" : "12"
 	},
 	{
-		"naziv" : "A",
+		"naziv" : "Željeznièar",
 		"odigrano" : "4",
 		"pobjeda" : "3",
 		"nerijeseno" : "0",
@@ -16,7 +16,7 @@
 		"poeni" : "9"
 	},
 	{
-		"naziv" : "B",
+		"naziv" : "FK Hepek",
 		"odigrano" : "4",
 		"pobjeda" : "3",
 		"nerijeseno" : "0",

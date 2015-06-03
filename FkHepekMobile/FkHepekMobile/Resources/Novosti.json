@@ -1,17 +1,24 @@
 [
     {
-		"naslov" : "Naslov 1",
-		"sadrzaj" : "ovo je tekst novosti 1 ovo je tekst novosti 1 ovo je tekst novosti 1 ovo je tekst novosti 1 ovo je tekst novosti 1 ",
+		"naslov" : "FK Hepek je pozitivna stvar za BiH sport",
+		"sadrzaj" : "S obzirom na rezultate FK Hepek, možemo biti više nego  zadovoljni. Naši igraèi su mladi i talentovani i ako ovako nastave,
+                             svijetla buduænost je pred njima. Izjavio je Trener FK Hepek. Naveo je takoðe, da je pred FK Hepek veliki izazov, 
+                             i da su pobjede u predstojeæim utakmicama neophodne kako bi se popeo na III mjesto na tabeli, što bi bio najbolji plasman do sad,
+                            ovog prvoloigaša.",
 		"datum" : "3.6.2015."
 	},
     {
-		"naslov" : "Naslov 2",
-		"sadrzaj" : "ovo je tekst novosti 2 ovo je tekst novosti 2 ovo je tekst novosti 2 ovo je tekst novosti 2 ovo je tekst novosti 2 ",
+		"naslov" : "Pobjeda u gostima",
+		"sadrzaj" : "FK Hepek odnio je pobjedu u gostima, s nevjerovatnih 0:3. Bezobzira na poteškoæe s èestim povredama napadaèa koje su se dogodile u prethodnim utakimcama, 
+                             FK Hepek je triumfovao u gostima. Time je omoguæio sebi borbu za 3. mjesto,poslije Željeznièara na 2.
+                             i Sarajeva na 1. mjestu, kako se oèekuje po dosadašnjim rezultatima. Da li æe im sljedeæa utakmica donijeti pobjedu, ostaje da se vidi. 
+                             Pratite nas.",
 		"datum" : "2.6.2015."
 	},
 	{
-		"naslov" : "Naslov 3",
-		"sadrzaj" : "ovo je tekst novosti 3 ovo je tekst novosti 3 ovo je tekst novosti 3 ovo je tekst novosti 3 ovo je tekst novosti 3 ",
+		"naslov" : "Povreda na terenu",
+		"sadrzaj" : "Naš napadaè se povrijedio u utorak na svom terenu, dok su igrali Utakmicu protiv FK Željeznièar. Igraèi su bili potišteni i shrvani,kako zbog povrede nosioca igre,
+                             tako zbog gola protivnièke ekpie u 5. minuti meèa. Do kraja su igrali usporeno, kako FK Hepek, tako i FK Željeznièar, zbog èega je rezultat ostao 0:1 do kraja meèa.",
 		"datum" : "1.6.2015."
 	},
 	{

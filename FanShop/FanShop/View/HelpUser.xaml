@@ -1,7 +1,7 @@
 ﻿<Window x:Class="FanShop.View.HelpUser"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Pomoć korisniku" Height="753.488" Width="623.257">
+        Title="Pomoć korisniku" Height="753.488" Width="623.257" Icon="{Binding Path=help}">
     <Grid>
         <DocumentViewer x:Name="doc" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Document="{Binding Path=XPS, UpdateSourceTrigger=PropertyChanged}" Height="auto" Width="auto" />
 

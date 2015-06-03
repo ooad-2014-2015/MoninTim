@@ -1,7 +1,7 @@
 ﻿<Window x:Class="FanShop.WFanShop"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="FanShop" Height="751.885" Width="1366.042" >
+        Title="FanShop" Height="751.885" Width="1366.042" Icon="{Binding Path=shop}" >
     <Grid>
 
         <Menu HorizontalAlignment="Stretch" Height="30" VerticalAlignment="Top" Width="auto">

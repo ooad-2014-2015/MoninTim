@@ -10,8 +10,9 @@
     d:DesignHeight="583" d:DesignWidth="436">
 
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
-        <TextBlock x:Name="Naslov"  HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Naslov" VerticalAlignment="Top" Height="106" Width="416" FontSize="40"/>
+        <TextBlock x:Name="Naslov"  HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Naslov" VerticalAlignment="Top" Height="106" Width="152" FontSize="40"/>
         <TextBlock x:Name="Tekst" HorizontalAlignment="Left" Margin="10,121,0,0" TextWrapping="Wrap" Text="Tekst" VerticalAlignment="Top" Height="452" Width="416"/>
+        <Image HorizontalAlignment="Left" Height="236" Margin="269,0,0,0" VerticalAlignment="Top" Width="157" Source="/Assets/vijesti.png" />
 
     </Grid>
 </UserControl>

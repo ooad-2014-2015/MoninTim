@@ -25,6 +25,7 @@ namespace FanShop.ViewModel
             Registracija = new RelayCommand(registracija);
             Gost = new RelayCommand(gost);
             ImageUrl = Environment.CurrentDirectory + AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\slika.jpg";
+            icon = Environment.CurrentDirectory + AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\icon.png";
         }
 
         public GlavnaForma GlavaView
@@ -32,6 +33,14 @@ namespace FanShop.ViewModel
             get;
             set;
         }
+        public string icon{
+        get { return AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\icon.png"; }
+        set
+        {
+            s = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "")  + @"\icon.png";
+            OnPropertyChanged("ImageUrl");
+        }
+}
 
         public Clan Clan
         {

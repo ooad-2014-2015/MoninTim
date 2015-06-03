@@ -40,7 +40,21 @@ namespace FanShop.ViewModel
 
             Naruci = new RelayCommand(naruci);
             Print = new RelayCommand(print);
-           
+
+           money = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\money.png"; 
+            
+        }
+        string p;
+
+        public string money
+        {
+            get { return AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\money.png"; }
+            set
+            {
+                p = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\money.png";
+                OnPropertyChanged("money");
+            }
+
         }
 
         public bool KarticaCb

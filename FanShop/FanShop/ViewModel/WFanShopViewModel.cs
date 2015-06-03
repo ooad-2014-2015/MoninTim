@@ -92,6 +92,7 @@ namespace FanShop.ViewModel
             Deaktiviraj = new RelayCommand(deaktiviraj);
             Pomoc = new RelayCommand(pomoc);
 
+            shop = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\shop.png";
       
             nit = new Thread(() => ucitaj());
             nit.IsBackground = true;
@@ -236,6 +237,16 @@ namespace FanShop.ViewModel
             {
                 p = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\social.jpg";
                 OnPropertyChanged("Url");
+            }
+
+        }
+        public string shop
+        {
+            get { return AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\shop.png"; }
+            set
+            {
+                p = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\sohop.png";
+                OnPropertyChanged("shop");
             }
 
         }

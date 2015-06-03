@@ -1,7 +1,7 @@
 ﻿<Window x:Class="FanShop.Plaćanje"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Plaćanje" Height="535.714" Width="684.586" ResizeMode="CanMinimize">
+        Title="Plaćanje" Height="535.714" Width="684.586" ResizeMode="CanMinimize" Icon="{Binding Path= money}">
     <Grid>
         <RichTextBox  x:Name="print_textbox" HorizontalAlignment="Left" Height="347"  ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="Courier New" Margin="23,95,0,0" VerticalAlignment="Top" Width="293" IsReadOnly="True">
             <FlowDocument>
