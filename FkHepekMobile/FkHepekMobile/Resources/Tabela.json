@@ -1,0 +1,42 @@
+[
+	{
+		"naziv" : "FK Hepek",
+		"odigrano" : "4",
+		"pobjeda" : "4",
+		"nerijeseno" : "0",
+		"izgubljeno" : "0",
+		"poeni" : "12"
+	},
+	{
+		"naziv" : "A",
+		"odigrano" : "4",
+		"pobjeda" : "3",
+		"nerijeseno" : "0",
+		"izgubljeno" : "1",
+		"poeni" : "9"
+	},
+	{
+		"naziv" : "B",
+		"odigrano" : "4",
+		"pobjeda" : "3",
+		"nerijeseno" : "0",
+		"izgubljeno" : "1",
+		"poeni" : "9"
+	},
+	{
+		"naziv" : "C",
+		"odigrano" : "4",
+		"pobjeda" : "2",
+		"nerijeseno" : "1",
+		"izgubljeno" : "1",
+		"poeni" : "7"
+	},
+	{
+		"naziv" : "D",
+		"odigrano" : "4",
+		"pobjeda" : "1",
+		"nerijeseno" : "3",
+		"izgubljeno" : "0",
+		"poeni" : "4"
+	}
+]

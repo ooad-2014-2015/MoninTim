@@ -1,0 +1,22 @@
+[
+    {
+		"naslov" : "Naslov 1",
+		"sadrzaj" : "ovo je tekst novosti 1 ovo je tekst novosti 1 ovo je tekst novosti 1 ovo je tekst novosti 1 ovo je tekst novosti 1 ",
+		"datum" : "3.6.2015."
+	},
+    {
+		"naslov" : "Naslov 2",
+		"sadrzaj" : "ovo je tekst novosti 2 ovo je tekst novosti 2 ovo je tekst novosti 2 ovo je tekst novosti 2 ovo je tekst novosti 2 ",
+		"datum" : "2.6.2015."
+	},
+	{
+		"naslov" : "Naslov 3",
+		"sadrzaj" : "ovo je tekst novosti 3 ovo je tekst novosti 3 ovo je tekst novosti 3 ovo je tekst novosti 3 ovo je tekst novosti 3 ",
+		"datum" : "1.6.2015."
+	},
+	{
+		"naslov" : "Naslov 4",
+		"sadrzaj" : "ovo je tekst novosti 4 ovo je tekst novosti 4 ovo je tekst novosti 4 ovo je tekst novosti 4 ovo je tekst novosti 4 ",
+		"datum" : "28.5.2015."
+	}
+]
