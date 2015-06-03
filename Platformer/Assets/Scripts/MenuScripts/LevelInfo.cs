@@ -60,76 +60,75 @@ public class LevelInfo : MonoBehaviour {
         level1.numberOfCoins = 3;
 
         LevelStruct level2 = new LevelStruct();
-        level2.levelarray = new string[] { "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+        level2.levelarray = new string[] {  "W                                      W",
                                             "W                                      W",
                                             "W                                      W",
-                                            "W      C      P                        W",
-                                            "W                     C                W",
-                                            "W                         WWWWWW       W",
-                                            "W             WWW           |          W",
-                                            "W            XXXXX                     W",
-                                            "W             WWW                      W",
                                             "W                                      W",
-                                            "W      -   W                           W",
-                                            "W                                   C  W",
+                                            "W       X                              W",
+                                            "W   C   X      W                       W",
+                                            "W       X                              W",
+                                            "W       X  C                           W",
+                                            "W   C   X   -       W                  W",
+                                            "W       X                              W",
+                                            "W       X                      P       W",
+                                            "W   C         WWWWWWWWWWWWW         C  W",
                                             "W                                      W",
                                             "W                                      W",
                                             "W                                      W" };
-        level2.numberOfCoins = 3;
+        level2.numberOfCoins = 5;
 
         LevelStruct level3 = new LevelStruct();
-        level3.levelarray = new string[] { "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
-                                            "W                                      W",
-                                            "W                                      W",
-                                            "W      C                               W",
-                                            "W                     C                W",
-                                            "W                         WWWWWW       W",
-                                            "W             WWW           |          W",
-                                            "W            XXXXX                     W",
-                                            "W             WWW                      W",
-                                            "W                                      W",
-                                            "W      -   W  P                        W",
-                                            "W                                   C  W",
-                                            "W                                      W",
-                                            "W                                      W",
-                                            "W                                      W" };
+        level3.levelarray = new string[] {  "                                        ",
+                                            "                                        ",
+                                            "                                        ",
+                                            "     C          W               C       ",
+                                            "                                        ",
+                                            "                                        ",
+                                            "             C                XXXXXXX   ",
+                                            "         W   -         W                ",
+                                            "                       |                ",
+                                            "                              P         ",
+                                            "                  W                     ",
+                                            "                                        ",
+                                            "                                        ",
+                                            "                                        " };
         level3.numberOfCoins = 3;
 
         LevelStruct level4 = new LevelStruct();
-        level4.levelarray = new string[] { "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
-                                            "W                                      W",
-                                            "W                                      W",
-                                            "W      C                               W",
-                                            "W                     C                W",
-                                            "W                         WWWWWW       W",
-                                            "W             WWW           |          W",
-                                            "W            XXXXX                     W",
-                                            "W             WWW                      W",
-                                            "W                                      W",
-                                            "W      -   W  P                        W",
-                                            "W                                   C  W",
-                                            "W                                      W",
-                                            "W                                      W",
-                                            "W                                      W" };
+        level4.levelarray = new string[] {  "              C                         ",
+                                            "W                                       ",
+                                            "|              W                        ",
+                                            "               W                        ",
+                                            "               W                        ",
+                                            "             C W                        ",
+                                            "               W    XXXXXXXXXXXXXXXX    ",
+                                            "W   -        WWW                        ",
+                                            "               W                        ",
+                                            "        P      W C                      ",
+                                            "    W          W                        ",
+                                            "               W                        ",
+                                            "              W                        ",
+                                            "                XXXXXXXXXXXX            ",
+                                            "                                        " };
         level4.numberOfCoins = 3;
 
         LevelStruct level5 = new LevelStruct();
-        level5.levelarray = new string[] { "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
-                                            "W                                      W",
-                                            "W                                      W",
-                                            "W      C                               W",
-                                            "W                     C                W",
-                                            "W                         WWWWWW       W",
-                                            "W             WWW           |          W",
-                                            "W            XXXXX                     W",
-                                            "W             WWW                      W",
-                                            "W                                      W",
-                                            "W      -   W  P                        W",
-                                            "W                                   C  W",
-                                            "W                                      W",
-                                            "W                                      W",
-                                            "W                                      W" };
-        level5.numberOfCoins = 3;
+        level5.levelarray = new string[] {  "                                        ",
+                                            "                 C                C     ",
+                                            "                                        ",
+                                            "    C                                   ",
+                                            "          W      W       W        W     ",
+                                            "                                        ",
+                                            "                                        ",
+                                            "W         C               C             ",
+                                            "                                  P     ",
+                                            "                                        ",
+                                            "  W       W       W       W       W     ",
+                                            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                                            "                                        ",
+                                            "                                        ",
+                                            "                                        " };
+        level5.numberOfCoins = 5;
 
         System.Collections.Generic.List<LevelStruct> levels = new System.Collections.Generic.List<LevelStruct>();
         levels.Add(level1);

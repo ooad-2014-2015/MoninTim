@@ -17,7 +17,7 @@ namespace FkHepekMobile.Resources
 
         public override string ToString()
         {
-            return String.Format("{0, -12}{1,-4}{2,-4}{3,-4}{4,-4}{5,-4}", Naziv, Odigrano, Pobjeda, Nerijeseno, Izgubljeno, Poeni);
+            return String.Format("{0, -12}{1,-4}{2,-4}{3,-4}{4,-4}" + ((Int32.Parse(Poeni) < 10) ? " " : "") + "{5,-4}", Naziv, Odigrano, Pobjeda, Nerijeseno, Izgubljeno, Poeni);
         }
     }
 

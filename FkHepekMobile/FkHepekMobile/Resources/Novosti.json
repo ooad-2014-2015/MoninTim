@@ -1,29 +1,22 @@
 [
     {
-		"naslov" : "FK Hepek je pozitivna stvar za BiH sport",
-		"sadrzaj" : "S obzirom na rezultate FK Hepek, možemo biti više nego  zadovoljni. Naši igraèi su mladi i talentovani i ako ovako nastave,
-                             svijetla buduænost je pred njima. Izjavio je Trener FK Hepek. Naveo je takoðe, da je pred FK Hepek veliki izazov, 
-                             i da su pobjede u predstojeæim utakmicama neophodne kako bi se popeo na III mjesto na tabeli, što bi bio najbolji plasman do sad,
-                            ovog prvoloigaša.",
+		"naslov" : "FK Hepek je pozitivna stvar za bh. sport",
+		"sadrzaj" : "S obzirom na rezultate FK Hepek, mozemo biti vise nego zadovoljni. Nasi igraci su mladi i talentovani i ako ovako nastave, svijetla budunost je pred njima, izjavio je Trener FK Hepek. Naveo je takodjer, da je pred FK Hepek veliki izazov, i da su pobjede u predstojecim utakmicama neophodne kako bi se popeo na 3. mjesto na tabeli, sto bi bio najbolji plasman ovog prvoligasa do sada.",
 		"datum" : "3.6.2015."
 	},
     {
 		"naslov" : "Pobjeda u gostima",
-		"sadrzaj" : "FK Hepek odnio je pobjedu u gostima, s nevjerovatnih 0:3. Bezobzira na poteškoæe s èestim povredama napadaèa koje su se dogodile u prethodnim utakimcama, 
-                             FK Hepek je triumfovao u gostima. Time je omoguæio sebi borbu za 3. mjesto,poslije Željeznièara na 2.
-                             i Sarajeva na 1. mjestu, kako se oèekuje po dosadašnjim rezultatima. Da li æe im sljedeæa utakmica donijeti pobjedu, ostaje da se vidi. 
-                             Pratite nas.",
+		"sadrzaj" : "FK Hepek odnio je pobjedu u gostima, s nevjerovatnih 0:3. Bez obzira na poteskoce s cestim povredama napadaca koje su zadesile klub u prethodnim utakimcama, FK Hepek je triumfovao u gostima. Time je omogucio sebi borbu za 3. mjesto, poslije Zeljeznicara na 2. i Sarajeva na 1. mjestu, kako se ocekuje po dosadasnjim rezultatima. Da li ce im sljedeca utakmica donijeti pobjedu, ostaje da se vidi.  Pratite nas.",
 		"datum" : "2.6.2015."
 	},
 	{
 		"naslov" : "Povreda na terenu",
-		"sadrzaj" : "Naš napadaè se povrijedio u utorak na svom terenu, dok su igrali Utakmicu protiv FK Željeznièar. Igraèi su bili potišteni i shrvani,kako zbog povrede nosioca igre,
-                             tako zbog gola protivnièke ekpie u 5. minuti meèa. Do kraja su igrali usporeno, kako FK Hepek, tako i FK Željeznièar, zbog èega je rezultat ostao 0:1 do kraja meèa.",
-		"datum" : "1.6.2015."
+		"sadrzaj" : "Nas napadac se povrijedio u utorak na svom terenu, dok su igrali utakmicu protiv FK Zeljeznicar. Igraci su bili potisteni i shrvani, kako zbog povrede nosioca igre, tako zbog gola protivnicke ekipe u 5. minuti meca. Do kraja su igrali usporeno, kako FK Hepek, tako i FK Zeljeznicar, zbog cega je rezultat ostao 0:1 do kraja meca.",
+		"datum" : "25.5.2015."
 	},
 	{
-		"naslov" : "Naslov 4",
-		"sadrzaj" : "ovo je tekst novosti 4 ovo je tekst novosti 4 ovo je tekst novosti 4 ovo je tekst novosti 4 ovo je tekst novosti 4 ",
-		"datum" : "28.5.2015."
+		"naslov" : "Veliki derbi - FK Hepek vs FK Zeljeznicar",
+		"sadrzaj" : "Sutra (25.5.2015.) na stadionu Hepekadion ugostiti cemo trenutno drugoplasiranu ekipu FK Zeljeznicara. Ocekuje se rekordna posjecenost, a televizijska prava otkupila je televizijska kuca FACE TV. Zelimo svu srecu nasim igracima i vidimo se sutra u 19:30 na Hepekadionu!",
+		"datum" : "24.5.2015."
 	}
 ]

@@ -68,7 +68,7 @@ public class MenuManager : MonoBehaviour {
 
     public void BackToMenu()
     {
-        Application.LoadLevel("MenuScene");
+        Application.LoadLevel("MainScene");
     }
 
     public void IspuniDefaultLevel()
