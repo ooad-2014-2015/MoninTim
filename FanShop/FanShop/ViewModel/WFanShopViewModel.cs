@@ -48,10 +48,12 @@ namespace FanShop.ViewModel
 
         private WFanShop View;
         private Clan CLAN;
+        private bool gostlogin;
 
-        public WFanShopViewModel(WFanShop view, Clan c)
+        public WFanShopViewModel(WFanShop view, Clan c, bool gostLogin)
         {
             View = view;
+            gostlogin = gostLogin;
             
             UcitajProizvodeUKolekcije();
             selectedDres = collDres[0];
@@ -92,13 +94,15 @@ namespace FanShop.ViewModel
             Deaktiviraj = new RelayCommand(deaktiviraj);
             Pomoc = new RelayCommand(pomoc);
 
+            
             shop = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\shop.png";
-      
+            
             nit = new Thread(() => ucitaj());
             nit.IsBackground = true;
             nit.Start();
         }
 
+     
         private void UcitajProizvodeUKolekcije()
         {
             Baza.BazaPodataka bp = new Baza.BazaPodataka();
@@ -108,6 +112,7 @@ namespace FanShop.ViewModel
             collSal = new ObservableCollection<Sal>(bp.VratiSalove());
             collKapa = new ObservableCollection<Kapa>(bp.VratiKape());
         }
+        private string poruka;
 
         #region Properties
         public ObservableCollection<Privjesak> Privjesci {
@@ -115,6 +120,12 @@ namespace FanShop.ViewModel
             set { collPrivjesak = value; OnPropertyChanged("Privjesci"); }
         }
 
+      
+        public string Poruka
+        {
+            get { return poruka; }
+            set { poruka = value; OnPropertyChanged("Poruka"); }
+        }
         public ObservableCollection<Dres> Dresovi
         {
             get { return collDres; }
@@ -328,9 +339,12 @@ namespace FanShop.ViewModel
             if (String.IsNullOrEmpty(NoviPassword)) System.Windows.MessageBox.Show("Novi password ne može biti prazan!");
             else
             {
+           
                 Baza.BazaPodataka bp = new Baza.BazaPodataka();
                 bp.ObrisiClana(Clan.Id.ToString());
                 bp.UnesiClana(Clan.Username, NoviPassword, Clan.Email, Clan.Adresa, Clan.Broj_telefona);
+                System.Windows.MessageBox.Show("Vaš password je promijenjen");
+
             }
         }
         private void deaktiviraj(object parametar)
@@ -556,7 +570,7 @@ namespace FanShop.ViewModel
         private void plati(object parametar)
         {
             Plaćanje p = new Plaćanje();
-            p.DataContext = new PlaćanjeViewModel(this, p);
+            p.DataContext = new PlaćanjeViewModel(this, p, gostlogin );
             p.Show();
         }
 

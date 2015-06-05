@@ -27,9 +27,10 @@ namespace FanShop.ViewModel
         private string racunTekst;
         private Transakcija transakcija;
         private Kartica kartica;
-        private bool naruceno = false;
+        private bool gostLogin;
 
-        public PlaćanjeViewModel(WFanShopViewModel vm, Plaćanje view) 
+
+        public PlaćanjeViewModel(WFanShopViewModel vm, Plaćanje view, bool gostlogin) 
         {
             katalogViewModel = vm;
             this.view = view;
@@ -40,6 +41,7 @@ namespace FanShop.ViewModel
 
             Naruci = new RelayCommand(naruci);
             Print = new RelayCommand(print);
+            gostLogin = gostlogin;
 
            money = AppDomain.CurrentDomain.BaseDirectory.Replace(@"\bin\Debug", "") + @"\money.png"; 
             
@@ -86,28 +88,53 @@ namespace FanShop.ViewModel
 
         private void naruci(object parametar)
         {
-            if (naruceno) 
+            if (gostLogin)
             {
-                System.Windows.Forms.MessageBox.Show("Već ste jednom kupili ove proizvode. Ako želite još jednom da ponovite transakciju, pritisnite opet \"Naruči\"", "Upozorenje!");
-                naruceno = false;
-                return;
-            }
+                if (!karticaCb)
+                    System.Windows.Forms.MessageBox.Show("Za goste je moguće samo plaćanje karticom", "Greška!");
+                else if (KarticaCb == true && this.Kartica.IsValid == false)
+                {
+                    System.Windows.Forms.MessageBox.Show("Podaci o kartici koje ste unijeli nisu uredu! Provjerite ih opet.", "Greška!");
+                    return;
+                }
+                else
+                {
 
-            if (KarticaCb == true && this.Kartica.IsValid == false)
+                    Baza.BazaPodataka bp = new Baza.BazaPodataka();
+
+                    foreach (Stavka s in Transakcija.Korpa.Stavke)
+                    {
+                        bp.UnesiUArhivu(s.Proizvod.Id.ToString(), s.Kolicina.ToString(), "DATE(CURDATE())");
+                    }
+
+                    System.Windows.Forms.MessageBox.Show("Uspješno kupljeno! Zahvaljujemo se!", "Čestitamo");
+
+                }
+
+
+            }
+            else
             {
-                System.Windows.Forms.MessageBox.Show("Podaci o kartici koje ste unijeli nisu uredu! Provjerite ih opet.", "Greška!");
-                return;
+
+                if (KarticaCb == true && this.Kartica.IsValid == false)
+                {
+                    System.Windows.Forms.MessageBox.Show("Podaci o kartici koje ste unijeli nisu uredu! Provjerite ih opet.", "Greška!");
+                    return;
+                }
+                else
+                {
+
+                    Baza.BazaPodataka bp = new Baza.BazaPodataka();
+
+                    foreach (Stavka s in Transakcija.Korpa.Stavke)
+                    {
+                        bp.UnesiUArhivu(s.Proizvod.Id.ToString(), s.Kolicina.ToString(), "DATE(CURDATE())");
+                    }
+
+                    System.Windows.Forms.MessageBox.Show("Uspješno kupljeno! Zahvaljujemo se!", "Čestitamo");
+
+                }
             }
-
-            Baza.BazaPodataka bp = new Baza.BazaPodataka();
-
-            foreach (Stavka s in Transakcija.Korpa.Stavke)
-            {
-                bp.UnesiUArhivu(s.Proizvod.Id.ToString(), s.Kolicina.ToString(), "DATE(CURDATE())");
-            }
-
-            System.Windows.Forms.MessageBox.Show("Uspješno kupljeno! Zahvaljujemo se!", "Čestitamo");
-            naruceno = true;
         }
 
 

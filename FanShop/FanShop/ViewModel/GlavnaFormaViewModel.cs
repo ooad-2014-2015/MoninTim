@@ -83,6 +83,8 @@ namespace FanShop.ViewModel
         public ICommand Registracija { get; set; }
         public ICommand Gost { get; set; }
 
+        private bool gostLogin=false;
+
         private void userLogin(object parametar)
         {
             Baza.BazaPodataka bp = new Baza.BazaPodataka();
@@ -90,7 +92,7 @@ namespace FanShop.ViewModel
             {
                 WFanShop fs = new WFanShop();
                 Clan = bp.VratiClana(Clan.Username, Clan.Password);
-                fs.DataContext = new WFanShopViewModel(fs, Clan);
+                fs.DataContext = new WFanShopViewModel(fs, Clan, gostLogin);
                 fs.Show();
                 fs.lab.Content = fs.lab.Content + " " + Clan.Username;
                 glavnaView.Hide();
@@ -108,7 +110,7 @@ namespace FanShop.ViewModel
             {
                 WFanShop fs = new WFanShop();
                 Clan = bp.VratiClana(Clan.Username, Clan.Password);
-                fs.DataContext = new WFanShopViewModel(fs, Clan);
+                fs.DataContext = new WFanShopViewModel(fs, Clan, gostLogin);
                 fs.Show();
                 fs.lab.Content = fs.lab.Content + " " + Clan.Username;
                 glavnaView.Hide();
@@ -145,13 +147,14 @@ namespace FanShop.ViewModel
 
         private void gost(object parametar)
         {
-
+            gostLogin = true;
             WFanShop fs = new WFanShop();
-            fs.DataContext = new WFanShopViewModel(fs, Clan);
+            fs.DataContext = new WFanShopViewModel(fs, Clan, gostLogin);
             Gost g = new Gost();
             string s = g.generisiNick();
             fs.lab.Content = fs.lab.Content + "   " + s;
             fs.Show();
+           
             glavnaView.Hide();
           
             

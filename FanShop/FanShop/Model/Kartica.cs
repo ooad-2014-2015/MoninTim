@@ -24,9 +24,9 @@ namespace FanShop
             get { return datumIsteka; }
             set { datumIsteka = value; OnPropertyChanged("DatumIsteka"); }
         }
-        private int ccv;
+        private string ccv;
 
-        public int Ccv
+        public string  Ccv
         {
             get { return ccv; }
             set { ccv = value; OnPropertyChanged("Ccv"); }
@@ -98,7 +98,10 @@ namespace FanShop
         }
         private string validirajCcv()
         {
-           if (ccv < 1000 || ccv > 9999) return "CCV mora biti cetverocifren broj!";
+            int p = 0;
+            if (Int32.TryParse(ccv, out p) == false)
+                return "Ccv mora biti broj";
+           if (int.Parse(ccv) < 1000 || int.Parse( ccv )> 9999) return "CCV mora biti cetverocifren broj!";
             return null;
         }
 
